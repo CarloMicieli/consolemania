@@ -1,0 +1,44 @@
+version: "3.9"
+
+services:
+  games_db:
+    image: postgres:15.1-alpine
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: gamesdb
+      POSTGRES_PASSWORD: mysecretpassword
+    volumes:
+      - games-db-data:/var/lib/postgresql/data
+    networks:
+      - backend
+    healthcheck:
+      test: [ CMD-SHELL, 'pg_isready -U postgres' ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  db_admin:
+    container_name: db_admin
+    image: dpage/pgadmin4:6.18
+    depends_on:
+      games_db:
+        condition: service_healthy
+    ports:
+      - 5000:80
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@mail.com
+      PGADMIN_DEFAULT_PASSWORD: password
+    volumes:
+      - ./.docker/pgadmin/servers.json:/pgadmin4/servers.json # preconfigured servers/connections
+      - ./.docker/pgadmin/pgpass:/pgpass # passwords for the connections in this file
+    networks:
+      - backend
+
+
+networks:
+  backend:
+
+volumes:
+  games-db-data:
