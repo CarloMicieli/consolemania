@@ -1,7 +1,0 @@
-spring:
-  liquibase:
-    enabled: true
-    url: ${DB_URL:jdbc:postgresql://localhost:5432/gamesdb}
-    user: ${DB_USERNAME:postgres}
-    password: ${DB_PASSWORD:mysecretpassword}
-    change-log: classpath:db/changelog/db.changelog-master.xml

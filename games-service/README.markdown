@@ -36,7 +36,7 @@ Run PostgreSQL as a Docker container
 ```bash
 docker run -d \
     --name games-db-postgres \
-    -e POSTGRES_USER=user \
+    -e POSTGRES_USER=postgre \
     -e POSTGRES_PASSWORD=mysecretpassword \
     -e POSTGRES_DB=gamesdb \
     -p 5432:5432 \

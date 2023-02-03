@@ -19,16 +19,20 @@
  *    under the License.
  */
 
-package com.example.consolemania.games;
+package com.example.consolemania.games.repositories;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.TestPropertySource;
+import com.example.consolemania.games.domain.Game;
+import com.example.consolemania.games.domain.GameRequest;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@TestPropertySource(properties = {"spring.datasource.url=jdbc:tc:postgresql:15.1-alpine:///gamesdb"})
-class GamesServiceApplicationTests {
+public interface GamesRepository {
+    UUID add(GameRequest newGame);
 
-    @Test
-    void contextLoads() {}
+    void update(UUID gameId, GameRequest game);
+
+    List<Game> getGamesByPlatform(UUID platformId);
+
+    Optional<Game> getGameById(UUID gameId);
 }
