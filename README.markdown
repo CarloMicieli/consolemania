@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 ![GitHub last commit](https://img.shields.io/github/last-commit/CarloMicieli/consolemania)
-[![CI with Gradle](https://github.com/CarloMicieli/consolemania/actions/workflows/ci.yml/badge.svg)](https://github.com/CarloMicieli/consolemania/actions/workflows/ci.yml)
+[![CI with Gradle](https://github.com/CarloMicieli/consolemania/actions/workflows/ci.yaml/badge.svg)](https://github.com/CarloMicieli/consolemania/actions/workflows/ci.yaml)
 
 A tribute to 8bit and 16bit gaming
 
