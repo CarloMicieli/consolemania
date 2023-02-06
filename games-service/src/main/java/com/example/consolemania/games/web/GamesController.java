@@ -48,6 +48,6 @@ public class GamesController {
 
     @GetMapping("/{id}")
     ResponseEntity<Game> getGameById(@PathVariable String id) {
-        throw new UnsupportedOperationException("not implemented");
+        return ResponseEntity.notFound().build();
     }
 }

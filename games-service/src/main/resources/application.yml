@@ -10,8 +10,8 @@ spring:
       maximum-pool-size: 5
   lifecycle:
     timeout-per-shutdown-phase: 15s
-  liquibase:
-    enabled: false
+  flyway:
+    enabled: true
 
 server:
   port: 9000

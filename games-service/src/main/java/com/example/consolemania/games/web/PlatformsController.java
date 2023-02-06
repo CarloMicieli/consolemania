@@ -50,16 +50,16 @@ public class PlatformsController {
 
     @GetMapping
     ResponseEntity<List<Platform>> getAllPlatforms() {
-        throw new UnsupportedOperationException("not implemented");
+        return ResponseEntity.ok(List.of());
     }
 
     @GetMapping("/{id}")
     ResponseEntity<Platform> getPlatformById(@PathVariable String id) {
-        throw new UnsupportedOperationException("not implemented");
+        return ResponseEntity.notFound().build();
     }
 
     @GetMapping("/{id}/games")
     ResponseEntity<List<Game>> getGamesByPlatformId(@PathVariable String id) {
-        throw new UnsupportedOperationException("not implemented");
+        return ResponseEntity.notFound().build();
     }
 }
