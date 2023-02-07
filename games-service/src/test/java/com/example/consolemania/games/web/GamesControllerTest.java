@@ -114,6 +114,7 @@ class GamesControllerTest {
                 "Fatal Fury 2",
                 "fatfury2",
                 Genre.Fighting,
+                "Neo Geo",
                 Mode.SinglePlayer,
                 "Fatal Fury",
                 "SNK",
@@ -123,6 +124,14 @@ class GamesControllerTest {
 
     GameRequest invalidGameRequest() {
         return new GameRequest(
-                "", "fatfury2", Genre.Fighting, Mode.SinglePlayer, "Fatal Fury", "SNK", "SNK", Year.of(1994));
+                "",
+                "fatfury2",
+                Genre.Fighting,
+                "Neo Geo",
+                Mode.SinglePlayer,
+                "Fatal Fury",
+                "SNK",
+                "SNK",
+                Year.of(1994));
     }
 }

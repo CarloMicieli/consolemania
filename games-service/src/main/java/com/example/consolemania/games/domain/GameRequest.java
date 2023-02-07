@@ -29,6 +29,7 @@ public record GameRequest(
         @NotBlank @Size(max = 100) String title,
         String slug,
         Genre genre,
+        @NotBlank String platform,
         Mode modes,
         @Size(max = 100) String series,
         @NotBlank @Size(max = 100) String developer,
