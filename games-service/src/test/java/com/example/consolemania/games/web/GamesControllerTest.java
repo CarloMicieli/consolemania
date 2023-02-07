@@ -29,6 +29,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import com.example.consolemania.games.domain.GameRequest;
 import com.example.consolemania.games.domain.Genre;
 import com.example.consolemania.games.domain.Mode;
+import com.example.consolemania.games.services.GamesService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.time.Year;
 import java.util.UUID;
@@ -36,12 +37,16 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 @DisplayName("GamesController")
 @WebMvcTest(GamesController.class)
 class GamesControllerTest {
+
+    @MockBean
+    private GamesService gamesService;
 
     @Autowired
     private MockMvc mockMvc;
@@ -119,6 +124,7 @@ class GamesControllerTest {
                 "Fatal Fury",
                 "SNK",
                 "SNK",
+                null,
                 Year.of(1994));
     }
 
@@ -132,6 +138,7 @@ class GamesControllerTest {
                 "Fatal Fury",
                 "SNK",
                 "SNK",
+                null,
                 Year.of(1994));
     }
 }

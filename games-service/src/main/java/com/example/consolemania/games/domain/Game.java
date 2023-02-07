@@ -33,4 +33,5 @@ public record Game(
         String series,
         String developer,
         String publisher,
+        Release release,
         Year year) {}

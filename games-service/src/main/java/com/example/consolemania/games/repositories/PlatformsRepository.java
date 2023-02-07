@@ -19,23 +19,12 @@
  *    under the License.
  */
 
-package com.example.consolemania.games.domain;
+package com.example.consolemania.games.repositories;
 
-import java.math.BigDecimal;
+import java.util.Optional;
 import java.util.UUID;
+import org.springframework.data.repository.CrudRepository;
 
-public record Platform(
-        UUID id,
-        String name,
-        String slug,
-        String manufacturer,
-        Integer generation,
-        String type,
-        Release release,
-        boolean discontinued,
-        BigDecimal introductoryPrice,
-        Integer unitsSold,
-        String media,
-        String cpu,
-        String memory,
-        String display) {}
+public interface PlatformsRepository extends CrudRepository<PlatformEntity, UUID> {
+    Optional<PlatformEntity> findByName(String name);
+}

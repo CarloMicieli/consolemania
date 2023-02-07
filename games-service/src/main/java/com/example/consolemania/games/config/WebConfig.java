@@ -22,21 +22,21 @@
 package com.example.consolemania.games.config;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 
 @Configuration
 public class WebConfig {
+
     @Bean
-    ObjectMapper objectMapper() {
-        return new ObjectMapper()
-                .setSerializationInclusion(JsonInclude.Include.NON_NULL)
-                .setPropertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE)
-                .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
-                .registerModule(new JavaTimeModule());
+    public Jackson2ObjectMapperBuilder jackson2ObjectMapperBuilder() {
+        var builder = new Jackson2ObjectMapperBuilder();
+        builder.featuresToDisable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
+                .propertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE)
+                .serializationInclusion(JsonInclude.Include.NON_NULL);
+        return builder;
     }
 }

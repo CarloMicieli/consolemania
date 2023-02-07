@@ -26,8 +26,10 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.example.consolemania.games.domain.PlatformRelease;
 import com.example.consolemania.games.domain.PlatformRequest;
+import com.example.consolemania.games.domain.Release;
+import com.example.consolemania.games.services.GamesService;
+import com.example.consolemania.games.services.PlatformsService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -36,12 +38,19 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 @DisplayName("PlatformsController")
 @WebMvcTest(PlatformsController.class)
 class PlatformsControllerTest {
+    @MockBean
+    private PlatformsService platformsService;
+
+    @MockBean
+    private GamesService gamesService;
+
     @Autowired
     private ObjectMapper objectMapper;
 
@@ -107,10 +116,10 @@ class PlatformsControllerTest {
 
     @Test
     @DisplayName("it should get all games by platform id")
-    void shouldGetAllGamesByPlatormId() throws Exception {
+    void shouldGetAllGamesByPlatformId() throws Exception {
         mockMvc.perform(get("/platforms/{id}/games", UUID.randomUUID().toString())
                         .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isNotFound());
+                .andExpect(status().isOk());
     }
 
     PlatformRequest platformRequest() {
@@ -120,7 +129,7 @@ class PlatformsControllerTest {
                 "SNK",
                 4,
                 "home console",
-                new PlatformRelease(LocalDate.now(), LocalDate.now(), LocalDate.now()),
+                new Release(LocalDate.now(), LocalDate.now(), LocalDate.now()),
                 true,
                 BigDecimal.valueOf(599),
                 100_000,
@@ -137,7 +146,7 @@ class PlatformsControllerTest {
                 "SNK",
                 4,
                 "home console",
-                new PlatformRelease(LocalDate.now(), LocalDate.now(), LocalDate.now()),
+                new Release(LocalDate.now(), LocalDate.now(), LocalDate.now()),
                 true,
                 BigDecimal.valueOf(599),
                 100_000,

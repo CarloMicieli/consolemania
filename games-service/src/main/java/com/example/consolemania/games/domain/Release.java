@@ -21,6 +21,7 @@
 
 package com.example.consolemania.games.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.LocalDate;
 
-public record PlatformRelease(LocalDate japan, LocalDate northAmerica, LocalDate europe) {}
+public record Release(LocalDate japan, @JsonProperty("north_america") LocalDate northAmerica, LocalDate europe) {}
