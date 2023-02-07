@@ -34,4 +34,5 @@ public record GameRequest(
         @Size(max = 100) String series,
         @NotBlank @Size(max = 100) String developer,
         @NotBlank @Size(max = 100) String publisher,
+        Release release,
         Year year) {}

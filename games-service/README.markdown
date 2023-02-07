@@ -34,9 +34,8 @@ java -jar build/libs/games-service-0.0.0-SNAPSHOT.jar
 Run PostgreSQL as a Docker container
 
 ```bash
-docker run -d \
-    --name games-db-postgres \
-    -e POSTGRES_USER=postgre \
+docker run  -it --rm --name games-db-postgres \
+    -e POSTGRES_USER=postgres \
     -e POSTGRES_PASSWORD=mysecretpassword \
     -e POSTGRES_DB=gamesdb \
     -p 5432:5432 \

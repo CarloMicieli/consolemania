@@ -26,7 +26,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.example.consolemania.games.domain.PlatformRelease;
+import com.example.consolemania.games.domain.Release;
 import com.example.consolemania.games.domain.PlatformRequest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.math.BigDecimal;
@@ -120,7 +120,7 @@ class PlatformsControllerTest {
                 "SNK",
                 4,
                 "home console",
-                new PlatformRelease(LocalDate.now(), LocalDate.now(), LocalDate.now()),
+                new Release(LocalDate.now(), LocalDate.now(), LocalDate.now()),
                 true,
                 BigDecimal.valueOf(599),
                 100_000,
@@ -137,7 +137,7 @@ class PlatformsControllerTest {
                 "SNK",
                 4,
                 "home console",
-                new PlatformRelease(LocalDate.now(), LocalDate.now(), LocalDate.now()),
+                new Release(LocalDate.now(), LocalDate.now(), LocalDate.now()),
                 true,
                 BigDecimal.valueOf(599),
                 100_000,

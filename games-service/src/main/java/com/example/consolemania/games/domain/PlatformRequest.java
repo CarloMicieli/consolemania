@@ -21,6 +21,7 @@
 
 package com.example.consolemania.games.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
@@ -29,13 +30,13 @@ import java.math.BigDecimal;
 public record PlatformRequest(
         @NotBlank @Size(max = 100) String name,
         String slug,
-        @Size(max = 100) String manufacturer,
+        @NotBlank @Size(max = 100) String manufacturer,
         @Positive Integer generation,
         String type,
-        PlatformRelease release,
+        Release release,
         boolean discontinued,
-        @Positive BigDecimal introductoryPrice,
-        @Positive int unitsSold,
+        @Positive @JsonProperty("introductory_price") BigDecimal introductoryPrice,
+        @Positive @JsonProperty("units_sold") Integer unitsSold,
         String media,
         String cpu,
         String memory,

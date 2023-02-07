@@ -23,16 +23,104 @@ package com.example.consolemania.games.services;
 
 import com.example.consolemania.games.domain.Game;
 import com.example.consolemania.games.domain.GameRequest;
+import com.example.consolemania.games.domain.Release;
+import com.example.consolemania.games.repositories.GameEntity;
+import com.example.consolemania.games.repositories.GamesRepository;
+import com.example.consolemania.games.repositories.PlatformEntity;
+import com.example.consolemania.games.repositories.PlatformsRepository;
+import com.example.consolemania.games.util.Slug;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
-public interface GamesService {
-    UUID add(GameRequest newGame);
+@Service
+public class GamesService {
 
-    void update(UUID gameId, GameRequest game);
+    private final GamesRepository games;
+    private final PlatformsRepository platforms;
 
-    List<Game> getGamesByPlatform(UUID platformId);
+    public GamesService(GamesRepository games, PlatformsRepository platforms) {
+        this.games = games;
+        this.platforms = platforms;
+    }
 
-    Optional<Game> getGameById(UUID gameId);
+    public UUID add(GameRequest newGame) {
+        var newId = UUID.randomUUID();
+        var release = Optional.ofNullable(newGame.release());
+
+        var platformId = platforms.findByName(newGame.platform())
+                .map(PlatformEntity::platformId)
+                .orElseThrow();
+
+        var gameEntity = new GameEntity(
+                newId,
+                platformId,
+                new Slug(newGame.title()).value(),
+                newGame.title(),
+                newGame.genre().name(),
+                newGame.modes().name(),
+                newGame.series(),
+                newGame.developer(),
+                newGame.publisher(),
+                release.map(Release::japan).orElse(null),
+                release.map(Release::northAmerica).orElse(null),
+                release.map(Release::europe).orElse(null),
+                newGame.year(),
+                null
+        );
+
+        games.save(gameEntity);
+        return newId;
+    }
+
+    public void update(UUID gameId, GameRequest game) {
+        var platformId = platforms.findByName(game.platform())
+                .map(PlatformEntity::platformId)
+                .orElseThrow();
+        var release = Optional.ofNullable(game.release());
+
+        var gameEntity = new GameEntity(
+                gameId,
+                platformId,
+                new Slug(game.title()).value(),
+                game.title(),
+                game.genre().name(),
+                game.modes().name(),
+                game.series(),
+                game.developer(),
+                game.publisher(),
+                release.map(Release::japan).orElse(null),
+                release.map(Release::northAmerica).orElse(null),
+                release.map(Release::europe).orElse(null),
+                game.year(),
+                1
+        );
+
+        games.save(gameEntity);
+    }
+
+    public List<Game> getGamesByPlatform(UUID platformId) {
+        return StreamSupport.stream(games.findAllByPlatformId(platformId).spliterator(), false)
+                .map(this::toGame)
+                .collect(Collectors.toList());
+    }
+
+    public Optional<Game> getGameById(UUID gameId) {
+        return games.findById(gameId)
+                .map(this::toGame);
+    }
+
+    private Game toGame(GameEntity newPlatform) {
+        var release = new Release(
+                newPlatform.release_jp(),
+                newPlatform.release_na(),
+                newPlatform.release_eu()
+        );
+
+        return null;
+    }
 }
