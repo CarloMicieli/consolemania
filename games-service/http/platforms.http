@@ -6,7 +6,7 @@ Content-Type: application/json
   "name": "Neo Geo AES",
   "manufacturer":  "SNK",
   "generation": 4,
-  "type": "",
+  "type": "HOME_VIDEO_GAME_CONSOLE",
   "release": {
     "japan": "1990-04-26",
     "north_america": "1990-08-22",
@@ -15,11 +15,17 @@ Content-Type: application/json
   "discontinued": "true",
   "introductory_price": 649,
   "units_sold": 1000000,
-  "media": "ROM cartridge",
-  "cpu": "Motorola 68000 @ 12MHz, Zilog Z80A @ 4MHz",
-  "memory": "64KB RAM, 84KB VRAM, 2KB Sound Memory",
-  "display": "320×224 resolution, 4096 on-screen colors out of a palette of 65536"
+  "media": "ROM_CARTRIDGE",
+  "tech_specs": {
+    "cpu": "Motorola 68000 @ 12MHz, Zilog Z80A @ 4MHz",
+    "memory": "64KB RAM, 84KB VRAM, 2KB Sound Memory",
+    "display": "320×224 resolution, 4096 on-screen colors out of a palette of 65536",
+    "sound": "Yamaha YM2610"
+  }
 }
 
 ### Get a platform
-GET http://localhost:9000/platforms/a30f296c-46ea-4c79-a387-d4201577cfc1
+GET http://localhost:9000/platforms/57c20606-86e0-46c6-834d-3685fc763014
+
+### Get all games by platform
+GET http://localhost:9000/platforms/57c20606-86e0-46c6-834d-3685fc763014/games

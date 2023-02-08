@@ -22,7 +22,6 @@
 package com.example.consolemania.games.repositories;
 
 import java.time.LocalDate;
-import java.time.Year;
 import java.util.UUID;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Version;
@@ -42,5 +41,5 @@ public record GameEntity(
         LocalDate release_jp,
         LocalDate release_na,
         LocalDate release_eu,
-        Year year,
+        Integer year,
         @Version Integer version) {}

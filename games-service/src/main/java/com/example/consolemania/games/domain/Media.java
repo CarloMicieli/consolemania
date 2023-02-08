@@ -19,32 +19,10 @@
  *    under the License.
  */
 
-package com.example.consolemania.games.repositories;
+package com.example.consolemania.games.domain;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.util.UUID;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.Version;
-import org.springframework.data.relational.core.mapping.Table;
-
-@Table("platforms")
-public record PlatformEntity(
-        @Id UUID platformId,
-        String name,
-        String slug,
-        String manufacturer,
-        Integer generation,
-        String type,
-        LocalDate release_jp,
-        LocalDate release_na,
-        LocalDate release_eu,
-        boolean discontinued,
-        BigDecimal introductoryPrice,
-        Integer unitsSold,
-        String media,
-        String cpu,
-        String memory,
-        String display,
-        String sound,
-        @Version Integer version) {}
+public enum Media {
+    ROM_CARTRIDGE,
+    CD_ROM,
+    HU_CARD
+}

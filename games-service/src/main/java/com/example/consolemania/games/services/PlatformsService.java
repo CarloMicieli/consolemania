@@ -21,9 +21,12 @@
 
 package com.example.consolemania.games.services;
 
+import com.example.consolemania.games.domain.Media;
 import com.example.consolemania.games.domain.Platform;
 import com.example.consolemania.games.domain.PlatformRequest;
+import com.example.consolemania.games.domain.PlatformType;
 import com.example.consolemania.games.domain.Release;
+import com.example.consolemania.games.domain.TechSpecs;
 import com.example.consolemania.games.repositories.PlatformEntity;
 import com.example.consolemania.games.repositories.PlatformsRepository;
 import com.example.consolemania.games.util.Slug;
@@ -47,6 +50,7 @@ public class PlatformsService {
         var newId = UUID.randomUUID();
 
         var release = Optional.ofNullable(newPlatform.release());
+        var techSpecs = Optional.ofNullable(newPlatform.techSpecs());
 
         var platformEntity = new PlatformEntity(
                 newId,
@@ -54,17 +58,18 @@ public class PlatformsService {
                 new Slug(newPlatform.name()).value(),
                 newPlatform.manufacturer(),
                 newPlatform.generation(),
-                newPlatform.type(),
+                newPlatform.type().name(),
                 release.map(Release::japan).orElse(null),
                 release.map(Release::northAmerica).orElse(null),
                 release.map(Release::europe).orElse(null),
                 newPlatform.discontinued(),
                 newPlatform.introductoryPrice(),
                 newPlatform.unitsSold(),
-                newPlatform.media(),
-                newPlatform.cpu(),
-                newPlatform.memory(),
-                newPlatform.display(),
+                newPlatform.media().name(),
+                techSpecs.map(TechSpecs::cpu).orElse(null),
+                techSpecs.map(TechSpecs::memory).orElse(null),
+                techSpecs.map(TechSpecs::display).orElse(null),
+                techSpecs.map(TechSpecs::sound).orElse(null),
                 null);
 
         platformsRepository.save(platformEntity);
@@ -73,6 +78,7 @@ public class PlatformsService {
 
     public void update(UUID platformId, PlatformRequest platform) {
         var release = Optional.ofNullable(platform.release());
+        var techSpecs = Optional.ofNullable(platform.techSpecs());
 
         var platformEntity = new PlatformEntity(
                 platformId,
@@ -80,17 +86,18 @@ public class PlatformsService {
                 new Slug(platform.name()).value(),
                 platform.manufacturer(),
                 platform.generation(),
-                platform.type(),
+                platform.type().name(),
                 release.map(Release::japan).orElse(null),
                 release.map(Release::northAmerica).orElse(null),
                 release.map(Release::europe).orElse(null),
                 platform.discontinued(),
                 platform.introductoryPrice(),
                 platform.unitsSold(),
-                platform.media(),
-                platform.cpu(),
-                platform.memory(),
-                platform.display(),
+                platform.media().name(),
+                techSpecs.map(TechSpecs::cpu).orElse(null),
+                techSpecs.map(TechSpecs::memory).orElse(null),
+                techSpecs.map(TechSpecs::display).orElse(null),
+                techSpecs.map(TechSpecs::sound).orElse(null),
                 1);
 
         platformsRepository.save(platformEntity);
@@ -109,20 +116,21 @@ public class PlatformsService {
     private Platform toPlatform(PlatformEntity newPlatform) {
         var release = new Release(newPlatform.release_jp(), newPlatform.release_na(), newPlatform.release_eu());
 
+        var techSpecs =
+                new TechSpecs(newPlatform.cpu(), newPlatform.memory(), newPlatform.display(), newPlatform.sound());
+
         return new Platform(
                 newPlatform.platformId(),
                 newPlatform.name(),
                 new Slug(newPlatform.name()).value(),
                 newPlatform.manufacturer(),
                 newPlatform.generation(),
-                newPlatform.type(),
+                PlatformType.valueOf(newPlatform.type()),
                 release,
                 newPlatform.discontinued(),
                 newPlatform.introductoryPrice(),
                 newPlatform.unitsSold(),
-                newPlatform.media(),
-                newPlatform.cpu(),
-                newPlatform.memory(),
-                newPlatform.display());
+                Media.valueOf(newPlatform.media()),
+                techSpecs);
     }
 }

@@ -31,6 +31,7 @@ import com.example.consolemania.games.repositories.GamesRepository;
 import com.example.consolemania.games.repositories.PlatformEntity;
 import com.example.consolemania.games.repositories.PlatformsRepository;
 import com.example.consolemania.games.util.Slug;
+import java.time.Year;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -71,7 +72,7 @@ public class GamesService {
                 release.map(Release::japan).orElse(null),
                 release.map(Release::northAmerica).orElse(null),
                 release.map(Release::europe).orElse(null),
-                newGame.year(),
+                newGame.year().getValue(),
                 null);
 
         games.save(gameEntity);
@@ -98,7 +99,7 @@ public class GamesService {
                 release.map(Release::japan).orElse(null),
                 release.map(Release::northAmerica).orElse(null),
                 release.map(Release::europe).orElse(null),
-                game.year(),
+                game.year().getValue(),
                 1);
 
         games.save(gameEntity);
@@ -127,6 +128,6 @@ public class GamesService {
                 gameEntity.developer(),
                 gameEntity.publisher(),
                 release,
-                gameEntity.year());
+                Year.of(gameEntity.year()));
     }
 }

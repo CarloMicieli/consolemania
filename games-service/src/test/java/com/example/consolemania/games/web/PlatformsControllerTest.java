@@ -26,8 +26,11 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import com.example.consolemania.games.domain.Media;
 import com.example.consolemania.games.domain.PlatformRequest;
+import com.example.consolemania.games.domain.PlatformType;
 import com.example.consolemania.games.domain.Release;
+import com.example.consolemania.games.domain.TechSpecs;
 import com.example.consolemania.games.services.GamesService;
 import com.example.consolemania.games.services.PlatformsService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -128,15 +131,13 @@ class PlatformsControllerTest {
                 "neo-geo",
                 "SNK",
                 4,
-                "home console",
+                PlatformType.HOME_VIDEO_GAME_CONSOLE,
                 new Release(LocalDate.now(), LocalDate.now(), LocalDate.now()),
                 true,
                 BigDecimal.valueOf(599),
                 100_000,
-                "ROM",
-                "Motorola 68000",
-                "512 Kb",
-                "36000 colors");
+                Media.ROM_CARTRIDGE,
+                new TechSpecs("Motorola 68000", "512 Kb", "36000 colors", ""));
     }
 
     PlatformRequest invalidPlatformRequest() {
@@ -145,15 +146,13 @@ class PlatformsControllerTest {
                 "neo-geo",
                 "SNK",
                 4,
-                "home console",
+                PlatformType.HOME_VIDEO_GAME_CONSOLE,
                 new Release(LocalDate.now(), LocalDate.now(), LocalDate.now()),
                 true,
                 BigDecimal.valueOf(599),
                 100_000,
-                "ROM",
-                "Motorola 68000",
-                "512 Kb",
-                "36000 colors");
+                Media.ROM_CARTRIDGE,
+                new TechSpecs("Motorola 68000", "512 Kb", "36000 colors", ""));
     }
 
     String asJsonString(final Object obj) {

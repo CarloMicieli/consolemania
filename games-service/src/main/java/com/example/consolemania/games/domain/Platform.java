@@ -30,12 +30,10 @@ public record Platform(
         String slug,
         String manufacturer,
         Integer generation,
-        String type,
+        PlatformType type,
         Release release,
         boolean discontinued,
         BigDecimal introductoryPrice,
         Integer unitsSold,
-        String media,
-        String cpu,
-        String memory,
-        String display) {}
+        Media media,
+        TechSpecs techSpecs) {}
