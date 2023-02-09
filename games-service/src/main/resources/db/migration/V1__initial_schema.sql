@@ -1,7 +1,7 @@
 CREATE TABLE platforms (
     platform_id uuid NOT NULL,
+    platform_urn varchar(100) NOT NULL,
     name varchar(100) NOT NULL,
-    slug varchar(100) NOT NULL,
     manufacturer varchar(100) NOT NULL,
     generation varchar(100) NOT NULL,
     type varchar(100) NOT NULL,
@@ -22,9 +22,9 @@ CREATE TABLE platforms (
 
 CREATE TABLE games (
     game_id uuid NOT NULL,
+    game_urn varchar(500) NOT NULL,
     platform_id uuid NOT NULL,
     title varchar(250) NOT NULL,
-    slug varchar(250) NOT NULL,
     genre varchar(100) NOT NULL,
     modes varchar(100) NOT NULL,
     series varchar(250),

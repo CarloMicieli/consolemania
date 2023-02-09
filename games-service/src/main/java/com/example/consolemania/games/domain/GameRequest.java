@@ -27,7 +27,6 @@ import java.time.Year;
 
 public record GameRequest(
         @NotBlank @Size(max = 100) String title,
-        String slug,
         Genre genre,
         @NotBlank String platform,
         Mode modes,

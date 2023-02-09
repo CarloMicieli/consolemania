@@ -25,7 +25,7 @@ Content-Type: application/json
 }
 
 ### Get a platform
-GET http://localhost:9000/platforms/57c20606-86e0-46c6-834d-3685fc763014
+GET http://localhost:9000/platforms/293abf6c-6cee-440d-ab37-01874695d50a
 
 ### Get all games by platform
-GET http://localhost:9000/platforms/57c20606-86e0-46c6-834d-3685fc763014/games
+GET http://localhost:9000/platforms/293abf6c-6cee-440d-ab37-01874695d50a/games

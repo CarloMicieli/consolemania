@@ -21,7 +21,11 @@
 
 package com.example.consolemania.games.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public enum PlatformType {
-    HOME_VIDEO_GAME_CONSOLE,
-    ARCADE_SYSTEM_BOARD
+    @JsonProperty("ARCADE_SYSTEM_BOARD")
+    ArcadeSystemBoard,
+    @JsonProperty("HOME_VIDEO_GAME_CONSOLE")
+    HomeVideoGameConsole
 }

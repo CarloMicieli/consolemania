@@ -21,12 +21,13 @@
 
 package com.example.consolemania.games.domain;
 
+import com.jcabi.urn.URN;
 import java.time.Year;
 import java.util.UUID;
 
 public record Game(
         UUID gameId,
-        String slug,
+        URN gameUrn,
         String title,
         Genre genre,
         Mode modes,

@@ -18,6 +18,7 @@ configurations {
 }
 
 dependencies {
+    implementation("com.jcabi:jcabi-urn:0.9")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
     implementation("org.springframework.boot:spring-boot-starter-validation")
@@ -26,6 +27,7 @@ dependencies {
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     runtimeOnly("org.postgresql:postgresql")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
+    testImplementation("org.mockito:mockito-inline")
 }
 
 tasks.getByName<BootRun>("bootRun") {

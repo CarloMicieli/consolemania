@@ -63,7 +63,9 @@ public class PlatformsController {
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    void putPlatform(@PathVariable String id, @RequestBody @Valid PlatformRequest platform) {}
+    void putPlatform(@PathVariable UUID id, @RequestBody @Valid PlatformRequest updatePlatform) {
+        platformsService.getPlatformById(id).ifPresent(platform -> platformsService.update(id, updatePlatform));
+    }
 
     @GetMapping
     ResponseEntity<List<Platform>> getAllPlatforms() {

@@ -30,8 +30,8 @@ import org.springframework.data.relational.core.mapping.Table;
 @Table("games")
 public record GameEntity(
         @Id UUID gameId,
+        String gameUrn,
         UUID platformId,
-        String slug,
         String title,
         String genre,
         String modes,

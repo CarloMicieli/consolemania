@@ -30,6 +30,9 @@ import com.example.consolemania.games.domain.TechSpecs;
 import com.example.consolemania.games.repositories.PlatformEntity;
 import com.example.consolemania.games.repositories.PlatformsRepository;
 import com.example.consolemania.games.util.Slug;
+import com.example.consolemania.games.util.UuidSource;
+import com.jcabi.urn.URN;
+import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -41,21 +44,23 @@ import org.springframework.stereotype.Service;
 public class PlatformsService {
 
     private final PlatformsRepository platformsRepository;
+    private final UuidSource uuidSource;
 
-    public PlatformsService(PlatformsRepository platformsRepository) {
+    public PlatformsService(PlatformsRepository platformsRepository, UuidSource uuidSource) {
         this.platformsRepository = platformsRepository;
+        this.uuidSource = uuidSource;
     }
 
     public UUID add(PlatformRequest newPlatform) {
-        var newId = UUID.randomUUID();
+        var newId = uuidSource.generateNewId();
 
         var release = Optional.ofNullable(newPlatform.release());
         var techSpecs = Optional.ofNullable(newPlatform.techSpecs());
 
         var platformEntity = new PlatformEntity(
                 newId,
+                buildURN(new Slug(newPlatform.name()).value()).toString(),
                 newPlatform.name(),
-                new Slug(newPlatform.name()).value(),
                 newPlatform.manufacturer(),
                 newPlatform.generation(),
                 newPlatform.type().name(),
@@ -82,8 +87,8 @@ public class PlatformsService {
 
         var platformEntity = new PlatformEntity(
                 platformId,
+                buildURN(new Slug(platform.name()).value()).toString(),
                 platform.name(),
-                new Slug(platform.name()).value(),
                 platform.manufacturer(),
                 platform.generation(),
                 platform.type().name(),
@@ -98,7 +103,7 @@ public class PlatformsService {
                 techSpecs.map(TechSpecs::memory).orElse(null),
                 techSpecs.map(TechSpecs::display).orElse(null),
                 techSpecs.map(TechSpecs::sound).orElse(null),
-                1);
+                null);
 
         platformsRepository.save(platformEntity);
     }
@@ -113,24 +118,39 @@ public class PlatformsService {
         return platformsRepository.findById(platformId).map(this::toPlatform);
     }
 
-    private Platform toPlatform(PlatformEntity newPlatform) {
-        var release = new Release(newPlatform.release_jp(), newPlatform.release_na(), newPlatform.release_eu());
+    private Platform toPlatform(PlatformEntity platform) {
+        var release = new Release(platform.release_jp(), platform.release_na(), platform.release_eu());
 
-        var techSpecs =
-                new TechSpecs(newPlatform.cpu(), newPlatform.memory(), newPlatform.display(), newPlatform.sound());
+        var techSpecs = new TechSpecs(platform.cpu(), platform.memory(), platform.display(), platform.sound());
 
         return new Platform(
-                newPlatform.platformId(),
-                newPlatform.name(),
-                new Slug(newPlatform.name()).value(),
-                newPlatform.manufacturer(),
-                newPlatform.generation(),
-                PlatformType.valueOf(newPlatform.type()),
+                platform.platformId(),
+                toURN(platform.platformUrn()),
+                platform.name(),
+                platform.manufacturer(),
+                platform.generation(),
+                PlatformType.valueOf(platform.type()),
                 release,
-                newPlatform.discontinued(),
-                newPlatform.introductoryPrice(),
-                newPlatform.unitsSold(),
-                Media.valueOf(newPlatform.media()),
+                platform.discontinued(),
+                platform.introductoryPrice(),
+                platform.unitsSold(),
+                Media.valueOf(platform.media()),
                 techSpecs);
+    }
+
+    URN buildURN(String platform) {
+        try {
+            return new URN(String.format("urn:platform:%s", platform));
+        } catch (URISyntaxException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+
+    URN toURN(String stringURN) {
+        try {
+            return new URN(stringURN);
+        } catch (URISyntaxException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 }

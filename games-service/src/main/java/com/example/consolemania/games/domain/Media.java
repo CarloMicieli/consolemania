@@ -21,8 +21,15 @@
 
 package com.example.consolemania.games.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public enum Media {
-    ROM_CARTRIDGE,
-    CD_ROM,
-    HU_CARD
+    @JsonProperty("CD_ROM")
+    CdRom,
+
+    @JsonProperty("HU_CARD")
+    HuCard,
+
+    @JsonProperty("ROM_CARTRIDGE")
+    RomCartridge
 }

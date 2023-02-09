@@ -26,6 +26,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public enum Mode {
     @JsonProperty("SINGLE_PLAYER")
     SinglePlayer,
+
+    @JsonProperty("TWO_PLAYER")
+    TwoPlayer,
+
     @JsonProperty("MULTIPLAYER")
-    Multiplayer,
+    MultiPlayer,
 }

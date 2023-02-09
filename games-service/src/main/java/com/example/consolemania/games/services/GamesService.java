@@ -31,6 +31,9 @@ import com.example.consolemania.games.repositories.GamesRepository;
 import com.example.consolemania.games.repositories.PlatformEntity;
 import com.example.consolemania.games.repositories.PlatformsRepository;
 import com.example.consolemania.games.util.Slug;
+import com.example.consolemania.games.util.UuidSource;
+import com.jcabi.urn.URN;
+import java.net.URISyntaxException;
 import java.time.Year;
 import java.util.List;
 import java.util.Optional;
@@ -44,14 +47,16 @@ public class GamesService {
 
     private final GamesRepository games;
     private final PlatformsRepository platforms;
+    private final UuidSource uuidSource;
 
-    public GamesService(GamesRepository games, PlatformsRepository platforms) {
+    public GamesService(GamesRepository games, PlatformsRepository platforms, UuidSource uuidSource) {
         this.games = games;
         this.platforms = platforms;
+        this.uuidSource = uuidSource;
     }
 
     public UUID add(GameRequest newGame) {
-        var newId = UUID.randomUUID();
+        var newId = uuidSource.generateNewId();
         var release = Optional.ofNullable(newGame.release());
 
         var platformId = platforms
@@ -61,8 +66,9 @@ public class GamesService {
 
         var gameEntity = new GameEntity(
                 newId,
+                buildURN(new Slug(newGame.platform()).value(), new Slug(newGame.title()).value())
+                        .toString(),
                 platformId,
-                new Slug(newGame.title()).value(),
                 newGame.title(),
                 newGame.genre().name(),
                 newGame.modes().name(),
@@ -88,8 +94,9 @@ public class GamesService {
 
         var gameEntity = new GameEntity(
                 gameId,
+                buildURN(new Slug(game.platform()).value(), new Slug(game.title()).value())
+                        .toString(),
                 platformId,
-                new Slug(game.title()).value(),
                 game.title(),
                 game.genre().name(),
                 game.modes().name(),
@@ -120,7 +127,7 @@ public class GamesService {
 
         return new Game(
                 gameEntity.gameId(),
-                gameEntity.slug(),
+                toURN(gameEntity.gameUrn()),
                 gameEntity.title(),
                 Genre.valueOf(gameEntity.genre()),
                 Mode.valueOf(gameEntity.modes()),
@@ -129,5 +136,21 @@ public class GamesService {
                 gameEntity.publisher(),
                 release,
                 Year.of(gameEntity.year()));
+    }
+
+    URN buildURN(String platform, String gameTitle) {
+        try {
+            return new URN(String.format("urn:game:%s:%s", platform, gameTitle));
+        } catch (URISyntaxException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+
+    URN toURN(String stringURN) {
+        try {
+            return new URN(stringURN);
+        } catch (URISyntaxException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 }

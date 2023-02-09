@@ -24,21 +24,45 @@ package com.example.consolemania.games.domain;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public enum Genre {
-    @JsonProperty("FIGHTING")
-    Fighting,
+    @JsonProperty("ACTION")
+    Action,
 
-    @JsonProperty("SPORTS")
-    Sports,
+    @JsonProperty("ACTION_ADVENTURE")
+    ActionAdventure,
 
-    @JsonProperty("SHOOT_EM_UP")
-    ShootEmUp,
+    @JsonProperty("ADVENTURE")
+    Adventure,
 
     @JsonProperty("BOARD_GAME")
     BoardGame,
 
-    @JsonProperty("PLATFORM")
-    Platform,
+    @JsonProperty("CARD_GAME")
+    CardGame,
+
+    @JsonProperty("DRIVING_RACE")
+    DrivingRacing,
+
+    @JsonProperty("FIGHTING")
+    Fighting,
+
+    @JsonProperty("PLATFORMER")
+    Platformer,
 
     @JsonProperty("PUZZLE")
-    Puzzle
+    Puzzle,
+
+    @JsonProperty("ROLE_PLAYING")
+    RolePlaying,
+
+    @JsonProperty("SPORTS")
+    Sports,
+
+    @JsonProperty("SHOOTER")
+    Shooter,
+
+    @JsonProperty("SHOOT_EM_UP")
+    ShootEmUp,
+
+    @JsonProperty("TRIVIA_BOARD_GAME")
+    TriviaBoardGame
 }

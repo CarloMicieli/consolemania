@@ -54,8 +54,8 @@ public class ApplicationInit implements CommandLineRunner {
 
         var neoGeo = new PlatformEntity(
                 UUID.randomUUID(),
+                "urn:platform:neo-geo-aes",
                 "Neo Geo AES",
-                "neo-geo-aes",
                 "SNK",
                 4,
                 "HOME_VIDEO_GAME_CONSOLE",

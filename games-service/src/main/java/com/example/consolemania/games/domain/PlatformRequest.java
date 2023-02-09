@@ -30,7 +30,6 @@ import java.math.BigDecimal;
 
 public record PlatformRequest(
         @NotBlank @Size(max = 100) String name,
-        String slug,
         @NotBlank @Size(max = 100) String manufacturer,
         @Positive Integer generation,
         @NotNull PlatformType type,

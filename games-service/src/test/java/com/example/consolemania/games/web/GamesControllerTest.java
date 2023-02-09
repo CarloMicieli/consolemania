@@ -21,18 +21,24 @@
 
 package com.example.consolemania.games.web;
 
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.example.consolemania.games.domain.GameRequest;
 import com.example.consolemania.games.domain.Genre;
 import com.example.consolemania.games.domain.Mode;
+import com.example.consolemania.games.domain.Release;
 import com.example.consolemania.games.services.GamesService;
+import com.example.consolemania.games.util.UuidSource;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.time.LocalDate;
 import java.time.Year;
 import java.util.UUID;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,8 +51,13 @@ import org.springframework.test.web.servlet.MockMvc;
 @WebMvcTest(GamesController.class)
 class GamesControllerTest {
 
+    private static final UUID FIXED_UUID = UUID.randomUUID();
+
     @MockBean
     private GamesService gamesService;
+
+    @MockBean
+    private UuidSource uuidSource;
 
     @Autowired
     private MockMvc mockMvc;
@@ -54,15 +65,24 @@ class GamesControllerTest {
     @Autowired
     private ObjectMapper objectMapper;
 
+    @BeforeEach
+    void setup() {
+        when(uuidSource.generateNewId()).thenReturn(FIXED_UUID);
+    }
+
     @Test
-    @DisplayName("it should post new games")
+    @DisplayName("it should create new games")
     void shouldPostNewGames() throws Exception {
         var request = gameRequest();
+
+        when(gamesService.add(request)).thenReturn(FIXED_UUID);
+
         mockMvc.perform(post("/games")
                         .content(asJsonString(request))
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isCreated());
+                .andExpect(status().isCreated())
+                .andExpect(header().string("Location", "/games/" + FIXED_UUID));
     }
 
     @Test
@@ -101,7 +121,6 @@ class GamesControllerTest {
     @Test
     @DisplayName("it should return 404 when there is no game with the given id")
     void shouldGetGameById() throws Exception {
-        var request = gameRequest();
         mockMvc.perform(get("/games/{id}", UUID.randomUUID().toString()).accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound());
     }
@@ -117,28 +136,18 @@ class GamesControllerTest {
     GameRequest gameRequest() {
         return new GameRequest(
                 "Fatal Fury 2",
-                "fatfury2",
                 Genre.Fighting,
                 "Neo Geo",
                 Mode.SinglePlayer,
                 "Fatal Fury",
                 "SNK",
                 "SNK",
-                null,
+                new Release(LocalDate.of(1995, 7, 28), LocalDate.of(1995, 7, 28), LocalDate.of(1995, 7, 28)),
                 Year.of(1994));
     }
 
     GameRequest invalidGameRequest() {
         return new GameRequest(
-                "",
-                "fatfury2",
-                Genre.Fighting,
-                "Neo Geo",
-                Mode.SinglePlayer,
-                "Fatal Fury",
-                "SNK",
-                "SNK",
-                null,
-                Year.of(1994));
+                "", Genre.Fighting, "Neo Geo", Mode.SinglePlayer, "Fatal Fury", "SNK", "SNK", null, Year.of(1994));
     }
 }

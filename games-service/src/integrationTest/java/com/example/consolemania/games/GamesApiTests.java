@@ -73,7 +73,6 @@ public class GamesApiTests {
                         """
                         {
                           "title": "Fatal Fury 2",
-                          "slug": "fatfury2",
                           "genre": "FIGHTING",
                           "platform": "Neo Geo AES",
                           "modes": "SINGLE_PLAYER",

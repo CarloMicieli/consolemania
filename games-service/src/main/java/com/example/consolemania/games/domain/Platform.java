@@ -21,13 +21,14 @@
 
 package com.example.consolemania.games.domain;
 
+import com.jcabi.urn.URN;
 import java.math.BigDecimal;
 import java.util.UUID;
 
 public record Platform(
-        UUID id,
+        UUID platformId,
+        URN platformUrn,
         String name,
-        String slug,
         String manufacturer,
         Integer generation,
         PlatformType type,

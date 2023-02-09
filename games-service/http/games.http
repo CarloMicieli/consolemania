@@ -20,5 +20,5 @@ Content-Type: application/json
 }
 
 ### Get a game by id
-GET http://localhost:9000/games/f01b712a-674e-4db9-8fcd-be8e450692a4
+GET http://localhost:9000/games/6613be9d-6b5a-4d44-935e-18da873a80be
 
