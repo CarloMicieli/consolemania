@@ -1,6 +1,30 @@
 version: "3.9"
 
 services:
+  games_service:
+    image: ghcr.io/carlomicieli/games-service:latest
+    depends_on:
+      games_db:
+        condition: service_healthy
+    ports:
+      - 9000:9000
+      - 9001:9001
+    environment:
+      - JAVA_TOOL_OPTIONS=-Xss512k -Xmx256M -XX:ReservedCodeCacheSize=64M -XX:MaxMetaspaceSize=64M
+      - DB_URL=jdbc:postgresql://games_db:5432/gamesdb
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=mysecretpassword
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 1G
+        reservations:
+          cpus: '0.50'
+          memory: 512M
+    networks:
+      - backend
+
   games_db:
     image: postgres:15.1-alpine
     ports:
@@ -26,7 +50,7 @@ services:
       games_db:
         condition: service_healthy
     ports:
-      - 5000:80
+      - 9080:80
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@mail.com
       PGADMIN_DEFAULT_PASSWORD: password
