@@ -23,8 +23,6 @@ package com.example.consolemania.games.services;
 
 import com.example.consolemania.games.domain.Game;
 import com.example.consolemania.games.domain.GameRequest;
-import com.example.consolemania.games.domain.Genre;
-import com.example.consolemania.games.domain.Mode;
 import com.example.consolemania.games.domain.Release;
 import com.example.consolemania.games.repositories.GameEntity;
 import com.example.consolemania.games.repositories.GamesRepository;
@@ -33,7 +31,6 @@ import com.example.consolemania.games.repositories.PlatformsRepository;
 import com.example.consolemania.games.util.Slug;
 import com.example.consolemania.games.util.UuidSource;
 import com.jcabi.urn.URN;
-import java.net.URISyntaxException;
 import java.time.Year;
 import java.util.List;
 import java.util.Optional;
@@ -55,51 +52,36 @@ public class GamesService {
         this.uuidSource = uuidSource;
     }
 
-    public UUID add(GameRequest newGame) {
+    public URN add(GameRequest newGame) {
         var newId = uuidSource.generateNewId();
-        var release = Optional.ofNullable(newGame.release());
-
-        var platformId = platforms
-                .findByName(newGame.platform())
-                .map(PlatformEntity::platformId)
-                .orElseThrow();
-
-        var gameEntity = new GameEntity(
-                newId,
-                buildURN(new Slug(newGame.platform()).value(), new Slug(newGame.title()).value())
-                        .toString(),
-                platformId,
-                newGame.title(),
-                newGame.genre().name(),
-                newGame.modes().name(),
-                newGame.series(),
-                newGame.developer(),
-                newGame.publisher(),
-                release.map(Release::japan).orElse(null),
-                release.map(Release::northAmerica).orElse(null),
-                release.map(Release::europe).orElse(null),
-                newGame.year().getValue(),
-                null);
-
+        var gameEntity = entityFromRequest(newId, newGame, null);
         games.save(gameEntity);
-        return newId;
+        return gameEntity.gameUrn();
     }
 
     public void update(UUID gameId, GameRequest game) {
+        var gameEntity = entityFromRequest(gameId, game, 1);
+        games.save(gameEntity);
+    }
+
+    GameEntity entityFromRequest(UUID gameId, GameRequest game, Integer version) {
         var platformId = platforms
                 .findByName(game.platform())
                 .map(PlatformEntity::platformId)
                 .orElseThrow();
         var release = Optional.ofNullable(game.release());
 
-        var gameEntity = new GameEntity(
+        var platform = Slug.of(game.platform());
+        var gameTitle = Slug.of(game.title());
+        var gameUrn = URN.create(String.format("urn:game:%s:%s", platform, gameTitle));
+
+        return new GameEntity(
                 gameId,
-                buildURN(new Slug(game.platform()).value(), new Slug(game.title()).value())
-                        .toString(),
+                gameUrn,
                 platformId,
                 game.title(),
-                game.genre().name(),
-                game.modes().name(),
+                game.genre(),
+                game.modes(),
                 game.series(),
                 game.developer(),
                 game.publisher(),
@@ -107,9 +89,7 @@ public class GamesService {
                 release.map(Release::northAmerica).orElse(null),
                 release.map(Release::europe).orElse(null),
                 game.year().getValue(),
-                1);
-
-        games.save(gameEntity);
+                version);
     }
 
     public List<Game> getGamesByPlatform(UUID platformId) {
@@ -118,39 +98,23 @@ public class GamesService {
                 .collect(Collectors.toList());
     }
 
-    public Optional<Game> getGameById(UUID gameId) {
-        return games.findById(gameId).map(this::toGame);
+    public Optional<Game> getGameByUrn(URN gameUrn) {
+        return games.findByGameUrn(gameUrn).map(this::toGame);
     }
 
     private Game toGame(GameEntity gameEntity) {
-        var release = new Release(gameEntity.release_jp(), gameEntity.release_na(), gameEntity.release_eu());
+        var release = new Release(gameEntity.releaseJp(), gameEntity.releaseNa(), gameEntity.releaseEu());
 
         return new Game(
                 gameEntity.gameId(),
-                toURN(gameEntity.gameUrn()),
+                gameEntity.gameUrn(),
                 gameEntity.title(),
-                Genre.valueOf(gameEntity.genre()),
-                Mode.valueOf(gameEntity.modes()),
+                gameEntity.genre(),
+                gameEntity.modes(),
                 gameEntity.series(),
                 gameEntity.developer(),
                 gameEntity.publisher(),
                 release,
                 Year.of(gameEntity.year()));
-    }
-
-    URN buildURN(String platform, String gameTitle) {
-        try {
-            return new URN(String.format("urn:game:%s:%s", platform, gameTitle));
-        } catch (URISyntaxException ex) {
-            throw new RuntimeException(ex);
-        }
-    }
-
-    URN toURN(String stringURN) {
-        try {
-            return new URN(stringURN);
-        } catch (URISyntaxException ex) {
-            throw new RuntimeException(ex);
-        }
     }
 }

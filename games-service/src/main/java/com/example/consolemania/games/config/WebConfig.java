@@ -35,11 +35,9 @@ import java.io.IOException;
 import java.util.UUID;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.jdbc.repository.config.EnableJdbcAuditing;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 
 @Configuration
-@EnableJdbcAuditing
 public class WebConfig {
 
     @Bean

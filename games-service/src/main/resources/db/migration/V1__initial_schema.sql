@@ -33,7 +33,7 @@ CREATE TABLE games (
     release_eu date,
     release_jp date,
     release_na date,
-    year integer,
+    year integer not null,
     version INT NOT NULL,
     CONSTRAINT "PK_games" PRIMARY KEY (game_id),
     CONSTRAINT "FK_games_platforms" FOREIGN KEY (platform_id)

@@ -21,6 +21,10 @@
 
 package com.example.consolemania.games.repositories;
 
+import com.example.consolemania.games.domain.Genre;
+import com.example.consolemania.games.domain.Mode;
+import com.jcabi.urn.URN;
+import jakarta.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.UUID;
 import org.springframework.data.annotation.Id;
@@ -30,16 +34,16 @@ import org.springframework.data.relational.core.mapping.Table;
 @Table("games")
 public record GameEntity(
         @Id UUID gameId,
-        String gameUrn,
+        URN gameUrn,
         UUID platformId,
         String title,
-        String genre,
-        String modes,
+        Genre genre,
+        Mode modes,
         String series,
         String developer,
         String publisher,
-        LocalDate release_jp,
-        LocalDate release_na,
-        LocalDate release_eu,
-        Integer year,
+        LocalDate releaseJp,
+        LocalDate releaseNa,
+        LocalDate releaseEu,
+        @NotNull Integer year,
         @Version Integer version) {}

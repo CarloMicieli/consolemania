@@ -21,10 +21,13 @@
 
 package com.example.consolemania.games.repositories;
 
+import com.jcabi.urn.URN;
 import java.util.Optional;
 import java.util.UUID;
 import org.springframework.data.repository.CrudRepository;
 
 public interface PlatformsRepository extends CrudRepository<PlatformEntity, UUID> {
     Optional<PlatformEntity> findByName(String name);
+
+    Optional<PlatformEntity> findByPlatformUrn(URN platformUrn);
 }

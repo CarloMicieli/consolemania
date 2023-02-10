@@ -96,6 +96,7 @@ public class PlatformsApiTests {
                 .when()
                 .post("/platforms")
                 .then()
-                .statusCode(201);
+                .statusCode(201)
+                .header("Location", "/platforms/urn:platform:neo-geo-mvs");
     }
 }

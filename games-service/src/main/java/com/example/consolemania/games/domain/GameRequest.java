@@ -22,14 +22,15 @@
 package com.example.consolemania.games.domain;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import java.time.Year;
 
 public record GameRequest(
         @NotBlank @Size(max = 100) String title,
-        Genre genre,
-        @NotBlank String platform,
-        Mode modes,
+        @NotNull Genre genre,
+        @NotBlank @Size(max = 100) String platform,
+        @NotNull Mode modes,
         @Size(max = 100) String series,
         @NotBlank @Size(max = 100) String developer,
         @NotBlank @Size(max = 100) String publisher,

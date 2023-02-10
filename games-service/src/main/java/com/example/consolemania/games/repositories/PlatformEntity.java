@@ -21,6 +21,7 @@
 
 package com.example.consolemania.games.repositories;
 
+import com.jcabi.urn.URN;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.UUID;
@@ -31,14 +32,14 @@ import org.springframework.data.relational.core.mapping.Table;
 @Table("platforms")
 public record PlatformEntity(
         @Id UUID platformId,
-        String platformUrn,
+        URN platformUrn,
         String name,
         String manufacturer,
         Integer generation,
         String type,
-        LocalDate release_jp,
-        LocalDate release_na,
-        LocalDate release_eu,
+        LocalDate releaseJp,
+        LocalDate releaseNa,
+        LocalDate releaseEu,
         boolean discontinued,
         BigDecimal introductoryPrice,
         Integer unitsSold,

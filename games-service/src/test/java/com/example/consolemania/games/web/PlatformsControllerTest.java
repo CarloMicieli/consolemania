@@ -40,6 +40,7 @@ import com.example.consolemania.games.services.GamesService;
 import com.example.consolemania.games.services.PlatformsService;
 import com.example.consolemania.games.util.UuidSource;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.jcabi.urn.URN;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Optional;
@@ -58,6 +59,7 @@ import org.springframework.test.web.servlet.MockMvc;
 class PlatformsControllerTest {
 
     private static final UUID FIXED_UUID = UUID.randomUUID();
+    private static final URN FIXED_URN = URN.create("urn:platform:neo-geo-aes");
 
     @MockBean
     private PlatformsService platformsService;
@@ -84,14 +86,14 @@ class PlatformsControllerTest {
     void shouldPostNewPlatforms() throws Exception {
         var request = platformRequest();
 
-        when(platformsService.add(request)).thenReturn(FIXED_UUID);
+        when(platformsService.add(request)).thenReturn(FIXED_URN);
 
         mockMvc.perform(post("/platforms")
                         .content(asJsonString(request))
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isCreated())
-                .andExpect(header().string("Location", "/platforms/" + FIXED_UUID.toString()));
+                .andExpect(header().string("Location", "/platforms/" + FIXED_URN));
     }
 
     @Test
@@ -111,9 +113,11 @@ class PlatformsControllerTest {
         var id = UUID.randomUUID();
         var request = platformRequest();
 
-        when(platformsService.getPlatformById(id)).thenReturn(Optional.of(mock(Platform.class)));
+        var platform = mock(Platform.class);
+        when(platform.platformId()).thenReturn(id);
+        when(platformsService.getPlatformByUrn(FIXED_URN)).thenReturn(Optional.of(platform));
 
-        mockMvc.perform(put("/platforms/{id}", id.toString())
+        mockMvc.perform(put("/platforms/{platformUrn}", FIXED_URN)
                         .content(asJsonString(request))
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
@@ -126,7 +130,7 @@ class PlatformsControllerTest {
     @DisplayName("it should return a BAD_REQUEST when the updated platform request is not valid")
     void shouldValidatePlatformUpdateRequests() throws Exception {
         var request = invalidPlatformRequest();
-        mockMvc.perform(put("/platforms/{id}", UUID.randomUUID().toString())
+        mockMvc.perform(put("/platforms/{platformUrn}", FIXED_URN)
                         .content(asJsonString(request))
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
@@ -142,7 +146,7 @@ class PlatformsControllerTest {
     @Test
     @DisplayName("it should return 404 when there is no platform with the given id")
     void shouldReturn404ForNotFoundPlatform() throws Exception {
-        mockMvc.perform(get("/platforms/{id}", UUID.randomUUID().toString()).accept(MediaType.APPLICATION_JSON))
+        mockMvc.perform(get("/platforms/{platformUrn}", FIXED_URN).accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound());
     }
 

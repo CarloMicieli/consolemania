@@ -24,10 +24,10 @@ package com.example.consolemania.games.web;
 import com.example.consolemania.games.domain.Game;
 import com.example.consolemania.games.domain.GameRequest;
 import com.example.consolemania.games.services.GamesService;
+import com.jcabi.urn.URN;
 import jakarta.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.UUID;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -52,17 +52,17 @@ public class GamesController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     ResponseEntity<Void> postGame(@RequestBody @Valid GameRequest newGame) throws URISyntaxException {
-        var newId = gamesService.add(newGame);
-        return ResponseEntity.created(new URI("/games/" + newId)).build();
+        var gameUrn = gamesService.add(newGame);
+        return ResponseEntity.created(new URI("/games/" + gameUrn)).build();
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/{gameUrn}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    void putGame(@PathVariable String id, @RequestBody @Valid GameRequest game) {}
+    void putGame(@PathVariable URN gameUrn, @RequestBody @Valid GameRequest game) {}
 
-    @GetMapping("/{id}")
-    ResponseEntity<Game> getGameById(@PathVariable UUID id) {
-        return gamesService.getGameById(id).map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound()
+    @GetMapping("/{gameUrn}")
+    ResponseEntity<Game> getGameByUrn(@PathVariable URN gameUrn) {
+        return gamesService.getGameByUrn(gameUrn).map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound()
                 .build());
     }
 }

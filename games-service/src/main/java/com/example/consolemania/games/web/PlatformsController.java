@@ -26,6 +26,7 @@ import com.example.consolemania.games.domain.Platform;
 import com.example.consolemania.games.domain.PlatformRequest;
 import com.example.consolemania.games.services.GamesService;
 import com.example.consolemania.games.services.PlatformsService;
+import com.jcabi.urn.URN;
 import jakarta.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -57,14 +58,16 @@ public class PlatformsController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     ResponseEntity<Void> postPlatform(@RequestBody @Valid PlatformRequest newPlatform) throws URISyntaxException {
-        var newId = platformsService.add(newPlatform);
-        return ResponseEntity.created(new URI("/platforms/" + newId)).build();
+        var platformUrn = platformsService.add(newPlatform);
+        return ResponseEntity.created(new URI("/platforms/" + platformUrn)).build();
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/{platformUrn}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    void putPlatform(@PathVariable UUID id, @RequestBody @Valid PlatformRequest updatePlatform) {
-        platformsService.getPlatformById(id).ifPresent(platform -> platformsService.update(id, updatePlatform));
+    void putPlatform(@PathVariable URN platformUrn, @RequestBody @Valid PlatformRequest updatePlatform) {
+        platformsService
+                .getPlatformByUrn(platformUrn)
+                .ifPresent(platform -> platformsService.update(platform.platformId(), updatePlatform));
     }
 
     @GetMapping
@@ -72,14 +75,16 @@ public class PlatformsController {
         return ResponseEntity.ok(platformsService.getAll());
     }
 
-    @GetMapping("/{id}")
-    ResponseEntity<Platform> getPlatformById(@PathVariable UUID id) {
-        return platformsService.getPlatformById(id).map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound()
-                .build());
+    @GetMapping("/{platformUrn}")
+    ResponseEntity<Platform> getPlatformByUrn(@PathVariable URN platformUrn) {
+        return platformsService
+                .getPlatformByUrn(platformUrn)
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @GetMapping("/{id}/games")
-    ResponseEntity<List<Game>> getGamesByPlatformId(@PathVariable UUID id) {
+    ResponseEntity<List<Game>> getGamesByPlatformUrn(@PathVariable UUID id) {
         return ResponseEntity.ok(gamesService.getGamesByPlatform(id));
     }
 }

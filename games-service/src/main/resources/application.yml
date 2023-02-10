@@ -12,9 +12,6 @@ spring:
     timeout-per-shutdown-phase: 15s
   flyway:
     enabled: true
-  #jackson:
-  #  property-naming-strategy: SNAKE_CASE
-  #  default-property-inclusion: non_null
 
 server:
   port: 9000
@@ -29,6 +26,7 @@ server:
 logging:
   level:
     org.springframework: INFO
+    org.springframework.data: INFO
     com.example.consolemania.games: INFO
 
 management:

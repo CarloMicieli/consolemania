@@ -90,6 +90,7 @@ public class GamesApiTests {
                 .when()
                 .post("/games")
                 .then()
-                .statusCode(201);
+                .statusCode(201)
+                .header("Location", "/games/urn:game:neo-geo-aes:fatal-fury-2");
     }
 }

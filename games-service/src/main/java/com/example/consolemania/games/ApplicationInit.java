@@ -24,6 +24,7 @@ package com.example.consolemania.games;
 import com.example.consolemania.games.repositories.GamesRepository;
 import com.example.consolemania.games.repositories.PlatformEntity;
 import com.example.consolemania.games.repositories.PlatformsRepository;
+import com.jcabi.urn.URN;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.UUID;
@@ -54,7 +55,7 @@ public class ApplicationInit implements CommandLineRunner {
 
         var neoGeo = new PlatformEntity(
                 UUID.randomUUID(),
-                "urn:platform:neo-geo-aes",
+                URN.create("urn:platform:neo-geo-aes"),
                 "Neo Geo AES",
                 "SNK",
                 4,

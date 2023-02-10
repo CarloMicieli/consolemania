@@ -41,6 +41,15 @@ public record Slug(String value) {
         this.value = toSeoFriendlyString(value);
     }
 
+    public static Slug of(String value) {
+        return new Slug(value);
+    }
+
+    @Override
+    public String toString() {
+        return value;
+    }
+
     private static final Pattern NON_LATIN = Pattern.compile("[^\\w-]");
     private static final Pattern WHITESPACE = Pattern.compile("[\\s]");
     private static final String SEP = "-";

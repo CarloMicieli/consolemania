@@ -21,9 +21,13 @@
 
 package com.example.consolemania.games.repositories;
 
+import com.jcabi.urn.URN;
+import java.util.Optional;
 import java.util.UUID;
 import org.springframework.data.repository.CrudRepository;
 
 public interface GamesRepository extends CrudRepository<GameEntity, UUID> {
     Iterable<GameEntity> findAllByPlatformId(UUID platformId);
+
+    Optional<GameEntity> findByGameUrn(URN gameURN);
 }
