@@ -1,8 +1,8 @@
 version: "3.9"
 
 services:
-  games_service:
-    image: ghcr.io/carlomicieli/games-service:latest
+  catalog_service:
+    image: ghcr.io/carlomicieli/catalog-service:latest
     depends_on:
       games_db:
         condition: service_healthy
@@ -11,7 +11,7 @@ services:
       - 9001:9001
     environment:
       - JAVA_TOOL_OPTIONS=-Xss512k -Xmx256M -XX:ReservedCodeCacheSize=64M -XX:MaxMetaspaceSize=64M
-      - DB_URL=jdbc:postgresql://games_db:5432/gamesdb
+      - DB_URL=jdbc:postgresql://games_db:5432/catalogdb
       - DB_USERNAME=postgres
       - DB_PASSWORD=mysecretpassword
     deploy:
@@ -25,16 +25,16 @@ services:
     networks:
       - backend
 
-  games_db:
+  catalog_db:
     image: postgres:15.1-alpine
     ports:
       - 5432:5432
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_DB: gamesdb
+      POSTGRES_DB: catalogdb
       POSTGRES_PASSWORD: mysecretpassword
     volumes:
-      - games-db-data:/var/lib/postgresql/data
+      - catalog-db-data:/var/lib/postgresql/data
     networks:
       - backend
     healthcheck:
@@ -65,4 +65,4 @@ networks:
   backend:
 
 volumes:
-  games-db-data:
+  catalog-db-data:

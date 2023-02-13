@@ -1,3 +1,3 @@
 rootProject.name = "consolemania"
 
-include("games-service")
+include("catalog-service")

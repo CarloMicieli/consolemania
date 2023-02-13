@@ -1,1 +1,1 @@
-db:5432:gamesdb:postgres:mysecretpassword
+db:5432:catalogdb:postgres:mysecretpassword
