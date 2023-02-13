@@ -21,8 +21,10 @@
 
 package com.example.consolemania.catalog.domain;
 
+import io.soabase.recordbuilder.core.RecordBuilder;
 import jakarta.validation.constraints.Size;
 
+@RecordBuilder
 public record TechSpecs(
         @Size(max = 1000) String cpu,
         @Size(max = 1000) String memory,

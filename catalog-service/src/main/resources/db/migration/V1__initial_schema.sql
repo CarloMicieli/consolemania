@@ -8,6 +8,7 @@ CREATE TABLE platforms (
     release_eu date,
     release_jp date,
     release_na date,
+    discontinued_year integer,
     discontinued varchar(100) NOT NULL,
     introductory_price decimal,
     units_sold decimal,

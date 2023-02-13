@@ -30,19 +30,13 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.example.consolemania.catalog.domain.Media;
 import com.example.consolemania.catalog.domain.Platform;
-import com.example.consolemania.catalog.domain.PlatformRequest;
-import com.example.consolemania.catalog.domain.PlatformType;
-import com.example.consolemania.catalog.domain.Release;
-import com.example.consolemania.catalog.domain.TechSpecs;
+import com.example.consolemania.catalog.domain.Platforms;
 import com.example.consolemania.catalog.services.GamesService;
 import com.example.consolemania.catalog.services.PlatformsService;
 import com.example.consolemania.catalog.util.UuidSource;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jcabi.urn.URN;
-import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.Optional;
 import java.util.UUID;
 import org.junit.jupiter.api.BeforeEach;
@@ -84,7 +78,7 @@ class PlatformsControllerTest {
     @Test
     @DisplayName("it should create new platforms")
     void shouldPostNewPlatforms() throws Exception {
-        var request = platformRequest();
+        var request = Platforms.NEO_GEO_AES_REQUEST;
 
         when(platformsService.createPlatform(request)).thenReturn(FIXED_URN);
 
@@ -99,7 +93,7 @@ class PlatformsControllerTest {
     @Test
     @DisplayName("it should return a BAD_REQUEST when the new platform request is not valid")
     void shouldValidateNewPlatformRequests() throws Exception {
-        var request = invalidPlatformRequest();
+        var request = Platforms.NEO_GEO_AES_REQUEST.withName("");
         mockMvc.perform(post("/platforms")
                         .content(asJsonString(request))
                         .contentType(MediaType.APPLICATION_JSON)
@@ -111,7 +105,7 @@ class PlatformsControllerTest {
     @DisplayName("it should update platforms")
     void shouldUpdatePlatforms() throws Exception {
         var id = UUID.randomUUID();
-        var request = platformRequest();
+        var request = Platforms.NEO_GEO_AES_REQUEST;
 
         var platform = mock(Platform.class);
         when(platform.platformId()).thenReturn(id);
@@ -129,7 +123,7 @@ class PlatformsControllerTest {
     @Test
     @DisplayName("it should return a BAD_REQUEST when the updated platform request is not valid")
     void shouldValidatePlatformUpdateRequests() throws Exception {
-        var request = invalidPlatformRequest();
+        var request = Platforms.NEO_GEO_AES_REQUEST.withName("");
         mockMvc.perform(put("/platforms/{platformUrn}", FIXED_URN)
                         .content(asJsonString(request))
                         .contentType(MediaType.APPLICATION_JSON)
@@ -158,34 +152,6 @@ class PlatformsControllerTest {
                 .andExpect(status().isOk());
 
         verify(gamesService).getGamesByPlatform(id);
-    }
-
-    PlatformRequest platformRequest() {
-        return new PlatformRequest(
-                "Neo Geo",
-                "SNK",
-                4,
-                PlatformType.HomeVideoGameConsole,
-                new Release(LocalDate.now(), LocalDate.now(), LocalDate.now()),
-                true,
-                BigDecimal.valueOf(599),
-                100_000,
-                Media.RomCartridge,
-                new TechSpecs("Motorola 68000", "512 Kb", "36000 colors", ""));
-    }
-
-    PlatformRequest invalidPlatformRequest() {
-        return new PlatformRequest(
-                "",
-                "SNK",
-                4,
-                PlatformType.HomeVideoGameConsole,
-                new Release(LocalDate.now(), LocalDate.now(), LocalDate.now()),
-                true,
-                BigDecimal.valueOf(599),
-                100_000,
-                Media.RomCartridge,
-                new TechSpecs("Motorola 68000", "512 Kb", "36000 colors", ""));
     }
 
     String asJsonString(final Object obj) {

@@ -22,6 +22,7 @@
 package com.example.consolemania.catalog.repositories;
 
 import com.jcabi.urn.URN;
+import io.soabase.recordbuilder.core.RecordBuilder;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.UUID;
@@ -30,6 +31,7 @@ import org.springframework.data.annotation.Version;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Table("platforms")
+@RecordBuilder
 public record PlatformEntity(
         @Id UUID platformId,
         URN platformUrn,
@@ -40,6 +42,7 @@ public record PlatformEntity(
         LocalDate releaseJp,
         LocalDate releaseNa,
         LocalDate releaseEu,
+        Integer discontinuedYear,
         boolean discontinued,
         BigDecimal introductoryPrice,
         Integer unitsSold,

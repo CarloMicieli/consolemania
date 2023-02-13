@@ -22,9 +22,11 @@
 package com.example.consolemania.catalog.domain;
 
 import com.jcabi.urn.URN;
+import io.soabase.recordbuilder.core.RecordBuilder;
 import java.time.Year;
 import java.util.UUID;
 
+@RecordBuilder
 public record Game(
         UUID gameId,
         URN gameUrn,

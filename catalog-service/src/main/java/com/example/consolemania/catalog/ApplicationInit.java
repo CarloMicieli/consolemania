@@ -63,6 +63,7 @@ public class ApplicationInit implements CommandLineRunner {
                 LocalDate.parse("1990-04-26"),
                 LocalDate.parse("1990-08-22"),
                 LocalDate.parse("1991-01-01"),
+                1997,
                 true,
                 BigDecimal.valueOf(649),
                 1000000,

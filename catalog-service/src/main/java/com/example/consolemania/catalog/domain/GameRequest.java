@@ -21,11 +21,13 @@
 
 package com.example.consolemania.catalog.domain;
 
+import io.soabase.recordbuilder.core.RecordBuilder;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import java.time.Year;
 
+@RecordBuilder
 public record GameRequest(
         @NotBlank @Size(max = 100) String title,
         @NotNull Genre genre,
@@ -35,4 +37,5 @@ public record GameRequest(
         @NotBlank @Size(max = 100) String developer,
         @NotBlank @Size(max = 100) String publisher,
         Release release,
-        Year year) {}
+        Year year)
+        implements GameRequestBuilder.With {}

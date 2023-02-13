@@ -22,6 +22,8 @@
 package com.example.consolemania.catalog.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.soabase.recordbuilder.core.RecordBuilder;
 import java.time.LocalDate;
 
+@RecordBuilder
 public record Release(LocalDate japan, @JsonProperty("north_america") LocalDate northAmerica, LocalDate europe) {}

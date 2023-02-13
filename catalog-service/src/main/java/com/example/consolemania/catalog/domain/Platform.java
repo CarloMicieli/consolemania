@@ -22,9 +22,12 @@
 package com.example.consolemania.catalog.domain;
 
 import com.jcabi.urn.URN;
+import io.soabase.recordbuilder.core.RecordBuilder;
 import java.math.BigDecimal;
+import java.time.Year;
 import java.util.UUID;
 
+@RecordBuilder
 public record Platform(
         UUID platformId,
         URN platformUrn,
@@ -33,8 +36,10 @@ public record Platform(
         Integer generation,
         PlatformType type,
         Release release,
+        Year discontinuedYear,
         boolean discontinued,
         BigDecimal introductoryPrice,
         Integer unitsSold,
         Media media,
-        TechSpecs techSpecs) {}
+        TechSpecs techSpecs,
+        Integer version) {}

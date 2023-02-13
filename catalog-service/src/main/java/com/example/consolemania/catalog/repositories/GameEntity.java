@@ -24,6 +24,7 @@ package com.example.consolemania.catalog.repositories;
 import com.example.consolemania.catalog.domain.Genre;
 import com.example.consolemania.catalog.domain.Mode;
 import com.jcabi.urn.URN;
+import io.soabase.recordbuilder.core.RecordBuilder;
 import jakarta.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.UUID;
@@ -32,6 +33,7 @@ import org.springframework.data.annotation.Version;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Table("games")
+@RecordBuilder
 public record GameEntity(
         @Id UUID gameId,
         URN gameUrn,

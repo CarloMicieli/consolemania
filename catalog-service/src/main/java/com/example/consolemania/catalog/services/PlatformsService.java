@@ -32,6 +32,7 @@ import com.example.consolemania.catalog.repositories.PlatformsRepository;
 import com.example.consolemania.catalog.util.Slug;
 import com.example.consolemania.catalog.util.UuidSource;
 import com.jcabi.urn.URN;
+import java.time.Year;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -69,6 +70,10 @@ public class PlatformsService {
         var platformName = Slug.of(platform.name());
         var platformUrn = URN.create(String.format("urn:platform:%s", platformName));
 
+        var discontinuedYear = Optional.ofNullable(platform.discontinuedYear())
+                .map(Year::getValue)
+                .orElse(null);
+
         return new PlatformEntity(
                 platformId,
                 platformUrn,
@@ -79,6 +84,7 @@ public class PlatformsService {
                 release.map(Release::japan).orElse(null),
                 release.map(Release::northAmerica).orElse(null),
                 release.map(Release::europe).orElse(null),
+                discontinuedYear,
                 platform.discontinued(),
                 platform.introductoryPrice(),
                 platform.unitsSold(),
@@ -105,6 +111,9 @@ public class PlatformsService {
 
         var techSpecs = new TechSpecs(platform.cpu(), platform.memory(), platform.display(), platform.sound());
 
+        var discountinuedYear =
+                Optional.ofNullable(platform.discontinuedYear()).map(Year::of).orElse(null);
+
         return new Platform(
                 platform.platformId(),
                 platform.platformUrn(),
@@ -113,10 +122,12 @@ public class PlatformsService {
                 platform.generation(),
                 PlatformType.valueOf(platform.type()),
                 release,
+                discountinuedYear,
                 platform.discontinued(),
                 platform.introductoryPrice(),
                 platform.unitsSold(),
                 Media.valueOf(platform.media()),
-                techSpecs);
+                techSpecs,
+                platform.version());
     }
 }

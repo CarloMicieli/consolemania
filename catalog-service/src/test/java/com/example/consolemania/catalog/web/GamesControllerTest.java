@@ -30,16 +30,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.example.consolemania.catalog.domain.Game;
-import com.example.consolemania.catalog.domain.GameRequest;
-import com.example.consolemania.catalog.domain.Genre;
-import com.example.consolemania.catalog.domain.Mode;
-import com.example.consolemania.catalog.domain.Release;
+import com.example.consolemania.catalog.domain.Games;
 import com.example.consolemania.catalog.services.GamesService;
 import com.example.consolemania.catalog.util.UuidSource;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jcabi.urn.URN;
-import java.time.LocalDate;
-import java.time.Year;
 import java.util.Optional;
 import java.util.UUID;
 import org.junit.jupiter.api.BeforeEach;
@@ -78,7 +73,7 @@ class GamesControllerTest {
     @Test
     @DisplayName("it should create new games")
     void shouldPostNewGames() throws Exception {
-        var request = gameRequest();
+        var request = Games.FATAL_FURY_2_REQUEST;
 
         when(gamesService.createGame(request)).thenReturn(FIXED_URN);
 
@@ -93,7 +88,7 @@ class GamesControllerTest {
     @Test
     @DisplayName("it should return a BAD_REQUEST when the new game request is not valid")
     void shouldValidateNewGameRequests() throws Exception {
-        var request = invalidGameRequest();
+        var request = Games.FATAL_FURY_2_REQUEST.withTitle("");
         mockMvc.perform(post("/games")
                         .content(asJsonString(request))
                         .contentType(MediaType.APPLICATION_JSON)
@@ -104,7 +99,13 @@ class GamesControllerTest {
     @Test
     @DisplayName("it should update games")
     void shouldPutGames() throws Exception {
-        var request = gameRequest();
+        var game = mock(Game.class);
+        when(game.gameId()).thenReturn(FIXED_UUID);
+        when(game.version()).thenReturn(42);
+
+        when(gamesService.getGameByUrn(FIXED_URN)).thenReturn(Optional.of(game));
+
+        var request = Games.FATAL_FURY_2_REQUEST;
         mockMvc.perform(put("/games/{urn}", FIXED_URN)
                         .content(asJsonString(request))
                         .contentType(MediaType.APPLICATION_JSON)
@@ -115,7 +116,7 @@ class GamesControllerTest {
     @Test
     @DisplayName("it should return a BAD_REQUEST when the updated game request is not valid")
     void shouldValidateGameUpdateRequests() throws Exception {
-        var request = invalidGameRequest();
+        var request = Games.FATAL_FURY_2_REQUEST.withTitle("");
         mockMvc.perform(put("/games/{urn}", FIXED_URN)
                         .content(asJsonString(request))
                         .contentType(MediaType.APPLICATION_JSON)
@@ -146,23 +147,5 @@ class GamesControllerTest {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-    }
-
-    GameRequest gameRequest() {
-        return new GameRequest(
-                "Fatal Fury 2",
-                Genre.Fighting,
-                "Neo Geo AES",
-                Mode.SinglePlayer,
-                "Fatal Fury",
-                "SNK",
-                "SNK",
-                new Release(LocalDate.of(1995, 7, 28), LocalDate.of(1995, 7, 28), LocalDate.of(1995, 7, 28)),
-                Year.of(1994));
-    }
-
-    GameRequest invalidGameRequest() {
-        return new GameRequest(
-                "", Genre.Fighting, "Neo Geo", Mode.SinglePlayer, "Fatal Fury", "SNK", "SNK", null, Year.of(1994));
     }
 }
