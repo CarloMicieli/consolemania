@@ -52,13 +52,21 @@ public class GamesController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     ResponseEntity<Void> postGame(@RequestBody @Valid GameRequest newGame) throws URISyntaxException {
-        var gameUrn = gamesService.add(newGame);
+        var gameUrn = gamesService.createGame(newGame);
         return ResponseEntity.created(new URI("/games/" + gameUrn)).build();
     }
 
     @PutMapping("/{gameUrn}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    void putGame(@PathVariable URN gameUrn, @RequestBody @Valid GameRequest game) {}
+    ResponseEntity<?> putGame(@PathVariable URN gameUrn, @RequestBody @Valid GameRequest gameRequest) {
+        return gamesService
+                .getGameByUrn(gameUrn)
+                .map(game -> {
+                    gamesService.updateGame(game.gameId(), gameRequest, game.version());
+                    return ResponseEntity.noContent().build();
+                })
+                .orElseGet(() -> ResponseEntity.notFound().build());
+    }
 
     @GetMapping("/{gameUrn}")
     ResponseEntity<Game> getGameByUrn(@PathVariable URN gameUrn) {

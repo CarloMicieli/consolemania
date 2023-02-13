@@ -19,21 +19,17 @@
  *    under the License.
  */
 
-package com.example.consolemania.games.domain;
+package com.example.consolemania.games.config;
 
-import com.jcabi.urn.URN;
-import java.time.Year;
+import com.example.consolemania.games.util.UuidSource;
 import java.util.UUID;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
-public record Game(
-        UUID gameId,
-        URN gameUrn,
-        String title,
-        Genre genre,
-        Mode modes,
-        String series,
-        String developer,
-        String publisher,
-        Release release,
-        Year year,
-        Integer version) {}
+@Configuration
+public class ApplicationConfig {
+    @Bean
+    public UuidSource uuidSource() {
+        return UUID::randomUUID;
+    }
+}

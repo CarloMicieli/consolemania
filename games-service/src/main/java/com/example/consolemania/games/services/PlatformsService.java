@@ -50,14 +50,14 @@ public class PlatformsService {
         this.uuidSource = uuidSource;
     }
 
-    public URN add(PlatformRequest newPlatform) {
+    public URN createPlatform(PlatformRequest newPlatform) {
         var newId = uuidSource.generateNewId();
         var platformEntity = entityFromRequest(newId, newPlatform, null);
         platformsRepository.save(platformEntity);
         return platformEntity.platformUrn();
     }
 
-    public void update(UUID platformId, PlatformRequest platform) {
+    public void updatePlatform(UUID platformId, PlatformRequest platform) {
         var platformEntity = entityFromRequest(platformId, platform, null);
         platformsRepository.save(platformEntity);
     }
@@ -94,10 +94,6 @@ public class PlatformsService {
         return StreamSupport.stream(platformsRepository.findAll().spliterator(), false)
                 .map(this::toPlatform)
                 .collect(Collectors.toList());
-    }
-
-    public Optional<Platform> getPlatformById(UUID platformId) {
-        return platformsRepository.findById(platformId).map(this::toPlatform);
     }
 
     public Optional<Platform> getPlatformByUrn(URN platformUrn) {

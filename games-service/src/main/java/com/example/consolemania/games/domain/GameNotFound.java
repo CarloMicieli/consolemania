@@ -21,19 +21,8 @@
 
 package com.example.consolemania.games.domain;
 
-import com.jcabi.urn.URN;
-import java.time.Year;
-import java.util.UUID;
-
-public record Game(
-        UUID gameId,
-        URN gameUrn,
-        String title,
-        Genre genre,
-        Mode modes,
-        String series,
-        String developer,
-        String publisher,
-        Release release,
-        Year year,
-        Integer version) {}
+public class GameNotFound extends RuntimeException {
+    public GameNotFound() {
+        super("Game not found");
+    }
+}

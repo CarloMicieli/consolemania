@@ -80,7 +80,7 @@ class GamesControllerTest {
     void shouldPostNewGames() throws Exception {
         var request = gameRequest();
 
-        when(gamesService.add(request)).thenReturn(FIXED_URN);
+        when(gamesService.createGame(request)).thenReturn(FIXED_URN);
 
         mockMvc.perform(post("/games")
                         .content(asJsonString(request))

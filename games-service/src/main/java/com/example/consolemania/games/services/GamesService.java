@@ -23,6 +23,7 @@ package com.example.consolemania.games.services;
 
 import com.example.consolemania.games.domain.Game;
 import com.example.consolemania.games.domain.GameRequest;
+import com.example.consolemania.games.domain.PlatformNotFound;
 import com.example.consolemania.games.domain.Release;
 import com.example.consolemania.games.repositories.GameEntity;
 import com.example.consolemania.games.repositories.GamesRepository;
@@ -52,15 +53,15 @@ public class GamesService {
         this.uuidSource = uuidSource;
     }
 
-    public URN add(GameRequest newGame) {
+    public URN createGame(GameRequest newGame) {
         var newId = uuidSource.generateNewId();
         var gameEntity = entityFromRequest(newId, newGame, null);
         games.save(gameEntity);
         return gameEntity.gameUrn();
     }
 
-    public void update(UUID gameId, GameRequest game) {
-        var gameEntity = entityFromRequest(gameId, game, 1);
+    public void updateGame(UUID gameId, GameRequest game, Integer version) {
+        var gameEntity = entityFromRequest(gameId, game, version + 1);
         games.save(gameEntity);
     }
 
@@ -68,7 +69,7 @@ public class GamesService {
         var platformId = platforms
                 .findByName(game.platform())
                 .map(PlatformEntity::platformId)
-                .orElseThrow();
+                .orElseThrow(PlatformNotFound::new);
         var release = Optional.ofNullable(game.release());
 
         var platform = Slug.of(game.platform());
@@ -115,6 +116,7 @@ public class GamesService {
                 gameEntity.developer(),
                 gameEntity.publisher(),
                 release,
-                Year.of(gameEntity.year()));
+                Year.of(gameEntity.year()),
+                gameEntity.version());
     }
 }

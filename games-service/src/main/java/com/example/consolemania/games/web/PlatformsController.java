@@ -58,16 +58,20 @@ public class PlatformsController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     ResponseEntity<Void> postPlatform(@RequestBody @Valid PlatformRequest newPlatform) throws URISyntaxException {
-        var platformUrn = platformsService.add(newPlatform);
+        var platformUrn = platformsService.createPlatform(newPlatform);
         return ResponseEntity.created(new URI("/platforms/" + platformUrn)).build();
     }
 
     @PutMapping("/{platformUrn}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    void putPlatform(@PathVariable URN platformUrn, @RequestBody @Valid PlatformRequest updatePlatform) {
-        platformsService
+    ResponseEntity<?> putPlatform(@PathVariable URN platformUrn, @RequestBody @Valid PlatformRequest updatePlatform) {
+        return platformsService
                 .getPlatformByUrn(platformUrn)
-                .ifPresent(platform -> platformsService.update(platform.platformId(), updatePlatform));
+                .map(platform -> {
+                    platformsService.updatePlatform(platform.platformId(), updatePlatform);
+                    return ResponseEntity.noContent().build();
+                })
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @GetMapping

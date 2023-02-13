@@ -21,7 +21,6 @@
 
 package com.example.consolemania.games.config;
 
-import com.example.consolemania.games.util.UuidSource;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.Module;
@@ -32,7 +31,6 @@ import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import com.jcabi.urn.URN;
 import java.io.IOException;
-import java.util.UUID;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
@@ -48,11 +46,6 @@ public class WebConfig {
                 .serializationInclusion(JsonInclude.Include.NON_NULL)
                 .modulesToInstall(customSerializerModule());
         return builder;
-    }
-
-    @Bean
-    public UuidSource uuidSource() {
-        return UUID::randomUUID;
     }
 
     Module customSerializerModule() {

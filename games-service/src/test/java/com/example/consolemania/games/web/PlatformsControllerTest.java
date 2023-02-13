@@ -86,7 +86,7 @@ class PlatformsControllerTest {
     void shouldPostNewPlatforms() throws Exception {
         var request = platformRequest();
 
-        when(platformsService.add(request)).thenReturn(FIXED_URN);
+        when(platformsService.createPlatform(request)).thenReturn(FIXED_URN);
 
         mockMvc.perform(post("/platforms")
                         .content(asJsonString(request))
@@ -123,7 +123,7 @@ class PlatformsControllerTest {
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNoContent());
 
-        verify(platformsService).update(id, request);
+        verify(platformsService).updatePlatform(id, request);
     }
 
     @Test
