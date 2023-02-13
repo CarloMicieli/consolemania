@@ -19,17 +19,15 @@
  *    under the License.
  */
 
-package it.consolemania.catalog.repositories;
+package it.consolemania.catalog.domain;
 
 import com.jcabi.urn.URN;
-import java.util.Optional;
-import java.util.UUID;
-import org.springframework.data.repository.CrudRepository;
 
-public interface PlatformsRepository extends CrudRepository<PlatformEntity, UUID> {
-    Optional<PlatformEntity> findByName(String name);
+@SuppressWarnings("serial")
+public final class PlatformAlreadyExistException extends RuntimeException {
+    private final URN platformUrn;
 
-    Optional<PlatformEntity> findByPlatformUrn(URN platformUrn);
-
-    boolean existsByPlatformUrn(URN platformUrn);
+    public PlatformAlreadyExistException(URN platformUrn) {
+        this.platformUrn = platformUrn;
+    }
 }

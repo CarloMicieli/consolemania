@@ -68,7 +68,7 @@ public class PlatformsController {
         return platformsService
                 .getPlatformByUrn(platformUrn)
                 .map(platform -> {
-                    platformsService.updatePlatform(platform.platformId(), updatePlatform);
+                    platformsService.updatePlatform(platform.platformId(), updatePlatform, platform.version());
                     return ResponseEntity.noContent().build();
                 })
                 .orElseGet(() -> ResponseEntity.notFound().build());

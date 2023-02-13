@@ -24,6 +24,7 @@ package it.consolemania.catalog.services;
 import com.jcabi.urn.URN;
 import it.consolemania.catalog.domain.Media;
 import it.consolemania.catalog.domain.Platform;
+import it.consolemania.catalog.domain.PlatformAlreadyExistException;
 import it.consolemania.catalog.domain.PlatformRequest;
 import it.consolemania.catalog.domain.PlatformType;
 import it.consolemania.catalog.domain.Release;
@@ -54,12 +55,17 @@ public class PlatformsService {
     public URN createPlatform(PlatformRequest newPlatform) {
         var newId = uuidSource.generateNewId();
         var platformEntity = entityFromRequest(newId, newPlatform, null);
+
+        if (platformsRepository.existsByPlatformUrn(platformEntity.platformUrn())) {
+            throw new PlatformAlreadyExistException(platformEntity.platformUrn());
+        }
+
         platformsRepository.save(platformEntity);
         return platformEntity.platformUrn();
     }
 
-    public void updatePlatform(UUID platformId, PlatformRequest platform) {
-        var platformEntity = entityFromRequest(platformId, platform, null);
+    public void updatePlatform(UUID platformId, PlatformRequest platform, Integer version) {
+        var platformEntity = entityFromRequest(platformId, platform, version + 1);
         platformsRepository.save(platformEntity);
     }
 

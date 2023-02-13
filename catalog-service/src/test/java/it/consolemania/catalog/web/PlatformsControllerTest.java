@@ -109,6 +109,7 @@ class PlatformsControllerTest {
 
         var platform = mock(Platform.class);
         when(platform.platformId()).thenReturn(id);
+        when(platform.version()).thenReturn(42);
         when(platformsService.getPlatformByUrn(FIXED_URN)).thenReturn(Optional.of(platform));
 
         mockMvc.perform(put("/platforms/{platformUrn}", FIXED_URN)
@@ -117,7 +118,7 @@ class PlatformsControllerTest {
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNoContent());
 
-        verify(platformsService).updatePlatform(id, request);
+        verify(platformsService).updatePlatform(id, request, 42);
     }
 
     @Test

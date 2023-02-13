@@ -23,6 +23,7 @@ package it.consolemania.catalog.services;
 
 import com.jcabi.urn.URN;
 import it.consolemania.catalog.domain.Game;
+import it.consolemania.catalog.domain.GameAlreadyExistException;
 import it.consolemania.catalog.domain.GameRequest;
 import it.consolemania.catalog.domain.PlatformNotFound;
 import it.consolemania.catalog.domain.Release;
@@ -56,6 +57,11 @@ public class GamesService {
     public URN createGame(GameRequest newGame) {
         var newId = uuidSource.generateNewId();
         var gameEntity = entityFromRequest(newId, newGame, null);
+
+        if (games.existsByGameUrn(gameEntity.gameUrn())) {
+            throw new GameAlreadyExistException(gameEntity.gameUrn());
+        }
+
         games.save(gameEntity);
         return gameEntity.gameUrn();
     }

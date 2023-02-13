@@ -30,4 +30,6 @@ public interface GamesRepository extends CrudRepository<GameEntity, UUID> {
     Iterable<GameEntity> findAllByPlatformId(UUID platformId);
 
     Optional<GameEntity> findByGameUrn(URN gameURN);
+
+    boolean existsByGameUrn(URN gameURN);
 }

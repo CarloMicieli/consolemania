@@ -21,6 +21,8 @@
 
 package it.consolemania.catalog.web;
 
+import it.consolemania.catalog.domain.GameAlreadyExistException;
+import it.consolemania.catalog.domain.PlatformAlreadyExistException;
 import java.util.HashMap;
 import java.util.Map;
 import org.springframework.http.HttpStatus;
@@ -43,4 +45,12 @@ public class CatalogServiceControllerAdvice {
         });
         return errors;
     }
+
+    @ExceptionHandler(GameAlreadyExistException.class)
+    @ResponseStatus(HttpStatus.CONFLICT)
+    public void handleGameAlreadyExistExceptions(GameAlreadyExistException ex) {}
+
+    @ExceptionHandler(PlatformAlreadyExistException.class)
+    @ResponseStatus(HttpStatus.CONFLICT)
+    public void handlePlatformAlreadyExistExceptions(PlatformAlreadyExistException ex) {}
 }

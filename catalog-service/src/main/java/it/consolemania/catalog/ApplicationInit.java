@@ -21,13 +21,8 @@
 
 package it.consolemania.catalog;
 
-import com.jcabi.urn.URN;
-import it.consolemania.catalog.repositories.GamesRepository;
-import it.consolemania.catalog.repositories.PlatformEntity;
-import it.consolemania.catalog.repositories.PlatformsRepository;
-import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.util.UUID;
+import it.consolemania.catalog.domain.Platforms;
+import it.consolemania.catalog.services.PlatformsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -39,41 +34,22 @@ import org.springframework.stereotype.Component;
 public class ApplicationInit implements CommandLineRunner {
 
     private static final Logger logger = LoggerFactory.getLogger(ApplicationInit.class);
+    private final PlatformsService platformsService;
 
-    private final GamesRepository gamesRepository;
-    private final PlatformsRepository platformsRepository;
-
-    public ApplicationInit(GamesRepository gamesRepository, PlatformsRepository platformsRepository) {
-        this.gamesRepository = gamesRepository;
-        this.platformsRepository = platformsRepository;
+    public ApplicationInit(PlatformsService platformsService) {
+        this.platformsService = platformsService;
     }
 
     @Override
     public void run(String... args) throws Exception {
-        this.gamesRepository.deleteAll();
-        this.platformsRepository.deleteAll();
+        if (platformsService
+                .getPlatformByUrn(Platforms.NEO_GEO_AES.platformUrn())
+                .isPresent()) {
+            logger.warn("There is already data in the database. Skipping the data seeding");
+            return;
+        }
 
-        var neoGeo = new PlatformEntity(
-                UUID.randomUUID(),
-                URN.create("urn:platform:neo-geo-aes"),
-                "Neo Geo AES",
-                "SNK",
-                4,
-                "HOME_VIDEO_GAME_CONSOLE",
-                LocalDate.parse("1990-04-26"),
-                LocalDate.parse("1990-08-22"),
-                LocalDate.parse("1991-01-01"),
-                1997,
-                true,
-                BigDecimal.valueOf(649),
-                1000000,
-                "ROM_CARTRIDGE",
-                "Motorola 68000 @ 12MHz, Zilog Z80A @ 4MHz",
-                "64KB RAM, 84KB VRAM, 2KB Sound Memory",
-                "320×224 resolution, 4096 on-screen colors out of a palette of 65536",
-                "Yamaha YM2610",
-                null);
-        platformsRepository.save(neoGeo);
+        platformsService.createPlatform(Platforms.NEO_GEO_AES_REQUEST);
         logger.info("[Platform] Neo Geo AES inserted");
     }
 }

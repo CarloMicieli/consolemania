@@ -23,18 +23,15 @@ package it.consolemania.catalog.services;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import com.jcabi.urn.URN;
-import it.consolemania.catalog.domain.Games;
-import it.consolemania.catalog.repositories.GameEntity;
+import it.consolemania.catalog.domain.Platforms;
 import it.consolemania.catalog.repositories.GamesRepository;
 import it.consolemania.catalog.repositories.PlatformEntity;
 import it.consolemania.catalog.repositories.PlatformsRepository;
 import it.consolemania.catalog.util.UuidSource;
-import java.util.Optional;
 import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -43,47 +40,37 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-@DisplayName("GamesService")
+@DisplayName("PlatformsService")
 @ExtendWith(MockitoExtension.class)
-class GamesServiceTest {
+class PlatformsServiceTest {
 
     @Mock
-    private GamesRepository gamesRepository;
+    private GamesRepository games;
 
     @Mock
-    private PlatformsRepository platformsRepository;
+    private PlatformsRepository platforms;
 
     @Mock
     private UuidSource uuidSource;
 
     @InjectMocks
-    private GamesService gamesService;
+    private PlatformsService platformsService;
 
     @Test
-    @DisplayName("it should create a new game")
-    void shouldCreateNewGames() {
-        var platform = mock(PlatformEntity.class);
+    @DisplayName("it should create new platforms")
+    void shouldCreateNewPlatforms() {
         when(uuidSource.generateNewId()).thenReturn(UUID.randomUUID());
-        when(platform.platformId()).thenReturn(UUID.randomUUID());
-        when(platformsRepository.findByName(Games.FATAL_FURY_2_REQUEST.platform()))
-                .thenReturn(Optional.of(platform));
 
-        var result = gamesService.createGame(Games.FATAL_FURY_2_REQUEST);
+        var result = platformsService.createPlatform(Platforms.NEO_GEO_AES_REQUEST);
 
-        assertThat(result).isEqualTo(URN.create("urn:game:neo-geo-aes:fatal-fury-2"));
-        verify(gamesRepository).save(any(GameEntity.class));
+        assertThat(result).isEqualTo(URN.create("urn:platform:neo-geo-aes"));
+        verify(platforms).save(any(PlatformEntity.class));
     }
 
     @Test
-    @DisplayName("it should update games")
-    void shouldUpdateGames() {
-        var platform = mock(PlatformEntity.class);
-        when(platform.platformId()).thenReturn(UUID.randomUUID());
-        when(platformsRepository.findByName(Games.FATAL_FURY_2_REQUEST.platform()))
-                .thenReturn(Optional.of(platform));
-
-        gamesService.updateGame(UUID.randomUUID(), Games.FATAL_FURY_2_REQUEST, 42);
-
-        verify(gamesRepository).save(any(GameEntity.class));
+    @DisplayName("it should update platforms")
+    void shouldUpdatePlatforms() {
+        platformsService.updatePlatform(UUID.randomUUID(), Platforms.NEO_GEO_AES_REQUEST, 42);
+        verify(platforms).save(any(PlatformEntity.class));
     }
 }
