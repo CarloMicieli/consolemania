@@ -25,9 +25,13 @@ import com.jcabi.urn.URN;
 
 @SuppressWarnings("serial")
 public final class GameAlreadyExistException extends RuntimeException {
-    private final URN platformUrn;
+    private final URN gameUrn;
 
-    public GameAlreadyExistException(URN platformUrn) {
-        this.platformUrn = platformUrn;
+    public GameAlreadyExistException(URN gameUrn) {
+        this.gameUrn = gameUrn;
+    }
+
+    public URN getGameUrn() {
+        return gameUrn;
     }
 }

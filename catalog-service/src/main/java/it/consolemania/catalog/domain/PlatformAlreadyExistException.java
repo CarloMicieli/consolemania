@@ -30,4 +30,8 @@ public final class PlatformAlreadyExistException extends RuntimeException {
     public PlatformAlreadyExistException(URN platformUrn) {
         this.platformUrn = platformUrn;
     }
+
+    public URN getPlatformUrn() {
+        return platformUrn;
+    }
 }
