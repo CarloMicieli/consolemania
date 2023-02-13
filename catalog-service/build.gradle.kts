@@ -9,7 +9,7 @@ plugins {
     id("java-app-conventions")
 }
 
-group = "com.example.consolemania.catalog"
+group = "it.consolemania.catalog"
 
 configurations {
     compileOnly {
@@ -31,7 +31,7 @@ dependencies {
 }
 
 tasks.getByName<BootRun>("bootRun") {
-    mainClass.set("com.example.consolemania.catalog.CatalogServiceApplication")
+    mainClass.set("it.consolemania.catalog.CatalogServiceApplication")
 }
 
 extra["testcontainersVersion"] = "1.17.6"
