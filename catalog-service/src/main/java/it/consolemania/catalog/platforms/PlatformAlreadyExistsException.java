@@ -19,14 +19,19 @@
  *    under the License.
  */
 
-package it.consolemania.catalog;
+package it.consolemania.catalog.platforms;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import com.jcabi.urn.URN;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class CatalogServiceApplicationTests {
+@SuppressWarnings("serial")
+public final class PlatformAlreadyExistsException extends RuntimeException {
+    private final URN platformUrn;
 
-    @Test
-    void contextLoads() {}
+    public PlatformAlreadyExistsException(URN platformUrn) {
+        this.platformUrn = platformUrn;
+    }
+
+    public URN getPlatformUrn() {
+        return platformUrn;
+    }
 }

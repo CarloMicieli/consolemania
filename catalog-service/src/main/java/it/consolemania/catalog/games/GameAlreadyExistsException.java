@@ -19,14 +19,19 @@
  *    under the License.
  */
 
-package it.consolemania.catalog;
+package it.consolemania.catalog.games;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import com.jcabi.urn.URN;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class CatalogServiceApplicationTests {
+@SuppressWarnings("serial")
+public final class GameAlreadyExistsException extends RuntimeException {
+    private final URN gameUrn;
 
-    @Test
-    void contextLoads() {}
+    public GameAlreadyExistsException(URN gameUrn) {
+        this.gameUrn = gameUrn;
+    }
+
+    public URN getGameUrn() {
+        return gameUrn;
+    }
 }

@@ -19,14 +19,15 @@
  *    under the License.
  */
 
-package it.consolemania.catalog;
+package it.consolemania.catalog.games;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import io.soabase.recordbuilder.core.RecordBuilder;
+import java.time.LocalDate;
+import org.springframework.data.relational.core.mapping.Column;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class CatalogServiceApplicationTests {
-
-    @Test
-    void contextLoads() {}
-}
+@RecordBuilder
+public record Release(
+        @Column("release_jp") LocalDate japan,
+        @Column("release_na") @JsonProperty("north_america") LocalDate northAmerica,
+        @Column("release_eu") LocalDate europe) {}

@@ -19,14 +19,9 @@
  *    under the License.
  */
 
-package it.consolemania.catalog;
+package it.consolemania.catalog.platforms;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class CatalogServiceApplicationTests {
-
-    @Test
-    void contextLoads() {}
+public enum PlatformType {
+    ARCADE_SYSTEM_BOARD,
+    HOME_VIDEO_GAME_CONSOLE
 }

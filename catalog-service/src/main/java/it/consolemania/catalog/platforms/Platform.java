@@ -19,14 +19,25 @@
  *    under the License.
  */
 
-package it.consolemania.catalog;
+package it.consolemania.catalog.platforms;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import com.jcabi.urn.URN;
+import io.soabase.recordbuilder.core.RecordBuilder;
+import java.math.BigDecimal;
+import java.time.Year;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class CatalogServiceApplicationTests {
-
-    @Test
-    void contextLoads() {}
-}
+@RecordBuilder
+public record Platform(
+        URN platformUrn,
+        String name,
+        String manufacturer,
+        Integer generation,
+        PlatformType type,
+        Release release,
+        Year discontinuedYear,
+        boolean discontinued,
+        BigDecimal introductoryPrice,
+        Integer unitsSold,
+        Media media,
+        TechSpecs techSpecs,
+        Integer version) {}

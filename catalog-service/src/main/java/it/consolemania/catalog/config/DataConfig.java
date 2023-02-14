@@ -22,11 +22,14 @@
 package it.consolemania.catalog.config;
 
 import com.jcabi.urn.URN;
-import it.consolemania.catalog.domain.Genre;
-import it.consolemania.catalog.domain.Mode;
-import it.consolemania.catalog.repositories.GamesRepository;
+import it.consolemania.catalog.games.GamesRepository;
+import it.consolemania.catalog.games.Genre;
+import it.consolemania.catalog.games.Mode;
+import it.consolemania.catalog.platforms.PlatformsRepository;
 import jakarta.annotation.Nonnull;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.data.convert.ReadingConverter;
@@ -37,7 +40,7 @@ import org.springframework.data.jdbc.repository.config.EnableJdbcRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@EnableJdbcRepositories(basePackageClasses = GamesRepository.class)
+@EnableJdbcRepositories(basePackageClasses = {GamesRepository.class, PlatformsRepository.class})
 @EnableJdbcAuditing
 @EnableTransactionManagement
 public class DataConfig extends AbstractJdbcConfiguration {
@@ -46,7 +49,7 @@ public class DataConfig extends AbstractJdbcConfiguration {
     protected List<?> userConverters() {
         return List.of(
                 new GenreReadingConverter(),
-                new GenreWritingConverter(),
+                // new GenreWritingConverter(),
                 new ModesReadingConverter(),
                 new ModesWritingConverter(),
                 new URNReadingConverter(),
@@ -69,19 +72,19 @@ public class DataConfig extends AbstractJdbcConfiguration {
         }
     }
 
-    @WritingConverter
-    static class GenreWritingConverter implements Converter<Genre, String> {
-        @Override
-        public String convert(Genre value) {
-            return value.name();
-        }
-    }
+    //    @WritingConverter
+    //    static class GenreWritingConverter implements Converter<Genre, String> {
+    //        @Override
+    //        public String convert(Genre value) {
+    //            return value.name();
+    //        }
+    //    }
 
     @ReadingConverter
-    static class GenreReadingConverter implements Converter<String, Genre> {
+    static class GenreReadingConverter implements Converter<String[], List<Genre>> {
         @Override
-        public Genre convert(@Nonnull String value) {
-            return Genre.valueOf(value);
+        public List<Genre> convert(@Nonnull String[] values) {
+            return Arrays.stream(values).map(Genre::valueOf).collect(Collectors.toList());
         }
     }
 

@@ -19,14 +19,24 @@
  *    under the License.
  */
 
-package it.consolemania.catalog;
+package it.consolemania.catalog.games;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import io.soabase.recordbuilder.core.RecordBuilder;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import java.time.Year;
+import java.util.List;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class CatalogServiceApplicationTests {
-
-    @Test
-    void contextLoads() {}
-}
+@RecordBuilder
+public record GameRequest(
+        @NotBlank @Size(max = 100) String title,
+        @NotNull List<Genre> genres,
+        @NotBlank @Size(max = 100) String platform,
+        @NotNull List<Mode> modes,
+        @Size(max = 100) String series,
+        @NotBlank @Size(max = 100) String developer,
+        @NotBlank @Size(max = 100) String publisher,
+        Release release,
+        Year year)
+        implements GameRequestBuilder.With {}

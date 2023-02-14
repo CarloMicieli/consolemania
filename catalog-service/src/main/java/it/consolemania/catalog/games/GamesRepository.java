@@ -19,14 +19,19 @@
  *    under the License.
  */
 
-package it.consolemania.catalog;
+package it.consolemania.catalog.games;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import com.jcabi.urn.URN;
+import java.util.Optional;
+import java.util.UUID;
+import org.springframework.data.repository.CrudRepository;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class CatalogServiceApplicationTests {
+public interface GamesRepository extends CrudRepository<GameEntity, UUID> {
+    Iterable<GameEntity> findAllByPlatformId(UUID platformId);
 
-    @Test
-    void contextLoads() {}
+    Optional<GameEntity> findByGameUrn(URN gameURN);
+
+    boolean existsByGameUrn(URN gameURN);
+
+    void deleteByGameUrn(URN gameUrn);
 }

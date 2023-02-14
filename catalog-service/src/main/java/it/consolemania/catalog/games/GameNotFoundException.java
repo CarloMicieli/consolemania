@@ -19,14 +19,21 @@
  *    under the License.
  */
 
-package it.consolemania.catalog;
+package it.consolemania.catalog.games;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import com.jcabi.urn.URN;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class CatalogServiceApplicationTests {
+@SuppressWarnings("serial")
+public class GameNotFoundException extends RuntimeException {
 
-    @Test
-    void contextLoads() {}
+    private final URN gameUrn;
+
+    public GameNotFoundException(URN gameUrn) {
+        super("Game not found");
+        this.gameUrn = gameUrn;
+    }
+
+    public URN getGameUrn() {
+        return gameUrn;
+    }
 }

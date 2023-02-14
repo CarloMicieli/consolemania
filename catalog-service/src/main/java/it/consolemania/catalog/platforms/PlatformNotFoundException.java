@@ -19,14 +19,26 @@
  *    under the License.
  */
 
-package it.consolemania.catalog;
+package it.consolemania.catalog.platforms;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import com.jcabi.urn.URN;
+import it.consolemania.catalog.util.Slug;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class CatalogServiceApplicationTests {
+@SuppressWarnings("serial")
+public class PlatformNotFoundException extends RuntimeException {
+    private final URN platformUrn;
 
-    @Test
-    void contextLoads() {}
+    public PlatformNotFoundException(String platform) {
+        super("Platform not found");
+        this.platformUrn = URN.create("urn:platform:" + Slug.of(platform));
+    }
+
+    public PlatformNotFoundException(URN platformUrn) {
+        super("Platform not found");
+        this.platformUrn = platformUrn;
+    }
+
+    public URN getPlatformUrn() {
+        return platformUrn;
+    }
 }

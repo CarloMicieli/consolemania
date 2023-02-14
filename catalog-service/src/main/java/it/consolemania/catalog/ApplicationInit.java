@@ -21,8 +21,10 @@
 
 package it.consolemania.catalog;
 
-import it.consolemania.catalog.domain.Platforms;
-import it.consolemania.catalog.services.PlatformsService;
+import it.consolemania.catalog.games.Games;
+import it.consolemania.catalog.games.GamesService;
+import it.consolemania.catalog.platforms.Platforms;
+import it.consolemania.catalog.platforms.PlatformsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -35,9 +37,11 @@ public class ApplicationInit implements CommandLineRunner {
 
     private static final Logger logger = LoggerFactory.getLogger(ApplicationInit.class);
     private final PlatformsService platformsService;
+    private final GamesService gamesService;
 
-    public ApplicationInit(PlatformsService platformsService) {
+    public ApplicationInit(PlatformsService platformsService, GamesService gamesService) {
         this.platformsService = platformsService;
+        this.gamesService = gamesService;
     }
 
     @Override
@@ -51,5 +55,8 @@ public class ApplicationInit implements CommandLineRunner {
 
         platformsService.createPlatform(Platforms.NEO_GEO_AES_REQUEST);
         logger.info("[Platform] Neo Geo AES inserted");
+
+        gamesService.createGame(Games.FATAL_FURY_3_REQUEST);
+        logger.info("[Game] FATAL FURY 3 inserted");
     }
 }

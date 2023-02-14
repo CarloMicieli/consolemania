@@ -19,14 +19,22 @@
  *    under the License.
  */
 
-package it.consolemania.catalog;
+package it.consolemania.catalog.games;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import com.jcabi.urn.URN;
+import io.soabase.recordbuilder.core.RecordBuilder;
+import java.time.Year;
+import java.util.List;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class CatalogServiceApplicationTests {
-
-    @Test
-    void contextLoads() {}
-}
+@RecordBuilder
+public record Game(
+        URN gameUrn,
+        String title,
+        List<Genre> genres,
+        List<Mode> modes,
+        String series,
+        String developer,
+        String publisher,
+        Release release,
+        Year year,
+        Integer version) {}

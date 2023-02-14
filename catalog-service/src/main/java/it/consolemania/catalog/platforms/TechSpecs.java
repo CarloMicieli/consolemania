@@ -19,14 +19,14 @@
  *    under the License.
  */
 
-package it.consolemania.catalog;
+package it.consolemania.catalog.platforms;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import io.soabase.recordbuilder.core.RecordBuilder;
+import jakarta.validation.constraints.Size;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class CatalogServiceApplicationTests {
-
-    @Test
-    void contextLoads() {}
-}
+@RecordBuilder
+public record TechSpecs(
+        @Size(max = 1000) String cpu,
+        @Size(max = 1000) String memory,
+        @Size(max = 1000) String display,
+        @Size(max = 1000) String sound) {}

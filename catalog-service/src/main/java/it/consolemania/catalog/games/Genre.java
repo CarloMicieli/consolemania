@@ -19,14 +19,21 @@
  *    under the License.
  */
 
-package it.consolemania.catalog;
+package it.consolemania.catalog.games;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class CatalogServiceApplicationTests {
-
-    @Test
-    void contextLoads() {}
+public enum Genre {
+    ACTION,
+    ACTION_ADVENTURE,
+    ADVENTURE,
+    BOARD_GAME,
+    CARD_GAME,
+    DRIVING_RACE,
+    FIGHTING,
+    PLATFORMER,
+    PUZZLE,
+    ROLE_PLAYING,
+    SPORTS,
+    SHOOTER,
+    SHOOT_EM_UP,
+    TRIVIA_BOARD_GAME
 }

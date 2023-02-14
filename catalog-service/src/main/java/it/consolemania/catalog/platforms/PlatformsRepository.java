@@ -19,14 +19,17 @@
  *    under the License.
  */
 
-package it.consolemania.catalog;
+package it.consolemania.catalog.platforms;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import com.jcabi.urn.URN;
+import java.util.Optional;
+import java.util.UUID;
+import org.springframework.data.repository.CrudRepository;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class CatalogServiceApplicationTests {
+public interface PlatformsRepository extends CrudRepository<PlatformEntity, UUID> {
+    Optional<PlatformEntity> findByName(String name);
 
-    @Test
-    void contextLoads() {}
+    Optional<PlatformEntity> findByPlatformUrn(URN platformUrn);
+
+    boolean existsByPlatformUrn(URN platformUrn);
 }
