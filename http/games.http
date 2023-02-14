@@ -1,5 +1,5 @@
 ### Send a new game
-POST http://localhost:9000/games
+POST http://localhost:8000/games
 Content-Type: application/json
 
 {
@@ -20,7 +20,7 @@ Content-Type: application/json
 }
 
 ### Send a new game
-PUT http://localhost:9000/games/urn:game:neo-geo-aes:fatal-fury-2
+PUT http://localhost:8000/games/urn:game:neo-geo-aes:fatal-fury-2
 Content-Type: application/json
 
 {
@@ -41,5 +41,5 @@ Content-Type: application/json
 }
 
 ### Get a game by id
-GET http://localhost:9000/games/urn:game:neo-geo-aes:fatal-fury-2
+GET http://localhost:8000/games/urn:game:neo-geo-aes:fatal-fury-2
 

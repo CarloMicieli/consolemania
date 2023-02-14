@@ -1,5 +1,5 @@
 ### Send a new platform
-POST http://localhost:9000/platforms
+POST http://localhost:8000/platforms
 Content-Type: application/json
 
 {
@@ -26,13 +26,13 @@ Content-Type: application/json
 }
 
 ### Get a platform
-GET http://localhost:9000/platforms/urn:platform:neo-geo-aes
+GET http://localhost:8000/platforms/urn:platform:neo-geo-aes
 
 ### Get all games by platform
-GET http://localhost:9000/platforms/urn:platform:neo-geo-aes/games
+GET http://localhost:8000/platforms/urn:platform:neo-geo-aes/games
 
 ### Update a new platform
-PUT http://localhost:9000/platforms/urn:platform:neo-geo-aes
+PUT http://localhost:8000/platforms/urn:platform:neo-geo-aes
 Content-Type: application/json
 
 {

@@ -1,6 +1,27 @@
 version: "3.9"
 
 services:
+  edge_service:
+    image: ghcr.io/carlomicieli/edge-service:latest
+    depends_on:
+      catalog_service:
+        condition: service_healthy
+    ports:
+      - 8000:8000
+    environment:
+      - JAVA_TOOL_OPTIONS=-Xss512k -Xmx256M -XX:ReservedCodeCacheSize=64M -XX:MaxMetaspaceSize=64M
+      - CATALOG_SERVICE_URL=http://catalog_service:9000
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 1G
+        reservations:
+          cpus: '0.50'
+          memory: 512M
+    networks:
+      - backend
+
   catalog_service:
     image: ghcr.io/carlomicieli/catalog-service:latest
     depends_on:

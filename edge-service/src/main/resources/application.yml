@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: edge-service
+  lifecycle:
+    timeout-per-shutdown-phase: 15s
+  cloud:
+    routes:
+      - id: platform-route
+        uri: ${CATALOG_SERVICE_URL:http://localhost:9000}/platforms
+        predicates:
+          - Path=/platforms/**
+      - id: game-route
+        uri: ${CATALOG_SERVICE_URL:http://localhost:9000}/games
+        predicates:
+          - Path=/games/**
+
+server:
+  port: 8000
+  netty:
+    connection-timeout: 2s
+    idle-timeout: 15s
+  shutdown: graceful
+
+logging:
+  level:
+    org.springframework: INFO
+    it.consolemania.edge: INFO
