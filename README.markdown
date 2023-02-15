@@ -20,12 +20,6 @@ See `CONTRIBUTING.md` for ways to get started.
 
 Please adhere to this project's `code of conduct`.
 
-### Update locks
-
-```bash
-  ./gradlew common:dependencies domain:dependencies infrastructure:dependencies web:dependencies --write-locks
-```
-
 ### Conventional commits
 
 This repository is following the conventional commits practice.
