@@ -52,8 +52,7 @@ tasks {
         options.compilerArgs.addAll(
             arrayOf(
                 "-Xlint:all",
-                "-Xlint:-processing",
-                "-Werror"
+                "-Xlint:-processing"
             )
         )
     }

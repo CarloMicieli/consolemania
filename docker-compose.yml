@@ -3,9 +3,6 @@ version: "3.9"
 services:
   edge_service:
     image: ghcr.io/carlomicieli/edge-service:latest
-    depends_on:
-      catalog_service:
-        condition: service_healthy
     ports:
       - 8000:8000
     environment:
