@@ -21,6 +21,7 @@
 
 package it.consolemania.catalog.platforms;
 
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -32,9 +33,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jcabi.urn.URN;
 import it.consolemania.catalog.games.GamesService;
-import it.consolemania.catalog.util.UuidSource;
+import java.util.Optional;
 import java.util.UUID;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,14 +47,10 @@ import org.springframework.test.web.servlet.MockMvc;
 @WebMvcTest(PlatformsController.class)
 class PlatformsControllerTest {
 
-    private static final UUID FIXED_UUID = UUID.randomUUID();
     private static final URN FIXED_URN = URN.create("urn:platform:neo-geo-aes");
 
     @MockBean
     private PlatformsService platformsService;
-
-    @MockBean
-    private UuidSource uuidSource;
 
     @MockBean
     private GamesService gamesService;
@@ -64,11 +60,6 @@ class PlatformsControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
-
-    @BeforeEach
-    void setup() {
-        when(uuidSource.generateNewId()).thenReturn(FIXED_UUID);
-    }
 
     @Test
     @DisplayName("it should create new platforms")
@@ -135,10 +126,14 @@ class PlatformsControllerTest {
     }
 
     @Test
-    @DisplayName("it should get all games by platform id")
+    @DisplayName("it should get all games by platform urn")
     void shouldGetAllGamesByPlatformId() throws Exception {
         var id = UUID.randomUUID();
-        mockMvc.perform(get("/platforms/{id}/games", id.toString()).accept(MediaType.APPLICATION_JSON))
+        var platform = mock(Platform.class);
+        when(platform.platformId()).thenReturn(id);
+
+        when(platformsService.getPlatformByUrn(FIXED_URN)).thenReturn(Optional.of(platform));
+        mockMvc.perform(get("/platforms/{id}/games", FIXED_URN).accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
 
         verify(gamesService).getGamesByPlatform(id);

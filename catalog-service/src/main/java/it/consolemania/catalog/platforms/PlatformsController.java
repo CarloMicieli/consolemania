@@ -28,7 +28,6 @@ import jakarta.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
-import java.util.UUID;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -78,8 +77,11 @@ public class PlatformsController {
                 .orElseThrow(() -> new PlatformNotFoundException(platformUrn));
     }
 
-    @GetMapping("/{id}/games")
-    ResponseEntity<List<Game>> getGamesByPlatformUrn(@PathVariable UUID id) {
-        return ResponseEntity.ok(gamesService.getGamesByPlatform(id));
+    @GetMapping("/{platformUrn}/games")
+    ResponseEntity<List<Game>> getGamesByPlatformUrn(@PathVariable URN platformUrn) {
+        return platformsService
+                .getPlatformByUrn(platformUrn)
+                .map(platform -> ResponseEntity.ok(gamesService.getGamesByPlatform(platform.platformId())))
+                .orElse(ResponseEntity.ok(List.of()));
     }
 }

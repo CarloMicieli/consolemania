@@ -17,5 +17,5 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-allopen:1.8.10")
     implementation("org.jetbrains.kotlinx:kover:0.6.1")
     implementation("com.github.ben-manes:gradle-versions-plugin:0.45.0")
-    implementation("org.graalvm.buildtools.native:org.graalvm.buildtools.native.gradle.plugin:0.9.19")
+    implementation("org.graalvm.buildtools.native:org.graalvm.buildtools.native.gradle.plugin:0.9.20")
 }

@@ -105,6 +105,7 @@ public class PlatformsService {
                 Optional.ofNullable(platform.discontinuedYear()).map(Year::of).orElse(null);
 
         return new Platform(
+                platform.platformId(),
                 platform.platformUrn(),
                 platform.name(),
                 platform.manufacturer(),

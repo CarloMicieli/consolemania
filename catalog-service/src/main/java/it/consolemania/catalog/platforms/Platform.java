@@ -25,9 +25,11 @@ import com.jcabi.urn.URN;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import java.math.BigDecimal;
 import java.time.Year;
+import java.util.UUID;
 
 @RecordBuilder
 public record Platform(
+        UUID platformId,
         URN platformUrn,
         String name,
         String manufacturer,

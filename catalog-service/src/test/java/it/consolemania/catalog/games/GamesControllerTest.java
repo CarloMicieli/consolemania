@@ -31,10 +31,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jcabi.urn.URN;
-import it.consolemania.catalog.util.UuidSource;
 import java.util.Optional;
-import java.util.UUID;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,25 +44,16 @@ import org.springframework.test.web.servlet.MockMvc;
 @WebMvcTest(GamesController.class)
 class GamesControllerTest {
 
-    private static final UUID FIXED_UUID = UUID.randomUUID();
     private static final URN FIXED_URN = URN.create("urn:game:neo-geo-aes:fatal-fury-2");
 
     @MockBean
     private GamesService gamesService;
-
-    @MockBean
-    private UuidSource uuidSource;
 
     @Autowired
     private MockMvc mockMvc;
 
     @Autowired
     private ObjectMapper objectMapper;
-
-    @BeforeEach
-    void setup() {
-        when(uuidSource.generateNewId()).thenReturn(FIXED_UUID);
-    }
 
     @Test
     @DisplayName("it should create new games")

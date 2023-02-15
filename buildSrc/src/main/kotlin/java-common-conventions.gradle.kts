@@ -127,6 +127,8 @@ spotless {
         importOrder("java|javax", "io.github.carlomicieli", "", "\\#io.github.carlomicieli", "\\#")
         removeUnusedImports()
 
+        targetExclude("build/generated/aot*/**")
+
         palantirJavaFormat("2.9.0")
 
         formatAnnotations()  // fixes formatting of type annotations
