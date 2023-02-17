@@ -27,7 +27,6 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import com.jcabi.urn.URN;
 import it.consolemania.catalog.games.GamesRepository;
 import it.consolemania.catalog.util.UuidSource;
 import java.util.Optional;
@@ -60,18 +59,18 @@ class PlatformsServiceTest {
     void shouldCreateNewPlatforms() {
         when(uuidSource.generateNewId()).thenReturn(UUID.randomUUID());
 
-        var result = platformsService.createPlatform(Platforms.NEO_GEO_AES_REQUEST);
+        var result = platformsService.createPlatform(Platforms.NEO_GEO_AES);
 
-        assertThat(result).isEqualTo(URN.create("urn:platform:neo-geo-aes"));
-        verify(platforms).save(any(PlatformEntity.class));
+        assertThat(result).isEqualTo(PlatformURN.of("Neo Geo AES"));
+        verify(platforms).save(any(Platform.class));
     }
 
     @Test
     @DisplayName("it should update platforms")
     void shouldUpdatePlatforms() {
-        var urn = Platforms.NEO_GEO_AES.platformUrn();
-        when(platforms.findByPlatformUrn(urn)).thenReturn(Optional.of(mock(PlatformEntity.class)));
-        platformsService.updatePlatform(Platforms.NEO_GEO_AES.platformUrn(), Platforms.NEO_GEO_AES_REQUEST);
-        verify(platforms).save(any(PlatformEntity.class));
+        var platformUrn = PlatformURN.of("Neo Geo AES");
+        when(platforms.findByPlatformUrn(platformUrn)).thenReturn(Optional.of(mock(Platform.class)));
+        platformsService.updatePlatform(platformUrn, Platforms.NEO_GEO_AES);
+        verify(platforms).save(any(Platform.class));
     }
 }

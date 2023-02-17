@@ -21,15 +21,13 @@
 
 package it.consolemania.catalog.platforms;
 
-import com.jcabi.urn.URN;
-import it.consolemania.catalog.util.Slug;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.Year;
 
 public final class Platforms {
 
-    public static final PlatformRequest NEO_GEO_AES_REQUEST = PlatformRequestBuilder.builder()
+    public static final PlatformRequest NEO_GEO_AES = PlatformRequestBuilder.builder()
             .name("Neo Geo AES")
             .generation(4)
             .manufacturer("SNK Corporation")
@@ -51,27 +49,4 @@ public final class Platforms {
                     .sound("Yamaha YM2610")
                     .build())
             .build();
-
-    public static final Platform NEO_GEO_AES = fromRequest(NEO_GEO_AES_REQUEST);
-
-    private static Platform fromRequest(PlatformRequest platform) {
-        var platformName = Slug.of(platform.name());
-        var platformUrn = URN.create(String.format("urn:platform:%s", platformName));
-
-        return PlatformBuilder.builder()
-                .platformUrn(platformUrn)
-                .name(platform.name())
-                .generation(platform.generation())
-                .manufacturer(platform.manufacturer())
-                .type(platform.type())
-                .media(platform.media())
-                .release(platform.release())
-                .introductoryPrice(platform.introductoryPrice())
-                .unitsSold(platform.unitsSold())
-                .discontinuedYear(platform.discontinuedYear())
-                .discontinued(platform.discontinued())
-                .techSpecs(platform.techSpecs())
-                .version(1)
-                .build();
-    }
 }

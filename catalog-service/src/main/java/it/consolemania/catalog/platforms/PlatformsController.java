@@ -21,13 +21,15 @@
 
 package it.consolemania.catalog.platforms;
 
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+
 import com.jcabi.urn.URN;
-import it.consolemania.catalog.games.Game;
+import it.consolemania.catalog.games.GameModel;
 import it.consolemania.catalog.games.GamesService;
 import jakarta.validation.Valid;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -53,9 +55,11 @@ public class PlatformsController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    ResponseEntity<Void> postPlatform(@RequestBody @Valid PlatformRequest newPlatform) throws URISyntaxException {
+    ResponseEntity<Void> postPlatform(@RequestBody @Valid PlatformRequest newPlatform) {
         var platformUrn = platformsService.createPlatform(newPlatform);
-        return ResponseEntity.created(new URI("/platforms/" + platformUrn)).build();
+        return ResponseEntity.created(
+                        linkTo(PlatformsController.class).slash(platformUrn).toUri())
+                .build();
     }
 
     @PutMapping("/{platformUrn}")
@@ -65,23 +69,31 @@ public class PlatformsController {
     }
 
     @GetMapping
-    ResponseEntity<List<Platform>> getAllPlatforms() {
-        return ResponseEntity.ok(platformsService.getAll());
+    ResponseEntity<List<PlatformModel>> getAllPlatforms() {
+        var platforms = StreamSupport.stream(platformsService.getAllPlatforms().spliterator(), false)
+                .map(PlatformModel::of)
+                .collect(Collectors.toList());
+        return ResponseEntity.ok(platforms);
     }
 
     @GetMapping("/{platformUrn}")
-    ResponseEntity<Platform> getPlatformByUrn(@PathVariable URN platformUrn) {
+    ResponseEntity<PlatformModel> getPlatformByUrn(@PathVariable URN platformUrn) {
         return platformsService
                 .getPlatformByUrn(platformUrn)
+                .map(PlatformModel::of)
                 .map(ResponseEntity::ok)
                 .orElseThrow(() -> new PlatformNotFoundException(platformUrn));
     }
 
     @GetMapping("/{platformUrn}/games")
-    ResponseEntity<List<Game>> getGamesByPlatformUrn(@PathVariable URN platformUrn) {
+    ResponseEntity<List<GameModel>> getGamesByPlatformUrn(@PathVariable URN platformUrn) {
         return platformsService
                 .getPlatformByUrn(platformUrn)
-                .map(platform -> ResponseEntity.ok(gamesService.getGamesByPlatform(platform.platformId())))
-                .orElse(ResponseEntity.ok(List.of()));
+                .map(platform -> gamesService.getGamesByPlatform(platform.platformId()))
+                .map(gamesIt -> StreamSupport.stream(gamesIt.spliterator(), false)
+                        .map(GameModel::of)
+                        .collect(Collectors.toList()))
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.ok(List.of()));
     }
 }

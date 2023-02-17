@@ -23,6 +23,7 @@ package it.consolemania.catalog;
 
 import it.consolemania.catalog.games.Games;
 import it.consolemania.catalog.games.GamesService;
+import it.consolemania.catalog.platforms.PlatformURN;
 import it.consolemania.catalog.platforms.Platforms;
 import it.consolemania.catalog.platforms.PlatformsService;
 import org.slf4j.Logger;
@@ -46,17 +47,16 @@ public class ApplicationInit implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        if (platformsService
-                .getPlatformByUrn(Platforms.NEO_GEO_AES.platformUrn())
-                .isPresent()) {
+        var platformUrn = PlatformURN.of(Platforms.NEO_GEO_AES.name());
+        if (platformsService.getPlatformByUrn(platformUrn).isPresent()) {
             logger.warn("There is already data in the database. Skipping the data seeding");
             return;
         }
 
-        platformsService.createPlatform(Platforms.NEO_GEO_AES_REQUEST);
+        platformsService.createPlatform(Platforms.NEO_GEO_AES);
         logger.info("[Platform] Neo Geo AES inserted");
 
-        gamesService.createGame(Games.FATAL_FURY_3_REQUEST);
+        gamesService.createGame(Games.FATAL_FURY_3);
         logger.info("[Game] FATAL FURY 3 inserted");
     }
 }

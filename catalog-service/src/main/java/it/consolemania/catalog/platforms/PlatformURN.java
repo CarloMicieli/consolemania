@@ -22,22 +22,11 @@
 package it.consolemania.catalog.platforms;
 
 import com.jcabi.urn.URN;
+import it.consolemania.catalog.util.Slug;
 
-@SuppressWarnings("serial")
-public class PlatformNotFoundException extends RuntimeException {
-    private final URN platformUrn;
-
-    public PlatformNotFoundException(String platformName) {
-        super("Platform not found");
-        this.platformUrn = PlatformURN.of(platformName);
-    }
-
-    public PlatformNotFoundException(URN platformUrn) {
-        super("Platform not found");
-        this.platformUrn = platformUrn;
-    }
-
-    public URN getPlatformUrn() {
-        return platformUrn;
+public class PlatformURN {
+    public static URN of(String platformName) {
+        var platformSlug = Slug.of(platformName);
+        return URN.create(String.format("urn:platform:%s", platformSlug));
     }
 }

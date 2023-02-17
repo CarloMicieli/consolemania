@@ -33,7 +33,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.test.context.ActiveProfiles;
 
-@DisplayName("platforms api")
+@DisplayName("games api")
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("seed")
 public class GamesApiTests {
@@ -71,7 +71,7 @@ public class GamesApiTests {
                 .post("/games")
                 .then()
                 .statusCode(201)
-                .header("Location", "/games/urn:game:neo-geo-aes:fatal-fury-2");
+                .header("Location", "http://localhost:" + port + "/games/urn:game:neo-geo-aes:fatal-fury-2");
     }
 
     @Test

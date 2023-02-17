@@ -22,13 +22,9 @@
 package it.consolemania.catalog.platforms;
 
 import com.jcabi.urn.URN;
-import it.consolemania.catalog.util.Slug;
 import it.consolemania.catalog.util.UuidSource;
 import java.time.Year;
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -43,7 +39,6 @@ public class PlatformsService {
     }
 
     public URN createPlatform(PlatformRequest newPlatform) {
-        var newId = uuidSource.generateNewId();
         var platformEntity = entityFromRequest(newPlatform, null);
 
         if (platforms.existsByPlatformUrn(platformEntity.platformUrn())) {
@@ -61,9 +56,8 @@ public class PlatformsService {
         });
     }
 
-    PlatformEntity entityFromRequest(PlatformRequest platform, PlatformEntity entity) {
-        var platformName = Slug.of(platform.name());
-        var platformUrn = URN.create(String.format("urn:platform:%s", platformName));
+    Platform entityFromRequest(PlatformRequest platform, Platform entity) {
+        var platformUrn = PlatformURN.of(platform.name());
 
         var discontinuedYear = Optional.ofNullable(platform.discontinuedYear())
                 .map(Year::getValue)
@@ -71,8 +65,8 @@ public class PlatformsService {
 
         var existingPlatform = Optional.ofNullable(entity);
 
-        return new PlatformEntity(
-                existingPlatform.map(PlatformEntity::platformId).orElseGet(uuidSource::generateNewId),
+        return new Platform(
+                existingPlatform.map(Platform::platformId).orElseGet(uuidSource::generateNewId),
                 platformUrn,
                 platform.name(),
                 platform.manufacturer(),
@@ -85,39 +79,16 @@ public class PlatformsService {
                 platform.unitsSold(),
                 platform.media(),
                 platform.techSpecs(),
-                existingPlatform.map(PlatformEntity::createdDate).orElse(null),
-                existingPlatform.map(PlatformEntity::lastModifiedDate).orElse(null),
-                existingPlatform.map(PlatformEntity::version).orElse(null));
+                existingPlatform.map(Platform::createdDate).orElse(null),
+                existingPlatform.map(Platform::lastModifiedDate).orElse(null),
+                existingPlatform.map(Platform::version).orElse(null));
     }
 
-    public List<Platform> getAll() {
-        return StreamSupport.stream(platforms.findAll().spliterator(), false)
-                .map(this::toPlatform)
-                .collect(Collectors.toList());
+    public Iterable<Platform> getAllPlatforms() {
+        return platforms.findAll();
     }
 
     public Optional<Platform> getPlatformByUrn(URN platformUrn) {
-        return platforms.findByPlatformUrn(platformUrn).map(this::toPlatform);
-    }
-
-    private Platform toPlatform(PlatformEntity platform) {
-        var discountinuedYear =
-                Optional.ofNullable(platform.discontinuedYear()).map(Year::of).orElse(null);
-
-        return new Platform(
-                platform.platformId(),
-                platform.platformUrn(),
-                platform.name(),
-                platform.manufacturer(),
-                platform.generation(),
-                PlatformType.valueOf(platform.type()),
-                platform.release(),
-                discountinuedYear,
-                platform.discontinued(),
-                platform.introductoryPrice(),
-                platform.unitsSold(),
-                platform.media(),
-                platform.techSpecs(),
-                platform.version());
+        return platforms.findByPlatformUrn(platformUrn);
     }
 }

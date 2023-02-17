@@ -27,8 +27,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import com.jcabi.urn.URN;
-import it.consolemania.catalog.platforms.PlatformEntity;
+import it.consolemania.catalog.platforms.Platform;
 import it.consolemania.catalog.platforms.PlatformsRepository;
 import it.consolemania.catalog.util.UuidSource;
 import java.util.Optional;
@@ -59,31 +58,29 @@ class GamesServiceTest {
     @Test
     @DisplayName("it should create a new game")
     void shouldCreateNewGames() {
-        var platform = mock(PlatformEntity.class);
+        var platform = mock(Platform.class);
         when(uuidSource.generateNewId()).thenReturn(UUID.randomUUID());
         when(platform.platformId()).thenReturn(UUID.randomUUID());
-        when(platformsRepository.findByName(Games.FATAL_FURY_2_REQUEST.platform()))
-                .thenReturn(Optional.of(platform));
+        when(platformsRepository.findByName(Games.FATAL_FURY_2.platform())).thenReturn(Optional.of(platform));
 
-        var result = gamesService.createGame(Games.FATAL_FURY_2_REQUEST);
+        var result = gamesService.createGame(Games.FATAL_FURY_2);
 
-        assertThat(result).isEqualTo(URN.create("urn:game:neo-geo-aes:fatal-fury-2"));
-        verify(gamesRepository).save(any(GameEntity.class));
+        assertThat(result).isEqualTo(GameURN.of(Games.FATAL_FURY_2.platform(), Games.FATAL_FURY_2.title()));
+        verify(gamesRepository).save(any(Game.class));
     }
 
     @Test
     @DisplayName("it should update games")
     void shouldUpdateGames() {
-        var urn = Games.FATAL_FURY_2.gameUrn();
-        when(gamesRepository.findByGameUrn(urn)).thenReturn(Optional.of(mock(GameEntity.class)));
+        var gameUrn = GameURN.of(Games.FATAL_FURY_2.platform(), Games.FATAL_FURY_2.title());
+        when(gamesRepository.findByGameUrn(gameUrn)).thenReturn(Optional.of(mock(Game.class)));
 
-        var platform = mock(PlatformEntity.class);
+        var platform = mock(Platform.class);
         when(platform.platformId()).thenReturn(UUID.randomUUID());
-        when(platformsRepository.findByName(Games.FATAL_FURY_2_REQUEST.platform()))
-                .thenReturn(Optional.of(platform));
+        when(platformsRepository.findByName(Games.FATAL_FURY_2.platform())).thenReturn(Optional.of(platform));
 
-        gamesService.updateGame(Games.FATAL_FURY_2.gameUrn(), Games.FATAL_FURY_2_REQUEST);
+        gamesService.updateGame(gameUrn, Games.FATAL_FURY_2);
 
-        verify(gamesRepository).save(any(GameEntity.class));
+        verify(gamesRepository).save(any(Game.class));
     }
 }

@@ -47,7 +47,7 @@ import org.springframework.test.web.servlet.MockMvc;
 @WebMvcTest(PlatformsController.class)
 class PlatformsControllerTest {
 
-    private static final URN FIXED_URN = URN.create("urn:platform:neo-geo-aes");
+    private static final URN FIXED_URN = PlatformURN.of("Neo Geo AES");
 
     @MockBean
     private PlatformsService platformsService;
@@ -64,7 +64,7 @@ class PlatformsControllerTest {
     @Test
     @DisplayName("it should create new platforms")
     void shouldPostNewPlatforms() throws Exception {
-        var request = Platforms.NEO_GEO_AES_REQUEST;
+        var request = Platforms.NEO_GEO_AES;
 
         when(platformsService.createPlatform(request)).thenReturn(FIXED_URN);
 
@@ -73,13 +73,13 @@ class PlatformsControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isCreated())
-                .andExpect(header().string("Location", "/platforms/" + FIXED_URN));
+                .andExpect(header().string("Location", "http://localhost/platforms/" + FIXED_URN));
     }
 
     @Test
     @DisplayName("it should return a BAD_REQUEST when the new platform request is not valid")
     void shouldValidateNewPlatformRequests() throws Exception {
-        var request = Platforms.NEO_GEO_AES_REQUEST.withName("");
+        var request = Platforms.NEO_GEO_AES.withName("");
         mockMvc.perform(post("/platforms")
                         .content(asJsonString(request))
                         .contentType(MediaType.APPLICATION_JSON)
@@ -90,7 +90,7 @@ class PlatformsControllerTest {
     @Test
     @DisplayName("it should update platforms")
     void shouldUpdatePlatforms() throws Exception {
-        var request = Platforms.NEO_GEO_AES_REQUEST;
+        var request = Platforms.NEO_GEO_AES;
 
         mockMvc.perform(put("/platforms/{platformUrn}", FIXED_URN)
                         .content(asJsonString(request))
@@ -104,7 +104,7 @@ class PlatformsControllerTest {
     @Test
     @DisplayName("it should return a BAD_REQUEST when the updated platform request is not valid")
     void shouldValidatePlatformUpdateRequests() throws Exception {
-        var request = Platforms.NEO_GEO_AES_REQUEST.withName("");
+        var request = Platforms.NEO_GEO_AES.withName("");
         mockMvc.perform(put("/platforms/{platformUrn}", FIXED_URN)
                         .content(asJsonString(request))
                         .contentType(MediaType.APPLICATION_JSON)

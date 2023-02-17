@@ -26,10 +26,10 @@ import java.util.Optional;
 import java.util.UUID;
 import org.springframework.data.repository.CrudRepository;
 
-public interface GamesRepository extends CrudRepository<GameEntity, UUID> {
-    Iterable<GameEntity> findAllByPlatformId(UUID platformId);
+public interface GamesRepository extends CrudRepository<Game, UUID> {
+    Iterable<Game> findAllByPlatformId(UUID platformId);
 
-    Optional<GameEntity> findByGameUrn(URN gameURN);
+    Optional<Game> findByGameUrn(URN gameURN);
 
     boolean existsByGameUrn(URN gameURN);
 

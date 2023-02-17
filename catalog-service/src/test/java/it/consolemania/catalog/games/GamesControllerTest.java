@@ -44,7 +44,7 @@ import org.springframework.test.web.servlet.MockMvc;
 @WebMvcTest(GamesController.class)
 class GamesControllerTest {
 
-    private static final URN FIXED_URN = URN.create("urn:game:neo-geo-aes:fatal-fury-2");
+    private static final URN FIXED_URN = GameURN.of("Neo Geo AES", "Fatal Fury 2");
 
     @MockBean
     private GamesService gamesService;
@@ -58,7 +58,7 @@ class GamesControllerTest {
     @Test
     @DisplayName("it should create new games")
     void shouldPostNewGames() throws Exception {
-        var request = Games.FATAL_FURY_2_REQUEST;
+        var request = Games.FATAL_FURY_2;
 
         when(gamesService.createGame(request)).thenReturn(FIXED_URN);
 
@@ -67,13 +67,13 @@ class GamesControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isCreated())
-                .andExpect(header().string("Location", "/games/" + FIXED_URN));
+                .andExpect(header().string("Location", "http://localhost/games/" + FIXED_URN));
     }
 
     @Test
     @DisplayName("it should return a BAD_REQUEST when the new game request is not valid")
     void shouldValidateNewGameRequests() throws Exception {
-        var request = Games.FATAL_FURY_2_REQUEST.withTitle("");
+        var request = Games.FATAL_FURY_2.withTitle("");
         mockMvc.perform(post("/games")
                         .content(asJsonString(request))
                         .contentType(MediaType.APPLICATION_JSON)
@@ -84,7 +84,7 @@ class GamesControllerTest {
     @Test
     @DisplayName("it should update games")
     void shouldPutGames() throws Exception {
-        var request = Games.FATAL_FURY_2_REQUEST;
+        var request = Games.FATAL_FURY_2;
         mockMvc.perform(put("/games/{urn}", FIXED_URN)
                         .content(asJsonString(request))
                         .contentType(MediaType.APPLICATION_JSON)
@@ -95,7 +95,7 @@ class GamesControllerTest {
     @Test
     @DisplayName("it should return a BAD_REQUEST when the updated game request is not valid")
     void shouldValidateGameUpdateRequests() throws Exception {
-        var request = Games.FATAL_FURY_2_REQUEST.withTitle("");
+        var request = Games.FATAL_FURY_2.withTitle("");
         mockMvc.perform(put("/games/{urn}", FIXED_URN)
                         .content(asJsonString(request))
                         .contentType(MediaType.APPLICATION_JSON)

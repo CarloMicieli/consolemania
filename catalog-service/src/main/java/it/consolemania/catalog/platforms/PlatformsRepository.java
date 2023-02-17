@@ -26,10 +26,10 @@ import java.util.Optional;
 import java.util.UUID;
 import org.springframework.data.repository.CrudRepository;
 
-public interface PlatformsRepository extends CrudRepository<PlatformEntity, UUID> {
-    Optional<PlatformEntity> findByName(String name);
+public interface PlatformsRepository extends CrudRepository<Platform, UUID> {
+    Optional<Platform> findByName(String name);
 
-    Optional<PlatformEntity> findByPlatformUrn(URN platformUrn);
+    Optional<Platform> findByPlatformUrn(URN platformUrn);
 
     boolean existsByPlatformUrn(URN platformUrn);
 }

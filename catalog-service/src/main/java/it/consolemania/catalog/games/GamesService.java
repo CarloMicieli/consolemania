@@ -22,17 +22,12 @@
 package it.consolemania.catalog.games;
 
 import com.jcabi.urn.URN;
-import it.consolemania.catalog.platforms.PlatformEntity;
+import it.consolemania.catalog.platforms.Platform;
 import it.consolemania.catalog.platforms.PlatformNotFoundException;
 import it.consolemania.catalog.platforms.PlatformsRepository;
-import it.consolemania.catalog.util.Slug;
 import it.consolemania.catalog.util.UuidSource;
-import java.time.Year;
-import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -74,20 +69,18 @@ public class GamesService {
         games.deleteByGameUrn(gameUrn);
     }
 
-    GameEntity entityFromRequest(GameRequest game, GameEntity gameEntity) {
+    Game entityFromRequest(GameRequest game, Game gameEntity) {
         var platformId = platforms
                 .findByName(game.platform())
-                .map(PlatformEntity::platformId)
+                .map(Platform::platformId)
                 .orElseThrow(() -> new PlatformNotFoundException(game.platform()));
 
-        var platform = Slug.of(game.platform());
-        var gameTitle = Slug.of(game.title());
-        var gameUrn = URN.create(String.format("urn:game:%s:%s", platform, gameTitle));
+        var gameUrn = GameURN.of(game.platform(), game.title());
 
         var existingGame = Optional.ofNullable(gameEntity);
 
-        return new GameEntity(
-                existingGame.map(GameEntity::gameId).orElseGet(uuidSource::generateNewId),
+        return new Game(
+                existingGame.map(Game::gameId).orElseGet(uuidSource::generateNewId),
                 gameUrn,
                 platformId,
                 game.title(),
@@ -98,32 +91,16 @@ public class GamesService {
                 game.publisher(),
                 game.release(),
                 game.year().getValue(),
-                existingGame.map(GameEntity::createdDate).orElse(null),
-                existingGame.map(GameEntity::lastModifiedDate).orElse(null),
-                existingGame.map(GameEntity::version).orElse(null));
+                existingGame.map(Game::createdDate).orElse(null),
+                existingGame.map(Game::lastModifiedDate).orElse(null),
+                existingGame.map(Game::version).orElse(null));
     }
 
-    public List<Game> getGamesByPlatform(UUID platformId) {
-        return StreamSupport.stream(games.findAllByPlatformId(platformId).spliterator(), false)
-                .map(this::toGame)
-                .collect(Collectors.toList());
+    public Iterable<Game> getGamesByPlatform(UUID platformId) {
+        return games.findAllByPlatformId(platformId);
     }
 
     public Optional<Game> getGameByUrn(URN gameUrn) {
-        return games.findByGameUrn(gameUrn).map(this::toGame);
-    }
-
-    private Game toGame(GameEntity gameEntity) {
-        return new Game(
-                gameEntity.gameUrn(),
-                gameEntity.title(),
-                gameEntity.genres(),
-                gameEntity.modes(),
-                gameEntity.series(),
-                gameEntity.developer(),
-                gameEntity.publisher(),
-                gameEntity.release(),
-                Year.of(gameEntity.year()),
-                gameEntity.version());
+        return games.findByGameUrn(gameUrn);
     }
 }

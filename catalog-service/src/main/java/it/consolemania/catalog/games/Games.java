@@ -21,15 +21,13 @@
 
 package it.consolemania.catalog.games;
 
-import com.jcabi.urn.URN;
-import it.consolemania.catalog.util.Slug;
 import java.time.LocalDate;
 import java.time.Year;
 import java.util.List;
 
 public final class Games {
 
-    public static final GameRequest FATAL_FURY_3_REQUEST = GameRequestBuilder.builder()
+    public static final GameRequest FATAL_FURY_3 = GameRequestBuilder.builder()
             .title("Fatal Fury 3")
             .platform("Neo Geo AES")
             .developer("SNK")
@@ -45,9 +43,7 @@ public final class Games {
             .year(Year.of(1995))
             .build();
 
-    public static final Game FATAL_FURY_3 = fromGameRequest(FATAL_FURY_3_REQUEST);
-
-    public static final GameRequest FATAL_FURY_2_REQUEST = GameRequestBuilder.builder()
+    public static final GameRequest FATAL_FURY_2 = GameRequestBuilder.builder()
             .title("Fatal Fury 2")
             .platform("Neo Geo AES")
             .developer("SNK")
@@ -62,24 +58,4 @@ public final class Games {
                     .build())
             .year(Year.of(1995))
             .build();
-
-    public static final Game FATAL_FURY_2 = fromGameRequest(FATAL_FURY_2_REQUEST);
-
-    private static Game fromGameRequest(GameRequest game) {
-        var platform = Slug.of(game.platform());
-        var gameTitle = Slug.of(game.title());
-        var gameUrn = URN.create(String.format("urn:game:%s:%s", platform, gameTitle));
-
-        return GameBuilder.builder()
-                .gameUrn(gameUrn)
-                .developer(game.developer())
-                .publisher(game.publisher())
-                .genres(game.genres())
-                .modes(game.modes())
-                .series(game.series())
-                .release(game.release())
-                .year(game.year())
-                .version(1)
-                .build();
-    }
 }

@@ -25,6 +25,9 @@ Content-Type: application/json
   }
 }
 
+### Get all platforms
+GET http://localhost:8000/platforms
+
 ### Get a platform
 GET http://localhost:8000/platforms/urn:platform:neo-geo-aes
 

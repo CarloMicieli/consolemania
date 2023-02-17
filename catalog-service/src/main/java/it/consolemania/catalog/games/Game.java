@@ -21,20 +21,35 @@
 
 package it.consolemania.catalog.games;
 
+import static org.springframework.data.relational.core.mapping.Embedded.OnEmpty.USE_NULL;
+
 import com.jcabi.urn.URN;
 import io.soabase.recordbuilder.core.RecordBuilder;
-import java.time.Year;
+import jakarta.validation.constraints.NotNull;
+import java.time.Instant;
 import java.util.List;
+import java.util.UUID;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.annotation.Version;
+import org.springframework.data.relational.core.mapping.Embedded;
+import org.springframework.data.relational.core.mapping.Table;
 
+@Table("games")
 @RecordBuilder
 public record Game(
+        @Id UUID gameId,
         URN gameUrn,
+        UUID platformId,
         String title,
         List<Genre> genres,
         List<Mode> modes,
         String series,
         String developer,
         String publisher,
-        Release release,
-        Year year,
-        Integer version) {}
+        @Embedded(onEmpty = USE_NULL) Release release,
+        @NotNull Integer year,
+        @CreatedDate Instant createdDate,
+        @LastModifiedDate Instant lastModifiedDate,
+        @Version Integer version) {}

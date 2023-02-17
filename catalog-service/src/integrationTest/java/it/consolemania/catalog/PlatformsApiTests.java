@@ -78,7 +78,7 @@ class PlatformsApiTests {
                 .post("/platforms")
                 .then()
                 .statusCode(201)
-                .header("Location", "/platforms/urn:platform:neo-geo-mvs");
+                .header("Location", "http://localhost:" + port + "/platforms/urn:platform:neo-geo-mvs");
     }
 
     @Test

@@ -21,25 +21,36 @@
 
 package it.consolemania.catalog.platforms;
 
+import static org.springframework.data.relational.core.mapping.Embedded.OnEmpty.USE_NULL;
+
 import com.jcabi.urn.URN;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import java.math.BigDecimal;
-import java.time.Year;
+import java.time.Instant;
 import java.util.UUID;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.annotation.Version;
+import org.springframework.data.relational.core.mapping.Embedded;
+import org.springframework.data.relational.core.mapping.Table;
 
+@Table("platforms")
 @RecordBuilder
 public record Platform(
-        UUID platformId,
+        @Id UUID platformId,
         URN platformUrn,
         String name,
         String manufacturer,
         Integer generation,
-        PlatformType type,
-        Release release,
-        Year discontinuedYear,
+        String type,
+        @Embedded(onEmpty = USE_NULL) Release release,
+        Integer discontinuedYear,
         boolean discontinued,
         BigDecimal introductoryPrice,
         Integer unitsSold,
         Media media,
-        TechSpecs techSpecs,
-        Integer version) {}
+        @Embedded(onEmpty = USE_NULL) TechSpecs techSpecs,
+        @CreatedDate Instant createdDate,
+        @LastModifiedDate Instant lastModifiedDate,
+        @Version Integer version) {}

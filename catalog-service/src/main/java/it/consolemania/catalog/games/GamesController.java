@@ -21,10 +21,10 @@
 
 package it.consolemania.catalog.games;
 
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+
 import com.jcabi.urn.URN;
 import jakarta.validation.Valid;
-import java.net.URI;
-import java.net.URISyntaxException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -49,9 +49,11 @@ public class GamesController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    ResponseEntity<Void> postGame(@RequestBody @Valid GameRequest newGame) throws URISyntaxException {
+    ResponseEntity<Void> postGame(@RequestBody @Valid GameRequest newGame) {
         var gameUrn = gamesService.createGame(newGame);
-        return ResponseEntity.created(new URI("/games/" + gameUrn)).build();
+        return ResponseEntity.created(
+                        linkTo(GamesController.class).slash(gameUrn).toUri())
+                .build();
     }
 
     @PutMapping("/{gameUrn}")
@@ -67,9 +69,10 @@ public class GamesController {
     }
 
     @GetMapping("/{gameUrn}")
-    ResponseEntity<Game> getGameByUrn(@PathVariable URN gameUrn) {
+    ResponseEntity<GameModel> getGameByUrn(@PathVariable URN gameUrn) {
         return gamesService
                 .getGameByUrn(gameUrn)
+                .map(GameModel::of)
                 .map(ResponseEntity::ok)
                 .orElseThrow(() -> new GameNotFoundException(gameUrn));
     }
