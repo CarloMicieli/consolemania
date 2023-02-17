@@ -19,14 +19,15 @@
  *    under the License.
  */
 
-package it.consolemania.edge
+package it.consolemania.edge;
 
-import org.springframework.boot.autoconfigure.SpringBootApplication
-import org.springframework.boot.runApplication
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-class EdgeServiceApplication
+public class EdgeServiceApplication {
 
-fun main(args: Array<String>) {
-    runApplication<EdgeServiceApplication>(*args)
+    public static void main(String[] args) {
+        SpringApplication.run(EdgeServiceApplication.class, args);
+    }
 }
