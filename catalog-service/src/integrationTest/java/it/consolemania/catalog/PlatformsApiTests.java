@@ -66,7 +66,7 @@ class PlatformsApiTests {
                           "introductory_price": 649,
                           "units_sold": 1000000,
                           "media": "ROM_CARTRIDGE",
-                          "tech_specs": {
+                          "technical_specifications": {
                             "cpu": "Motorola 68000 @ 12MHz, Zilog Z80A @ 4MHz",
                             "memory": "64KB RAM, 84KB VRAM, 2KB Sound Memory",
                             "display": "320×224 resolution, 4096 on-screen colors out of a palette of 65536",
@@ -130,7 +130,7 @@ class PlatformsApiTests {
                           "introductory_price": 649,
                           "units_sold": 1000000,
                           "media": "ROM_CARTRIDGE",
-                          "tech_specs": {
+                          "technical_specifications": {
                             "cpu": "Motorola 68000 @ 12MHz, Zilog Z80A @ 4MHz",
                             "memory": "64KB RAM, 84KB VRAM, 2KB Sound Memory",
                             "display": "320×224 resolution, 4096 on-screen colors out of a palette of 65536",

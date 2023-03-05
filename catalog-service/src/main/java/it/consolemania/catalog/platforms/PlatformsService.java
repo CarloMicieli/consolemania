@@ -78,7 +78,7 @@ public class PlatformsService {
                 platform.introductoryPrice(),
                 platform.unitsSold(),
                 platform.media(),
-                platform.techSpecs(),
+                platform.technicalSpecifications(),
                 existingPlatform.map(Platform::createdDate).orElse(null),
                 existingPlatform.map(Platform::lastModifiedDate).orElse(null),
                 existingPlatform.map(Platform::version).orElse(null));

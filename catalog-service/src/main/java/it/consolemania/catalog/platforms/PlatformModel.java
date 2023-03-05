@@ -24,16 +24,16 @@ package it.consolemania.catalog.platforms;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 
 import com.jcabi.urn.URN;
+import it.consolemania.catalog.util.ResourceMetadata;
 import java.math.BigDecimal;
+import java.time.Instant;
 import java.time.Year;
 import java.util.Optional;
-import java.util.UUID;
 import org.springframework.hateoas.IanaLinkRelations;
 import org.springframework.hateoas.RepresentationModel;
 
 public final class PlatformModel extends RepresentationModel<PlatformModel> {
 
-    private final UUID platformId;
     private final URN platformUrn;
     private final String name;
     private final String manufacturer;
@@ -45,11 +45,10 @@ public final class PlatformModel extends RepresentationModel<PlatformModel> {
     private final BigDecimal introductoryPrice;
     private final Integer unitsSold;
     private final Media media;
-    private final TechSpecs techSpecs;
-    private final Integer version;
+    private final TechnicalSpecifications technicalSpecifications;
+    private final ResourceMetadata metadata;
 
     private PlatformModel(
-            UUID platformId,
             URN platformUrn,
             String name,
             String manufacturer,
@@ -61,11 +60,12 @@ public final class PlatformModel extends RepresentationModel<PlatformModel> {
             BigDecimal introductoryPrice,
             Integer unitsSold,
             Media media,
-            TechSpecs techSpecs,
+            TechnicalSpecifications technicalSpecifications,
+            Instant createdDate,
+            Instant modifiedDate,
             Integer version) {
         super(linkTo(PlatformsController.class).slash(platformUrn).withRel(IanaLinkRelations.SELF));
 
-        this.platformId = platformId;
         this.platformUrn = platformUrn;
         this.name = name;
         this.manufacturer = manufacturer;
@@ -77,12 +77,8 @@ public final class PlatformModel extends RepresentationModel<PlatformModel> {
         this.introductoryPrice = introductoryPrice;
         this.unitsSold = unitsSold;
         this.media = media;
-        this.techSpecs = techSpecs;
-        this.version = version;
-    }
-
-    public UUID getPlatformId() {
-        return platformId;
+        this.technicalSpecifications = technicalSpecifications;
+        this.metadata = new ResourceMetadata(createdDate, modifiedDate, version);
     }
 
     public URN getPlatformUrn() {
@@ -129,12 +125,12 @@ public final class PlatformModel extends RepresentationModel<PlatformModel> {
         return media;
     }
 
-    public TechSpecs getTechSpecs() {
-        return techSpecs;
+    public TechnicalSpecifications getTechnicalSpecifications() {
+        return technicalSpecifications;
     }
 
-    public Integer getVersion() {
-        return version;
+    public ResourceMetadata getMetadata() {
+        return metadata;
     }
 
     public static PlatformModel of(Platform platform) {
@@ -142,7 +138,6 @@ public final class PlatformModel extends RepresentationModel<PlatformModel> {
                 Optional.ofNullable(platform.discontinuedYear()).map(Year::of).orElse(null);
 
         return new PlatformModel(
-                platform.platformId(),
                 platform.platformUrn(),
                 platform.name(),
                 platform.manufacturer(),
@@ -154,7 +149,9 @@ public final class PlatformModel extends RepresentationModel<PlatformModel> {
                 platform.introductoryPrice(),
                 platform.unitsSold(),
                 platform.media(),
-                platform.techSpecs(),
+                platform.technicalSpecifications(),
+                platform.createdDate(),
+                platform.lastModifiedDate(),
                 platform.version());
     }
 }

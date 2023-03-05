@@ -1,5 +1,5 @@
 spring:
   datasource:
-    url: jdbc:tc:postgresql:15.1-alpine:///gamesdb
+    url: jdbc:tc:postgresql:15.1-alpine:///catalog
   flyway:
     enabled: false

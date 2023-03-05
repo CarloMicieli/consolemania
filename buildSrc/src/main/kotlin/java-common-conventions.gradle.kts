@@ -47,12 +47,13 @@ tasks {
     withType<JavaCompile> {
         options.isIncremental = true
         options.isFork = true
-        options.isFailOnError = false
+        options.isFailOnError = true
 
         options.compilerArgs.addAll(
             arrayOf(
                 "-Xlint:all",
-                "-Xlint:-processing"
+                "-Xlint:-processing",
+                "-Werror"
             )
         )
     }

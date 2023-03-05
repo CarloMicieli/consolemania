@@ -50,7 +50,7 @@ public record Platform(
         BigDecimal introductoryPrice,
         Integer unitsSold,
         Media media,
-        @Embedded(onEmpty = USE_NULL) TechSpecs techSpecs,
+        @Embedded(onEmpty = USE_NULL) TechnicalSpecifications technicalSpecifications,
         @CreatedDate Instant createdDate,
         @LastModifiedDate Instant lastModifiedDate,
         @Version Integer version) {}

@@ -21,26 +21,12 @@
 
 package it.consolemania.catalog.platforms;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import io.soabase.recordbuilder.core.RecordBuilder;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
-import java.math.BigDecimal;
-import java.time.Year;
 
 @RecordBuilder
-public record PlatformRequest(
-        @NotBlank @Size(max = 100) String name,
-        @NotBlank @Size(max = 100) String manufacturer,
-        @Positive Integer generation,
-        @NotNull PlatformType type,
-        Release release,
-        @JsonProperty("discontinued_year") Year discontinuedYear,
-        boolean discontinued,
-        @Positive @JsonProperty("introductory_price") BigDecimal introductoryPrice,
-        @Positive @JsonProperty("units_sold") Integer unitsSold,
-        @NotNull Media media,
-        @JsonProperty("technical_specifications") TechnicalSpecifications technicalSpecifications)
-        implements PlatformRequestBuilder.With {}
+public record TechnicalSpecifications(
+        @Size(max = 1000) String cpu,
+        @Size(max = 1000) String memory,
+        @Size(max = 1000) String display,
+        @Size(max = 1000) String sound) {}

@@ -42,7 +42,7 @@ public final class Platforms {
             .unitsSold(100_000)
             .discontinuedYear(Year.of(1997))
             .discontinued(true)
-            .techSpecs(TechSpecsBuilder.builder()
+            .technicalSpecifications(TechnicalSpecificationsBuilder.builder()
                     .cpu("Motorola 68000 @ 12MHz, Zilog Z80A @ 4MHz")
                     .memory("64KB RAM, 84KB VRAM, 2KB Sound Memory")
                     .display("320×224 resolution, 4096 on-screen colors out of a palette of 65536")

@@ -24,6 +24,8 @@ package it.consolemania.catalog.games;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 
 import com.jcabi.urn.URN;
+import it.consolemania.catalog.util.ResourceMetadata;
+import java.time.Instant;
 import java.time.Year;
 import java.util.List;
 import org.springframework.hateoas.IanaLinkRelations;
@@ -40,7 +42,7 @@ public final class GameModel extends RepresentationModel<GameModel> {
     private final String publisher;
     private final Release release;
     private final Year year;
-    private final Integer version;
+    private final ResourceMetadata metadata;
 
     public GameModel(
             URN gameUrn,
@@ -52,6 +54,8 @@ public final class GameModel extends RepresentationModel<GameModel> {
             String publisher,
             Release release,
             Year year,
+            Instant createdDate,
+            Instant lastModifiedDate,
             Integer version) {
         super(linkTo(GamesController.class).slash(gameUrn).withRel(IanaLinkRelations.SELF));
 
@@ -64,7 +68,7 @@ public final class GameModel extends RepresentationModel<GameModel> {
         this.publisher = publisher;
         this.release = release;
         this.year = year;
-        this.version = version;
+        this.metadata = new ResourceMetadata(createdDate, lastModifiedDate, version);
     }
 
     public URN getGameUrn() {
@@ -103,8 +107,8 @@ public final class GameModel extends RepresentationModel<GameModel> {
         return year;
     }
 
-    public Integer getVersion() {
-        return version;
+    public ResourceMetadata getMetadata() {
+        return metadata;
     }
 
     public static GameModel of(Game game) {
@@ -118,6 +122,8 @@ public final class GameModel extends RepresentationModel<GameModel> {
                 game.publisher(),
                 game.release(),
                 Year.of(game.year()),
+                game.createdDate(),
+                game.lastModifiedDate(),
                 game.version());
     }
 }

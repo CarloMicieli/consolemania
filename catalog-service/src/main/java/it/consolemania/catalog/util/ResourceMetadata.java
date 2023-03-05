@@ -19,14 +19,8 @@
  *    under the License.
  */
 
-package it.consolemania.catalog.platforms;
+package it.consolemania.catalog.util;
 
-import io.soabase.recordbuilder.core.RecordBuilder;
-import jakarta.validation.constraints.Size;
+import java.time.Instant;
 
-@RecordBuilder
-public record TechSpecs(
-        @Size(max = 1000) String cpu,
-        @Size(max = 1000) String memory,
-        @Size(max = 1000) String display,
-        @Size(max = 1000) String sound) {}
+public record ResourceMetadata(Instant createdDate, Instant lastModifiedDate, Integer version) {}
