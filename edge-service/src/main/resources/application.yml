@@ -4,13 +4,16 @@ spring:
   lifecycle:
     timeout-per-shutdown-phase: 15s
   cloud:
-    routes:
-      - id: catalog-route
-        uri: ${CATALOG_SERVICE_URL:http://localhost:9000}
-        predicates:
-          - Path=/platforms/**
-          - Path=/games/**
-
+    gateway:
+      routes:
+        - id: platform-route
+          uri: ${CATALOG_SERVICE_URL:http://localhost:9000}/platforms
+          predicates:
+            - Path=/platforms/**
+        - id: game-route
+          uri: ${CATALOG_SERVICE_URL:http://localhost:9000}/games
+          predicates:
+            - Path=/games/**
 server:
   port: 8000
   netty:

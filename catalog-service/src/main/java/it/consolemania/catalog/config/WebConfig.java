@@ -34,12 +34,18 @@ import java.io.IOException;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
+import org.springframework.web.filter.ForwardedHeaderFilter;
 
 @Configuration
 public class WebConfig {
 
     @Bean
-    public Jackson2ObjectMapperBuilder jackson2ObjectMapperBuilder() {
+    ForwardedHeaderFilter forwardedHeaderFilter() {
+        return new ForwardedHeaderFilter();
+    }
+
+    @Bean
+    Jackson2ObjectMapperBuilder jackson2ObjectMapperBuilder() {
         var builder = new Jackson2ObjectMapperBuilder();
         builder.featuresToDisable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
                 .propertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE)
