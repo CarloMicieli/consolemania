@@ -9,21 +9,11 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v3
 
-      - name: Set up GraalVM Community Edition
-        uses: graalvm/setup-graalvm@v1
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
         with:
-            version: 'latest'
+            distribution: 'temurin'
             java-version: '17'
-            components: 'native-image'
-            github-token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Print versions
-        run: |
-            echo "GRAALVM_HOME: $GRAALVM_HOME"
-            echo "JAVA_HOME: $JAVA_HOME"
-            java --version
-            gu --version
-            native-image --version
 
       - name: Validate Gradle Wrapper
         uses: gradle/wrapper-validation-action@v1
