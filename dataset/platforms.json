@@ -1,0 +1,636 @@
+{
+    "platforms": [
+        [
+            {
+                "name": "3DO Interactive Multiplayer",
+                "manufacturer": "Panasonic",
+                "generation": 5,
+                "type": "HOME_VIDEO_GAME_CONSOLE",
+                "year": 1993,
+                "release": {
+                    "europe": "1994-11-06",
+                    "japan": "1994-03-20",
+                    "north_america": "1993-10-04"
+                },
+                "discontinued_year": 1996,
+                "discontinued": true,
+                "introductory_price": "699",
+                "units_sold": "2000000",
+                "media": [
+                    "CD_ROM"
+                ],
+                "tech_specs": {
+                    "cpu": "32-bit custom ARM CPU (ARM60) @ 12.5 MHz",
+                    "memory": "2 MB RAM, 1 MB VRAM",
+                    "display": "Resolution 640×480 (interpolated), 320×240 (actual) 60 Hz for NTSC version, and 768×576 (interpolated), 384×288 (actual) 50 Hz for PAL version with either 16-bit palettized color (from 24-bit) or 24-bit truecolor",
+                    "sound": "16-bit stereo sound, Stereo CDDA playback, 44.1 kHz sound sampling rate"
+                }
+            },
+            {
+                "name": "Atari 2600",
+                "manufacturer": "Atari",
+                "generation": 2,
+                "type": "HOME_VIDEO_GAME_CONSOLE",
+                "year": 1977,
+                "release": {
+                    "europe": "1978-01-01",
+                    "japan": "1983-10-01",
+                    "north_america": "1977-09-01"
+                },
+                "discontinued_year": 1992,
+                "discontinued": true,
+                "introductory_price": "189.9500",
+                "units_sold": "30000000",
+                "media": [
+                    "ROM_CARTRIDGE"
+                ],
+                "tech_specs": {
+                    "cpu": "8-bit MOS Technology 6507 @ 1.19 MHz",
+                    "memory": "128 bytes RAM",
+                    "display": "Television Interface Adaptor",
+                    "sound": "Via Television Interface Adaptor"
+                }
+            },
+            {
+                "name": "Atari 5200",
+                "manufacturer": "Atari",
+                "generation": 2,
+                "type": "HOME_VIDEO_GAME_CONSOLE",
+                "year": 1982,
+                "release": {
+                    "europe": null,
+                    "japan": null,
+                    "north_america": "1982-11-01"
+                },
+                "discontinued_year": 1984,
+                "discontinued": true,
+                "introductory_price": null,
+                "units_sold": "1000000",
+                "media": [
+                    "ROM_CARTRIDGE"
+                ],
+                "tech_specs": {
+                    "cpu": "MOS 6502C @ 1.79 MHz",
+                    "memory": "16 KB RAM",
+                    "display": "14 modes: Six text modes (8×8, 4×8, and 8×10 character matrices supported), Eight graphics modes including 80 pixels per line (16 color), 160 pixels per line (4 color), 320 pixels per line (2 color),[30] variable height and width up to overscan 384×240 pixels",
+                    "sound": "Via Television Interface Adaptor"
+                }
+            },
+            {
+                "name": "Atari 7800",
+                "manufacturer": "Atari",
+                "generation": 3,
+                "type": "HOME_VIDEO_GAME_CONSOLE",
+                "year": 1986,
+                "release": {
+                    "europe": "1987-01-01",
+                    "japan": null,
+                    "north_america": "1986-05-01"
+                },
+                "discontinued_year": 1992,
+                "discontinued": true,
+                "introductory_price": "140",
+                "units_sold": "1000000",
+                "media": [
+                    "ROM_CARTRIDGE"
+                ],
+                "tech_specs": {
+                    "cpu": "Atari SALLY @ 1.19-1.79 MHz",
+                    "memory": "4 KB RAM, 4 KB BIOS ROM, 48 KB cartridge ROM space",
+                    "display": "160×240, 320×240 (288 vertical for PAL), 25 colors out of 256",
+                    "sound": "TIA as used in the 2600 for video and sound. In 7800 mode it is only used for sound."
+                }
+            },
+            {
+                "name": "Atari Jaguar",
+                "manufacturer": "Atari",
+                "generation": 5,
+                "type": "HOME_VIDEO_GAME_CONSOLE",
+                "year": 1993,
+                "release": {
+                    "europe": "1994-06-27",
+                    "japan": "1994-12-08",
+                    "north_america": "1993-11-23"
+                },
+                "discontinued_year": 1996,
+                "discontinued": true,
+                "introductory_price": "249.9900",
+                "units_sold": "150000",
+                "media": [
+                    "ROM_CARTRIDGE"
+                ],
+                "tech_specs": {
+                    "cpu": "Motorola 68000, 2 dissimilar custom RISC processors",
+                    "memory": "2 MB RAM",
+                    "display": null,
+                    "sound": "CD-quality sound (16-bit stereo)"
+                }
+            },
+            {
+                "name": "Atari Jaguar CD",
+                "manufacturer": "Atari",
+                "generation": 5,
+                "type": "VIDEO_GAME_CONSOLE_PERIPHERAL",
+                "year": 1993,
+                "release": {
+                    "europe": null,
+                    "japan": null,
+                    "north_america": "1995-09-21"
+                },
+                "discontinued_year": 1996,
+                "discontinued": true,
+                "introductory_price": "149.9500",
+                "units_sold": null,
+                "media": [
+                    "CD_ROM"
+                ],
+                "tech_specs": {
+                    "cpu": null,
+                    "memory": null,
+                    "display": null,
+                    "sound": null
+                }
+            },
+            {
+                "name": "NEC PC Engine",
+                "manufacturer": "NEC",
+                "generation": 4,
+                "type": "HOME_VIDEO_GAME_CONSOLE",
+                "year": 1987,
+                "release": {
+                    "europe": "1989-11-22",
+                    "japan": "1987-10-30",
+                    "north_america": "1989-08-29"
+                },
+                "discontinued_year": 1994,
+                "discontinued": true,
+                "introductory_price": null,
+                "units_sold": "7000000",
+                "media": [
+                    "HU_CARD",
+                    "CD_ROM"
+                ],
+                "tech_specs": {
+                    "cpu": "Hudson Soft HuC6280 @ 7.16 MHz",
+                    "memory": "8 KB RAM, 64 KB VRAM",
+                    "display": "Composite or RF TV out; 565×242 or 256×239, 512 color palette, 482 colors on-screen",
+                    "sound": "HuC6280, PSG, 5 to 10 bit stereo PCM"
+                }
+            },
+            {
+                "name": "Neo Geo AES",
+                "manufacturer": "SNK",
+                "generation": 4,
+                "type": "HOME_VIDEO_GAME_CONSOLE",
+                "year": 1990,
+                "release": {
+                    "europe": "1991-01-01",
+                    "japan": "1990-04-26",
+                    "north_america": "1990-08-22"
+                },
+                "discontinued_year": 1997,
+                "discontinued": true,
+                "introductory_price": "649",
+                "units_sold": "1000000",
+                "media": [
+                    "ROM_CARTRIDGE"
+                ],
+                "tech_specs": {
+                    "cpu": "Motorola 68000 @ 12MHz, Zilog Z80A @ 4MHz",
+                    "memory": "64KB RAM, 84KB VRAM, 2KB Sound Memory",
+                    "display": "320×224 resolution, 4096 on-screen colors out of a palette of 65536",
+                    "sound": "Yamaha YM2610"
+                }
+            },
+            {
+                "name": "Nintendo 64",
+                "manufacturer": "Nintendo",
+                "generation": 5,
+                "type": "HOME_VIDEO_GAME_CONSOLE",
+                "year": 1996,
+                "release": {
+                    "europe": "1997-03-01",
+                    "japan": "1996-06-23",
+                    "north_america": "1996-09-26"
+                },
+                "discontinued_year": 2002,
+                "discontinued": true,
+                "introductory_price": "200",
+                "units_sold": "32930000",
+                "media": [
+                    "ROM_CARTRIDGE"
+                ],
+                "tech_specs": {
+                    "cpu": "64-bit NEC VR4300 @ 93.75 MHz",
+                    "memory": "4 MB Rambus RDRAM (8 MB with Expansion Pak)",
+                    "display": null,
+                    "sound": "16-bit, 48 or 44.1 kHz stereo"
+                }
+            },
+            {
+                "name": "Nintendo Game Boy",
+                "manufacturer": "Nintendo",
+                "generation": 4,
+                "type": "HANDHELD_GAME_CONSOLE",
+                "year": 1989,
+                "release": {
+                    "europe": "1990-09-28",
+                    "japan": "1989-04-21",
+                    "north_america": "1989-07-31"
+                },
+                "discontinued_year": 2003,
+                "discontinued": true,
+                "introductory_price": "89.9900",
+                "units_sold": "118690000",
+                "media": [
+                    "ROM_CARTRIDGE"
+                ],
+                "tech_specs": {
+                    "cpu": "Sharp LR35902 core @ 4.19 MHz",
+                    "memory": "64 KB RAM",
+                    "display": "STN LCD 160 × 144 pixels, 47 × 43 mm (w × h)",
+                    "sound": "2 pulse wave generators, 1 PCM 4-bit wave sample (64 4-bit samples played in 1×64 bank or 2×32 bank) channel, 1 noise generator, and one audio input from the cartridge"
+                }
+            },
+            {
+                "name": "Nintendo GameCube",
+                "manufacturer": "Nintendo",
+                "generation": 6,
+                "type": "HOME_VIDEO_GAME_CONSOLE",
+                "year": 2001,
+                "release": {
+                    "europe": "2002-05-03",
+                    "japan": "2001-09-14",
+                    "north_america": "2001-11-18"
+                },
+                "discontinued_year": 2007,
+                "discontinued": true,
+                "introductory_price": "199",
+                "units_sold": "21740000",
+                "media": [
+                    "GAME_CUBE_GAME_DISC"
+                ],
+                "tech_specs": {
+                    "cpu": "32-bit IBM PowerPC 750CXe Gekko @ 486 MHz",
+                    "memory": "24 MB of 1T-SRAM @ 324 MHz as system RAM, 3 MB of embedded 1T-SRAM as video RAM, 16 MB of DRAM as I/O buffer RAM",
+                    "display": null,
+                    "sound": "Analog Stereo"
+                }
+            },
+            {
+                "name": "Nintendo NES",
+                "manufacturer": "Nintendo",
+                "generation": 3,
+                "type": "HOME_VIDEO_GAME_CONSOLE",
+                "year": 1983,
+                "release": {
+                    "europe": "1986-09-01",
+                    "japan": "1983-07-15",
+                    "north_america": "1985-10-18"
+                },
+                "discontinued_year": 1995,
+                "discontinued": true,
+                "introductory_price": "179",
+                "units_sold": "61910000",
+                "media": [
+                    "ROM_CARTRIDGE"
+                ],
+                "tech_specs": {
+                    "cpu": "Ricoh 2A03/2A07 @ 1.79/1.66 MHz",
+                    "memory": "24 MB of 1T-SRAM @ 324 MHz as system RAM, 3 MB of embedded 1T-SRAM as video RAM, 16 MB of DRAM as I/O buffer RAM",
+                    "display": null,
+                    "sound": "Analog Stereo"
+                }
+            },
+            {
+                "name": "Nintendo SNES",
+                "manufacturer": "Nintendo",
+                "generation": 3,
+                "type": "HOME_VIDEO_GAME_CONSOLE",
+                "year": 1990,
+                "release": {
+                    "europe": "1992-04-11",
+                    "japan": "1990-11-21",
+                    "north_america": "1991-08-23"
+                },
+                "discontinued_year": 2005,
+                "discontinued": true,
+                "introductory_price": "199",
+                "units_sold": "49100000",
+                "media": [
+                    "ROM_CARTRIDGE"
+                ],
+                "tech_specs": {
+                    "cpu": "Ricoh 5A22 @ 3.58 MHz",
+                    "memory": "128 KB RAM, 64 KB VRAM",
+                    "display": null,
+                    "sound": "Nintendo S-SMP"
+                }
+            },
+            {
+                "name": "SEGA 32x",
+                "manufacturer": "SEGA",
+                "generation": 5,
+                "type": "VIDEO_GAME_CONSOLE_PERIPHERAL",
+                "year": 1994,
+                "release": {
+                    "europe": "1994-12-01",
+                    "japan": "1994-12-03",
+                    "north_america": "1994-11-21"
+                },
+                "discontinued_year": 1996,
+                "discontinued": true,
+                "introductory_price": "159.9900",
+                "units_sold": "800000",
+                "media": [
+                    "ROM_CARTRIDGE",
+                    "CD_ROM"
+                ],
+                "tech_specs": {
+                    "cpu": "2× SH-2 32-bit RISC @ 23 MHz",
+                    "memory": "256 KB RAM, 256 KB VRAM",
+                    "display": "320 × 240 resolution, 32,768 on-screen colors",
+                    "sound": null
+                }
+            },
+            {
+                "name": "SEGA Dreamcast",
+                "manufacturer": "SEGA",
+                "generation": 6,
+                "type": "HOME_VIDEO_GAME_CONSOLE",
+                "year": 1998,
+                "release": {
+                    "europe": "1999-10-14",
+                    "japan": "1998-11-27",
+                    "north_america": "1999-09-09"
+                },
+                "discontinued_year": 2001,
+                "discontinued": true,
+                "introductory_price": "199",
+                "units_sold": "9130000",
+                "media": [
+                    "GD_ROM",
+                    "CD_ROM",
+                    "MINI_CD"
+                ],
+                "tech_specs": {
+                    "cpu": "Hitachi SH-4 32-bit RISC @ 200 MHz",
+                    "memory": "16 MB RAM, 8 MB video RAM, 2 MB audio RAM",
+                    "display": null,
+                    "sound": "67 MHz Yamaha AICA with 32-bit ARM7 RISC CPU core, 64 channels"
+                }
+            },
+            {
+                "name": "SEGA Game Gear",
+                "manufacturer": "SEGA",
+                "generation": 4,
+                "type": "HANDHELD_GAME_CONSOLE",
+                "year": 1990,
+                "release": {
+                    "europe": "1991-04-01",
+                    "japan": "1990-10-06",
+                    "north_america": "1991-04-01"
+                },
+                "discontinued_year": 1997,
+                "discontinued": true,
+                "introductory_price": "149.9900",
+                "units_sold": "10620000",
+                "media": [
+                    "ROM_CARTRIDGE"
+                ],
+                "tech_specs": {
+                    "cpu": "Zilog Z80 @ 3.5 MHz",
+                    "memory": "8 KB RAM, 16 KB VRAM",
+                    "display": "160 × 144 pixel resolution, 4096-color palette, 32 colors on-screen",
+                    "sound": "Texas Instruments SN76489, Mono speaker, Headphone jack"
+                }
+            },
+            {
+                "name": "SEGA Master System",
+                "manufacturer": "SEGA",
+                "generation": 3,
+                "type": "HOME_VIDEO_GAME_CONSOLE",
+                "year": 1985,
+                "release": {
+                    "europe": "1987-06-01",
+                    "japan": "1985-10-20",
+                    "north_america": "1986-09-01"
+                },
+                "discontinued_year": 1991,
+                "discontinued": true,
+                "introductory_price": "200",
+                "units_sold": "10000000",
+                "media": [
+                    "ROM_CARTRIDGE"
+                ],
+                "tech_specs": {
+                    "cpu": "Zilog Z80A @ 3.58 MHz (NTSC)",
+                    "memory": "8 KB RAM, 16 KB VRAM",
+                    "display": "256 × 192 resolution, 32 colors on-screen",
+                    "sound": "Yamaha VDP PSG (SN76489), Yamaha YM2413"
+                }
+            },
+            {
+                "name": "SEGA Mega Drive",
+                "manufacturer": "SEGA",
+                "generation": 4,
+                "type": "HOME_VIDEO_GAME_CONSOLE",
+                "year": 1988,
+                "release": {
+                    "europe": "1990-09-01",
+                    "japan": "1988-10-29",
+                    "north_america": "1989-08-14"
+                },
+                "discontinued_year": 1997,
+                "discontinued": true,
+                "introductory_price": "199",
+                "units_sold": "30750000",
+                "media": [
+                    "ROM_CARTRIDGE"
+                ],
+                "tech_specs": {
+                    "cpu": "Motorola 68000 @ 7.6 MHz, Zilog Z80 @ 3.58 MHz",
+                    "memory": "64 KB RAM, 64 KB VRAM, 8 KB audio RAM",
+                    "display": "256×224 (NTSC) or 320×240, 256×240 (PAL) pixels, 512 color palette, 61 colors on-screen, Interlaced: 320×448, 256×448 (NTSC) or 320×480, 256×480 (PAL)",
+                    "sound": "Yamaha YM2612, Texas Instruments SN76489"
+                }
+            },
+            {
+                "name": "SEGA MegaCD",
+                "manufacturer": "SEGA",
+                "generation": 4,
+                "type": "VIDEO_GAME_CONSOLE_PERIPHERAL",
+                "year": 1991,
+                "release": {
+                    "europe": "1993-04-01",
+                    "japan": "1991-12-12",
+                    "north_america": "1992-10-15"
+                },
+                "discontinued_year": 1996,
+                "discontinued": true,
+                "introductory_price": "299",
+                "units_sold": "2240000",
+                "media": [
+                    "CD_ROM"
+                ],
+                "tech_specs": {
+                    "cpu": "Motorola 68000 @ 12.5 MHz",
+                    "memory": "6 Mbit RAM (programs, pictures, and sounds), 128 Kbit RAM (CD-ROM cache), 64 kbit RAM (backup memory)",
+                    "display": "custom ASIC",
+                    "sound": "Ricoh RF5C164"
+                }
+            },
+            {
+                "name": "SEGA Saturn",
+                "manufacturer": "SEGA",
+                "generation": 5,
+                "type": "HOME_VIDEO_GAME_CONSOLE",
+                "year": 1994,
+                "release": {
+                    "europe": "1995-07-08",
+                    "japan": "1994-11-22",
+                    "north_america": "1995-05-11"
+                },
+                "discontinued_year": 2000,
+                "discontinued": true,
+                "introductory_price": "399",
+                "units_sold": "9260000",
+                "media": [
+                    "CD_ROM",
+                    "MINI_CD"
+                ],
+                "tech_specs": {
+                    "cpu": "2× Hitachi SH-2 @ 28.6 MHz",
+                    "memory": "2 MB RAM, 1.5 MB VRAM, 512 KB sound RAM, expandable with Extended RAM Cartridge",
+                    "display": "VDP1 & VDP2 video display processors",
+                    "sound": "Yamaha YMF292"
+                }
+            },
+            {
+                "name": "SNK Neo Geo AES",
+                "manufacturer": "SNK",
+                "generation": 4,
+                "type": "HOME_VIDEO_GAME_CONSOLE",
+                "year": 1990,
+                "release": {
+                    "europe": "1991-01-01",
+                    "japan": "1990-07-01",
+                    "north_america": "1990-07-01"
+                },
+                "discontinued_year": 2007,
+                "discontinued": true,
+                "introductory_price": null,
+                "units_sold": "1000000",
+                "media": [
+                    "ROM_CARTRIDGE"
+                ],
+                "tech_specs": {
+                    "cpu": "Motorola 68000 @ 12MHz, Zilog Z80A @ 4MHz",
+                    "memory": "64KB RAM, 84KB VRAM, 2KB Sound Memory",
+                    "display": "320×224 resolution, 4096 on-screen colors out of a palette of 65536",
+                    "sound": "Yamaha YM2610"
+                }
+            },
+            {
+                "name": "SNK Neo Geo CD",
+                "manufacturer": "SNK",
+                "generation": 4,
+                "type": "HOME_VIDEO_GAME_CONSOLE",
+                "year": 1995,
+                "release": {
+                    "europe": "1994-12-03",
+                    "japan": "1994-09-09",
+                    "north_america": "1996-01-15"
+                },
+                "discontinued_year": 1997,
+                "discontinued": true,
+                "introductory_price": "399",
+                "units_sold": null,
+                "media": [
+                    "CD_ROM"
+                ],
+                "tech_specs": {
+                    "cpu": "Motorola 68000 @ 12 MHz",
+                    "memory": "7 MB RAM",
+                    "display": "320×224 resolution, 4096 on-screen colors out of a palette of 65536",
+                    "sound": null
+                }
+            },
+            {
+                "name": "SNK Neo Geo MVS",
+                "manufacturer": "SNK",
+                "generation": 4,
+                "type": "ARCADE_SYSTEM_BOARD",
+                "year": 1990,
+                "release": {
+                    "europe": "1991-01-01",
+                    "japan": "1990-04-26",
+                    "north_america": "1990-08-22"
+                },
+                "discontinued_year": 2007,
+                "discontinued": true,
+                "introductory_price": "649.9900",
+                "units_sold": "1180000",
+                "media": [
+                    "ROM_CARTRIDGE"
+                ],
+                "tech_specs": {
+                    "cpu": "Motorola 68000 @ 12MHz, Zilog Z80A @ 4MHz",
+                    "memory": "64KB RAM, 84KB VRAM, 2KB Sound Memory",
+                    "display": "320×224 resolution, 4096 on-screen colors out of a palette of 65536",
+                    "sound": "Yamaha YM2610"
+                }
+            },
+            {
+                "name": "SNK Neo-Geo Pocket",
+                "manufacturer": "SNK",
+                "generation": 5,
+                "type": "HANDHELD_GAME_CONSOLE",
+                "year": 1998,
+                "release": {
+                    "europe": null,
+                    "japan": "1998-10-28",
+                    "north_america": null
+                },
+                "discontinued_year": 1999,
+                "discontinued": true,
+                "introductory_price": null,
+                "units_sold": null,
+                "media": [
+                    "ROM_CARTRIDGE"
+                ],
+                "tech_specs": {
+                    "cpu": "Toshiba TLCS900H @ 6.144 MHz",
+                    "memory": null,
+                    "display": "Virtual screen 256×256, 16 palettes per plane, 64 sprites per frame",
+                    "sound": "Z80 & SN76489 compatible"
+                }
+            },
+            {
+                "name": "SNK Neo-Geo Pocket Color",
+                "manufacturer": "SNK",
+                "generation": 5,
+                "type": "HANDHELD_GAME_CONSOLE",
+                "year": 1999,
+                "release": {
+                    "europe": "1999-10-01",
+                    "japan": "1999-03-16",
+                    "north_america": "1999-08-06"
+                },
+                "discontinued_year": 2001,
+                "discontinued": true,
+                "introductory_price": "69.9500",
+                "units_sold": null,
+                "media": [
+                    "ROM_CARTRIDGE"
+                ],
+                "tech_specs": {
+                    "cpu": "Toshiba TLCS900H core (16-bit) @ 6.144 MHz, Zilog Z80 @ 3.072 MHz for sound",
+                    "memory": "12 KB RAM for 900/H, 4 KB RAM for Z80, 64 KB ROM",
+                    "display": "2.7\", 160x152 resolution, 146 colors on screen out of a palette of 4096",
+                    "sound": "T6W28 (enhanced SN76489), 8-bit DACs"
+                }
+            }
+        ]
+    ]
+}

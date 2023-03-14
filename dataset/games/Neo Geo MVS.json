@@ -1,0 +1,2217 @@
+{
+    "games": [
+        {
+            "title": "3 Count Bout",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING",
+                "SPORTS"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": "ESRB_TEEN",
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1993,
+            "plot": ""
+        },
+        {
+            "title": "Aero Fighters 2",
+            "series": "Aero Fighters",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "SHOOT_EM_UP"
+            ],
+            "developer": "Video System",
+            "publisher": "SNK, Video System",
+            "rating": "ESRB_EVERYONE_10_PLUS",
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1994,
+            "plot": ""
+        },
+        {
+            "title": "Aero Fighters 3",
+            "series": "Aero Fighters",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "SHOOT_EM_UP"
+            ],
+            "developer": "Video System",
+            "publisher": "SNK, Video System",
+            "rating": "ESRB_EVERYONE_10_PLUS",
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1995,
+            "plot": ""
+        },
+        {
+            "title": "Aggressors of Dark Kombat",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "ADK",
+            "publisher": "ADK,SNK",
+            "rating": "ESRB_EVERYONE_10_PLUS",
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1994,
+            "plot": ""
+        },
+        {
+            "title": "Alpha Mission II",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "SHOOT_EM_UP"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": "ESRB_EVERYONE",
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1991,
+            "plot": ""
+        },
+        {
+            "title": "Andro Dunos",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "SHOOT_EM_UP"
+            ],
+            "developer": "Visco",
+            "publisher": "SNK,Visco",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1992,
+            "plot": ""
+        },
+        {
+            "title": "Art of Fighting",
+            "series": "Art of Fighting",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": "ESRB_TEEN",
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1992,
+            "plot": ""
+        },
+        {
+            "title": "Art of Fighting 2",
+            "series": "Art of Fighting",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": "ESRB_TEEN",
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1994,
+            "plot": ""
+        },
+        {
+            "title": "Art of Fighting 3: The Path of the Warrior",
+            "series": "Art of Fighting",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1996,
+            "plot": ""
+        },
+        {
+            "title": "Bakatono-sama Mahjong Manyūki",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "BOARD_GAMES"
+            ],
+            "developer": "Monolith",
+            "publisher": "Monolith, SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER"
+            ],
+            "year": 1991,
+            "plot": ""
+        },
+        {
+            "title": "Baseball Stars Professional",
+            "series": "Baseball Stars",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "SPORTS"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": "ESRB_EVERYONE",
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1990,
+            "plot": ""
+        },
+        {
+            "title": "Baseball Stars 2",
+            "series": "Baseball Stars",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "SPORTS"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": "ESRB_EVERYONE",
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1992,
+            "plot": ""
+        },
+        {
+            "title": "Battle Flip Shot",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "SPORTS"
+            ],
+            "developer": "Visco",
+            "publisher": "SNK, Visco",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER"
+            ],
+            "year": 1998,
+            "plot": ""
+        },
+        {
+            "title": "Blazing Star",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "SHOOT_EM_UP"
+            ],
+            "developer": "Aicom, Yumekobo",
+            "publisher": "SNK, Yumekobo",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER"
+            ],
+            "year": 1998,
+            "plot": ""
+        },
+        {
+            "title": "Blue's Journey",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "PLATFORM"
+            ],
+            "developer": "Alpha Denshi",
+            "publisher": "Alpha Denshi, SNK",
+            "rating": "ESRB_EVERYONE",
+            "modes": [
+                "SINGLE_PLAYER"
+            ],
+            "year": 1991,
+            "plot": ""
+        },
+        {
+            "title": "Panic Bomber",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "PUZZLE"
+            ],
+            "developer": "Hudson Soft",
+            "publisher": "SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER"
+            ],
+            "year": 1995,
+            "plot": ""
+        },
+        {
+            "title": "Breakers",
+            "series": "Breakers",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "Visco",
+            "publisher": "SNK, Visco",
+            "rating": "ESRB_TEEN",
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1996,
+            "plot": ""
+        },
+        {
+            "title": "Breakers Revenge",
+            "series": "Breakers",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "Visco",
+            "publisher": "SNK, Visco",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1998,
+            "plot": ""
+        },
+        {
+            "title": "Burning Fight",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "BEAT_EM_UP"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": "ESRB_TEEN",
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1991,
+            "plot": ""
+        },
+        {
+            "title": "Captain Tomaday",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "SHOOT_EM_UP"
+            ],
+            "developer": "Visco",
+            "publisher": "SNK, Visco",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1999,
+            "plot": ""
+        },
+        {
+            "title": "Chibi Maruko-chan: Maruko Deluxe Quiz",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "QUIZ"
+            ],
+            "developer": "Be Top",
+            "publisher": "SNK, Takara",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER"
+            ],
+            "year": 1995,
+            "plot": ""
+        },
+        {
+            "title": "Crossed Swords",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "ACTION",
+                "ROLE_PLAYING"
+            ],
+            "developer": "Alpha Denshi",
+            "publisher": "Alpha Denshi, SNK",
+            "rating": "ESRB_TEEN",
+            "modes": [
+                "SINGLE_PLAYER"
+            ],
+            "year": 1991,
+            "plot": ""
+        },
+        {
+            "title": "Cyber-Lip",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "RUN_AND_GUN"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": "ESRB_TEEN",
+            "modes": [
+                "SINGLE_PLAYER"
+            ],
+            "year": 1990,
+            "plot": ""
+        },
+        {
+            "title": "Double Dragon",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "Technōs Japan",
+            "publisher": "SNK, Technōs Japan Corp.",
+            "rating": "ESRB_TEEN",
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1995,
+            "plot": ""
+        },
+        {
+            "title": "Eight Man",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "BEAT_EM_UP"
+            ],
+            "developer": "Pallas, SNK",
+            "publisher": "Pallas, SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER"
+            ],
+            "year": 1991,
+            "plot": ""
+        },
+        {
+            "title": "Far East of Eden: Kabuki Klash",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "Racjin, Red Entertainment",
+            "publisher": "Hudson Soft, SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER"
+            ],
+            "year": 1995,
+            "plot": ""
+        },
+        {
+            "title": "Fatal Fury: King of Fighters",
+            "series": "Fatal Fury",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1991,
+            "plot": ""
+        },
+        {
+            "title": "Fatal Fury 2",
+            "series": "Fatal Fury",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": "ESRB_TEEN",
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1992,
+            "plot": ""
+        },
+        {
+            "title": "Fatal Fury 3: Road to the Final Victory",
+            "series": "Fatal Fury",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1995,
+            "plot": ""
+        },
+        {
+            "title": "Fatal Fury Special",
+            "series": "Fatal Fury",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": "ESRB_TEEN",
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1993,
+            "plot": ""
+        },
+        {
+            "title": "Fight Fever",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "Viccom, SNK",
+            "publisher": "SNK, Viccom",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1994,
+            "plot": ""
+        },
+        {
+            "title": "Football Frenzy",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "SPORTS"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": "ESRB_EVERYONE",
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1992,
+            "plot": ""
+        },
+        {
+            "title": "Galaxy Fight: Universal Warriors",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "Sunsoft",
+            "publisher": "SNK, Sunsoft",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1995,
+            "plot": ""
+        },
+        {
+            "title": "Garou: Mark of the Wolves",
+            "series": "Fatal Fury",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1999,
+            "plot": ""
+        },
+        {
+            "title": "Ghost Pilots",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "SHOOT_EM_UP"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": "ESRB_TEEN",
+            "modes": [
+                "SINGLE_PLAYER"
+            ],
+            "year": 1991,
+            "plot": ""
+        },
+        {
+            "title": "Karnov's Revenge",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "Data East",
+            "publisher": "Data East, SNK",
+            "rating": "ESRB_TEEN",
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1994,
+            "plot": ""
+        },
+        {
+            "title": "The King of Fighters '94",
+            "series": "The King of Fighters",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1994,
+            "plot": ""
+        },
+        {
+            "title": "The King of Fighters '95",
+            "series": "The King of Fighters",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1995,
+            "plot": ""
+        },
+        {
+            "title": "The King of Fighters '96",
+            "series": "The King of Fighters",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1996,
+            "plot": ""
+        },
+        {
+            "title": "The King of Fighters '97",
+            "series": "The King of Fighters",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1997,
+            "plot": ""
+        },
+        {
+            "title": "The King of Fighters '98: The Slugfest",
+            "series": "The King of Fighters",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1998,
+            "plot": ""
+        },
+        {
+            "title": "The King of Fighters '99: Millennium Battle",
+            "series": "The King of Fighters",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1999,
+            "plot": ""
+        },
+        {
+            "title": "The King of Fighters 2000",
+            "series": "The King of Fighters",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 2000,
+            "plot": ""
+        },
+        {
+            "title": "The King of Fighters 2001",
+            "series": "The King of Fighters",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "Eolith",
+            "publisher": "SNK Playmore",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 2001,
+            "plot": ""
+        },
+        {
+            "title": "The King of Fighters 2002: Challenge to Ultimate Battle",
+            "series": "The King of Fighters",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "Eolith",
+            "publisher": "Eolith, Playmore",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 2002,
+            "plot": ""
+        },
+        {
+            "title": "The King of Fighters 2003",
+            "series": "The King of Fighters",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "SNK Playmore",
+            "publisher": "SNK Playmore",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 2003,
+            "plot": ""
+        },
+        {
+            "title": "King of the Monsters",
+            "series": "King of the Monsters",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING",
+                "SPORTS_WRESTLING"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1991,
+            "plot": ""
+        },
+        {
+            "title": "King of the Monsters 2",
+            "series": "King of the Monsters",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING",
+                "SPORTS_WRESTLING"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1992,
+            "plot": ""
+        },
+        {
+            "title": "Kizuna Encounter",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1996,
+            "plot": ""
+        },
+        {
+            "title": "The Last Blade",
+            "series": "The Last Blade",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1997,
+            "plot": ""
+        },
+        {
+            "title": "The Last Blade 2",
+            "series": "The Last Blade",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1998,
+            "plot": ""
+        },
+        {
+            "title": "Last Resort",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "SHOOT_EM_UP"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": "ESRB_EVERYONE",
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1992,
+            "plot": ""
+        },
+        {
+            "title": "League Bowling",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "SPORTS"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": "ESRB_EVERYONE",
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1990,
+            "plot": ""
+        },
+        {
+            "title": "Magical Drop II",
+            "series": "Magical Drop",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "PUZZLE"
+            ],
+            "developer": "Data East",
+            "publisher": "Data East, SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER"
+            ],
+            "year": 1996,
+            "plot": ""
+        },
+        {
+            "title": "Magical Drop III",
+            "series": "Magical Drop",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "PUZZLE"
+            ],
+            "developer": "Data East",
+            "publisher": "Data East, SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER"
+            ],
+            "year": 1997,
+            "plot": ""
+        },
+        {
+            "title": "Magician Lord",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "PLATFORM"
+            ],
+            "developer": "Alpha Denshi",
+            "publisher": "Alpha Denshi, SNK",
+            "rating": "ESRB_TEEN",
+            "modes": [
+                "SINGLE_PLAYER"
+            ],
+            "year": 1990,
+            "plot": ""
+        },
+        {
+            "title": "Metal Slug",
+            "series": "Metal Slug",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "RUN_AND_GUN"
+            ],
+            "developer": "Nazca Corporation",
+            "publisher": "Nazca Corporation, SNK",
+            "rating": "ESRB_TEEN",
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1996,
+            "plot": ""
+        },
+        {
+            "title": "Metal Slug 2",
+            "series": "Metal Slug",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "RUN_AND_GUN"
+            ],
+            "developer": "Nazca Corporation",
+            "publisher": "Nazca Corporation, SNK",
+            "rating": "ESRB_TEEN",
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1998,
+            "plot": ""
+        },
+        {
+            "title": "Metal Slug 3",
+            "series": "Metal Slug",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "RUN_AND_GUN"
+            ],
+            "developer": "Nazca Corporation",
+            "publisher": "Nazca Corporation, SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 2000,
+            "plot": ""
+        },
+        {
+            "title": "Metal Slug 4",
+            "series": "Metal Slug",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "RUN_AND_GUN"
+            ],
+            "developer": "Mega Enterprise, Noise Factory",
+            "publisher": "BrezzaSoft, Playmore, Sun Amusement",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 2002,
+            "plot": ""
+        },
+        {
+            "title": "Metal Slug 5",
+            "series": "Metal Slug",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "RUN_AND_GUN"
+            ],
+            "developer": "SNK Playmore",
+            "publisher": "SNK Playmore",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 2003,
+            "plot": ""
+        },
+        {
+            "title": "Metal Slug X",
+            "series": "Metal Slug",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "RUN_AND_GUN"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1999,
+            "plot": ""
+        },
+        {
+            "title": "Mutation Nation",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "BEAT_EM_UP"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": "ESRB_TEEN",
+            "modes": [
+                "SINGLE_PLAYER"
+            ],
+            "year": 1992,
+            "plot": ""
+        },
+        {
+            "title": "NAM-1975",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "SHOOTER"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": "ESRB_TEEN",
+            "modes": [
+                "SINGLE_PLAYER"
+            ],
+            "year": 1990,
+            "plot": ""
+        },
+        {
+            "title": "Neo Bomberman",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "ACTION",
+                "MAZE"
+            ],
+            "developer": "Hudson Soft",
+            "publisher": "Hudson Soft, SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1997,
+            "plot": ""
+        },
+        {
+            "title": "Neo Drift Out: New Technology",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "RACING"
+            ],
+            "developer": "Visco",
+            "publisher": "SNK, Visco",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER"
+            ],
+            "year": 1996,
+            "plot": ""
+        },
+        {
+            "title": "Neo Geo Cup '98: The Road to the Victory",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "SPORTS"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1998,
+            "plot": ""
+        },
+        {
+            "title": "Neo Mr. Do!",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "ACTION",
+                "MAZE"
+            ],
+            "developer": "Visco",
+            "publisher": "SNK, Visco",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1997,
+            "plot": ""
+        },
+        {
+            "title": "Neo Turf Masters",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "SPORTS"
+            ],
+            "developer": "Nazca Corporation",
+            "publisher": "Nazca Corporation, SNK",
+            "rating": "ESRB_EVERYONE",
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1996,
+            "plot": ""
+        },
+        {
+            "title": "Nightmare in the Dark",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "PLATFORM"
+            ],
+            "developer": "Eleven, Gavaking",
+            "publisher": "AM Factory",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 2000,
+            "plot": ""
+        },
+        {
+            "title": "Ninja Combat",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "BEAT_EM_UP",
+                "HACK_AND_SLASH"
+            ],
+            "developer": "Alpha Denshi",
+            "publisher": "Alpha Denshi, SNK",
+            "rating": "ESRB_TEEN",
+            "modes": [
+                "SINGLE_PLAYER"
+            ],
+            "year": 1990,
+            "plot": ""
+        },
+        {
+            "title": "Ninja Commando",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "RUN_AND_GUN"
+            ],
+            "developer": "Alpha Denshi",
+            "publisher": "Alpha Denshi, SNK",
+            "rating": "ESRB_EVERYONE",
+            "modes": [
+                "SINGLE_PLAYER"
+            ],
+            "year": 1992,
+            "plot": ""
+        },
+        {
+            "title": "Ninja Master's: Haō Ninpō Chō",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "ADK, SNK",
+            "publisher": "ADK, SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1996,
+            "plot": ""
+        },
+        {
+            "title": "Over Top",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "RACING"
+            ],
+            "developer": "ADK",
+            "publisher": "ADK, SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER"
+            ],
+            "year": 1996,
+            "plot": ""
+        },
+        {
+            "title": "Pleasure Goal: 5 on 5 Mini Soccer",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "SPORTS"
+            ],
+            "developer": "Saurus",
+            "publisher": "Saurus, SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1996,
+            "plot": ""
+        },
+        {
+            "title": "Real Bout Fatal Fury",
+            "series": "Fatal Fury",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": "ESRB_TEEN",
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1995,
+            "plot": ""
+        },
+        {
+            "title": "Real Bout Fatal Fury 2: The Newcomers",
+            "series": "Fatal Fury",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1998,
+            "plot": ""
+        },
+        {
+            "title": "Real Bout Fatal Fury Special",
+            "series": "Fatal Fury",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": "ESRB_TEEN",
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1997,
+            "plot": ""
+        },
+        {
+            "title": "Power Spikes II",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "SPORTS"
+            ],
+            "developer": "Video System",
+            "publisher": "SNK, Video System",
+            "rating": "ESRB_EVERYONE",
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1994,
+            "plot": ""
+        },
+        {
+            "title": "Prehistoric Isle 2",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "SHOOT_EM_UP"
+            ],
+            "developer": "Yumekobo",
+            "publisher": "SNK, Yumekobo",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER"
+            ],
+            "year": 1999,
+            "plot": ""
+        },
+        {
+            "title": "Puzzle Bobble",
+            "series": "Puzzle Bobble",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "PUZZLE"
+            ],
+            "developer": "Taito",
+            "publisher": "SNK,Taito",
+            "rating": "ESRB_EVERYONE",
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1994,
+            "plot": ""
+        },
+        {
+            "title": "Samurai Shodown",
+            "series": "Samurai Shodown",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": "ESRB_TEEN",
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1993,
+            "plot": ""
+        },
+        {
+            "title": "Samurai Shodown II",
+            "series": "Samurai Shodown",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": "ESRB_TEEN",
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1994,
+            "plot": ""
+        },
+        {
+            "title": "Samurai Shodown III: Blades of Blood",
+            "series": "Samurai Shodown",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1995,
+            "plot": ""
+        },
+        {
+            "title": "Samurai Shodown IV: Amakusa's Revenge",
+            "series": "Samurai Shodown",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1996,
+            "plot": ""
+        },
+        {
+            "title": "Samurai Shodown V",
+            "series": "Samurai Shodown",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "Yuki Enterprise",
+            "publisher": "SNK Playmore",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 2003,
+            "plot": ""
+        },
+        {
+            "title": "Samurai Shodown V Special",
+            "series": "Samurai Shodown",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "Yuki Enterprise",
+            "publisher": "SNK Playmore",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 2004,
+            "plot": ""
+        },
+        {
+            "title": "Sengoku",
+            "series": "Sengoku",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "BEAT_EM_UP",
+                "HACK_AND_SLASH"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": "ESRB_TEEN",
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1991,
+            "plot": ""
+        },
+        {
+            "title": "Sengoku 2",
+            "series": "Sengoku",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "BEAT_EM_UP",
+                "HACK_AND_SLASH"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": "ESRB_TEEN",
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1993,
+            "plot": ""
+        },
+        {
+            "title": "Sengoku 3",
+            "series": "Sengoku",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "BEAT_EM_UP",
+                "HACK_AND_SLASH"
+            ],
+            "developer": "Noise Factory",
+            "publisher": "SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 2001,
+            "plot": ""
+        },
+        {
+            "title": "Shock Troopers",
+            "series": "Shock Troopers",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "RUN_AND_GUN"
+            ],
+            "developer": "Saurus",
+            "publisher": "Saurus, SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1997,
+            "plot": ""
+        },
+        {
+            "title": "Shock Troopers: 2nd Squad",
+            "series": "Shock Troopers",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "RUN_AND_GUN"
+            ],
+            "developer": "Saurus",
+            "publisher": "Saurus, SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1998,
+            "plot": ""
+        },
+        {
+            "title": "Soccer Brawl",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "SPORTS"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": "ESRB_EVERYONE",
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1992,
+            "plot": ""
+        },
+        {
+            "title": "Super Sidekicks",
+            "series": "Super Sidekicks",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "SPORTS"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": "ESRB_EVERYONE",
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1992,
+            "plot": ""
+        },
+        {
+            "title": "Super Sidekicks 2: The World Championship",
+            "series": "Super Sidekicks",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "SPORTS"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1994,
+            "plot": ""
+        },
+        {
+            "title": "Super Sidekicks 3: The Next Glory",
+            "series": "Super Sidekicks",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "SPORTS"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1995,
+            "plot": ""
+        },
+        {
+            "title": "Windjammers",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "SPORTS"
+            ],
+            "developer": "Data East",
+            "publisher": "Data East, SNK",
+            "rating": "ESRB_EVERYONE",
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1994,
+            "plot": ""
+        },
+        {
+            "title": "World Heroes",
+            "series": "World Heroes",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "Alpha Denshi",
+            "publisher": "Alpha Denshi, SNK",
+            "rating": "ESRB_TEEN",
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1992,
+            "plot": ""
+        },
+        {
+            "title": "World Heroes 2",
+            "series": "World Heroes",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "ADK",
+            "publisher": "ADK, SNK",
+            "rating": "ESRB_TEEN",
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1993,
+            "plot": ""
+        },
+        {
+            "title": "World Heroes 2 Jet",
+            "series": "World Heroes",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "ADK",
+            "publisher": "ADK, SNK",
+            "rating": "ESRB_TEEN",
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1994,
+            "plot": ""
+        },
+        {
+            "title": "World Heroes Perfect",
+            "series": "World Heroes",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "ADK",
+            "publisher": "ADK, SNK",
+            "rating": "ESRB_TEEN",
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1995,
+            "plot": ""
+        },
+        {
+            "title": "Top Hunter: Roddy & Cathy",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "PLATFORM"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1994,
+            "plot": ""
+        },
+        {
+            "title": "Riding Hero",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "RACING"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": "ESRB_EVERYONE",
+            "modes": [
+                "SINGLE_PLAYER"
+            ],
+            "year": 1990,
+            "plot": ""
+        },
+        {
+            "title": "The Ultimate 11: SNK Football Championship",
+            "series": "Super Sidekicks",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "SPORTS"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1996,
+            "plot": ""
+        },
+        {
+            "title": "Waku Waku 7",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "Sunsoft",
+            "publisher": "SNK, Sunsoft",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1996,
+            "plot": ""
+        },
+        {
+            "title": "Pochi and Nyaa",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "PUZZLE"
+            ],
+            "developer": "Taito",
+            "publisher": "SNK, Taito",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 2003,
+            "plot": ""
+        },
+        {
+            "title": "Pulstar",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "SHOOT_EM_UP"
+            ],
+            "developer": "Aicom",
+            "publisher": "Aicom, SNK",
+            "rating": "ESRB_TEEN",
+            "modes": [
+                "SINGLE_PLAYER"
+            ],
+            "year": 1995,
+            "plot": ""
+        },
+        {
+            "title": "Puzzle de Pon!",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "PUZZLE"
+            ],
+            "developer": "Visco",
+            "publisher": "SNK, Visco",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER"
+            ],
+            "year": 1995,
+            "plot": ""
+        },
+        {
+            "title": "Puzzled",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "PUZZLE"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": "ESRB_EVERYONE",
+            "modes": [
+                "SINGLE_PLAYER"
+            ],
+            "year": 1990,
+            "plot": ""
+        },
+        {
+            "title": "Quiz Daisōsasen: The Last Count Down",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "QUIZ"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER"
+            ],
+            "year": 1991,
+            "plot": ""
+        },
+        {
+            "title": "Quiz King of Fighters",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "QUIZ"
+            ],
+            "developer": "Saurus, SNK",
+            "publisher": "Saurus, SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER"
+            ],
+            "year": 1995,
+            "plot": ""
+        },
+        {
+            "title": "Quiz Meitantei Neo & Geo: Quiz Daisōsasen Part 2",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "QUIZ"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER"
+            ],
+            "year": 1992,
+            "plot": ""
+        },
+        {
+            "title": "Rage of the Dragons",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "Evoga Entertainment",
+            "publisher": "BrezzaSoft, Playmore",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER"
+            ],
+            "year": 2002,
+            "plot": ""
+        },
+        {
+            "title": "Ragnagard",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "Saurus, System Vision",
+            "publisher": "Saurus, SNK",
+            "rating": "ESRB_EVERYONE",
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1996,
+            "plot": ""
+        },
+        {
+            "title": "Robo Army",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "BEAT_EM_UP"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": "ESRB_TEEN",
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1991,
+            "plot": ""
+        },
+        {
+            "title": "Savage Reign",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": "ESRB_TEEN",
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1995,
+            "plot": ""
+        },
+        {
+            "title": "Shōgi no Tatsujin: Master of Syougi",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "BOARD_GAMES"
+            ],
+            "developer": "ADK, SNK",
+            "publisher": "ADK, SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER"
+            ],
+            "year": 1995,
+            "plot": ""
+        },
+        {
+            "title": "SNK vs. Capcom: SVC Chaos",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "Capcom, SNK Playmore",
+            "publisher": "SNK Playmore",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 2003,
+            "plot": ""
+        },
+        {
+            "title": "Spinmaster",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "PLATFORM"
+            ],
+            "developer": "Data East",
+            "publisher": "Data East, SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1993,
+            "plot": ""
+        },
+        {
+            "title": "Stakes Winner",
+            "series": "Stakes Winner",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "SPORTS"
+            ],
+            "developer": "Saurus",
+            "publisher": "Saurus",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER"
+            ],
+            "year": 1995,
+            "plot": ""
+        },
+        {
+            "title": "Stakes Winner 2",
+            "series": "Stakes Winner",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "SPORTS"
+            ],
+            "developer": "Saurus",
+            "publisher": "Saurus",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER"
+            ],
+            "year": 1996,
+            "plot": ""
+        },
+        {
+            "title": "Street Slam",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "SPORTS"
+            ],
+            "developer": "Data East",
+            "publisher": "Data East, SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER",
+                "TWO_PLAYERS"
+            ],
+            "year": 1994,
+            "plot": ""
+        },
+        {
+            "title": "Strikers 1945 Plus",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "SHOOT_EM_UP"
+            ],
+            "developer": "Psikyo",
+            "publisher": "Psikyo, SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER"
+            ],
+            "year": 1999,
+            "plot": ""
+        },
+        {
+            "title": "2020 Super Baseball",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "SPORTS"
+            ],
+            "developer": "Pallas, SNK",
+            "publisher": "Pallas, SNK",
+            "rating": "ESRB_EVERYONE",
+            "modes": [
+                "SINGLE_PLAYER"
+            ],
+            "year": 1991,
+            "plot": ""
+        },
+        {
+            "title": "The Super Spy",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "ACTION",
+                "ROLE_PLAYING"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER"
+            ],
+            "year": 1990,
+            "plot": ""
+        },
+        {
+            "title": "Thrash Rally",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "RACING"
+            ],
+            "developer": "Alpha Denshi",
+            "publisher": "Alpha Denshi, SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER"
+            ],
+            "year": 1991,
+            "plot": ""
+        },
+        {
+            "title": "Top Player's Golf",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "SPORTS"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": "ESRB_EVERYONE",
+            "modes": [
+                "SINGLE_PLAYER"
+            ],
+            "year": 1990,
+            "plot": ""
+        },
+        {
+            "title": "Twinkle Star Sprites",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "SHOOT_EM_UP"
+            ],
+            "developer": "ADK",
+            "publisher": "ADK, SNK",
+            "rating": "ESRB_EVERYONE",
+            "modes": [
+                "SINGLE_PLAYER"
+            ],
+            "year": 1996,
+            "plot": ""
+        },
+        {
+            "title": "Viewpoint",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "SHOOT_EM_UP"
+            ],
+            "developer": "Aicom, Sammy Corporation",
+            "publisher": "Sammy, SNK",
+            "rating": "ESRB_EVERYONE",
+            "modes": [
+                "SINGLE_PLAYER"
+            ],
+            "year": 1992,
+            "plot": ""
+        },
+        {
+            "title": "Voltage Fighter Gowcaizer",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "FIGHTING"
+            ],
+            "developer": "Technōs Japan Corp",
+            "publisher": "SNK, Technōs Japan Corp",
+            "rating": "ESRB_TEEN",
+            "modes": [
+                "SINGLE_PLAYER"
+            ],
+            "year": 1995,
+            "plot": ""
+        },
+        {
+            "title": "Zed Blade",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "SHOOT_EM_UP"
+            ],
+            "developer": "NMK (company)",
+            "publisher": "NMK, SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER"
+            ],
+            "year": 1994,
+            "plot": ""
+        },
+        {
+            "title": "ZuPaPa!",
+            "series": "",
+            "platform": "Neo Geo MVS",
+            "genres": [
+                "PLATFORM"
+            ],
+            "developer": "SNK",
+            "publisher": "SNK",
+            "rating": null,
+            "modes": [
+                "SINGLE_PLAYER"
+            ],
+            "year": 2001,
+            "plot": ""
+        }
+    ]
+}
