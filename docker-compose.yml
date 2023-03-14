@@ -44,7 +44,7 @@ services:
       - backend
 
   catalog_db:
-    image: postgres:15.1-alpine
+    image: postgres:15.2-alpine
     ports:
       - 5432:5432
     environment:
@@ -52,7 +52,16 @@ services:
       POSTGRES_DB: catalog
       POSTGRES_PASSWORD: mysecretpassword
     volumes:
+      - .docker/init-db:/docker-entrypoint-initdb.d
       - catalog-db-data:/var/lib/postgresql/data
+    deploy:
+      resources:
+        limits:
+          cpus: '4'
+          memory: 4G
+        reservations:
+          cpus: '4'
+          memory: 4G
     networks:
       - backend
     healthcheck:
