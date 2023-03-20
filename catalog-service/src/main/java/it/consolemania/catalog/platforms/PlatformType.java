@@ -21,7 +21,36 @@
 
 package it.consolemania.catalog.platforms;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public enum PlatformType {
-    ARCADE_SYSTEM_BOARD,
-    HOME_VIDEO_GAME_CONSOLE
+    ARCADE_SYSTEM_BOARD("ARCADE_SYSTEM_BOARD"),
+    HOME_VIDEO_GAME_CONSOLE("HOME_VIDEO_GAME_CONSOLE");
+
+    private final String value;
+
+    PlatformType(String value) {
+        this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static PlatformType fromValue(String value) {
+        for (PlatformType platformType : PlatformType.values()) {
+            if (platformType.value.equals(value)) {
+                return platformType;
+            }
+        }
+        throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
 }

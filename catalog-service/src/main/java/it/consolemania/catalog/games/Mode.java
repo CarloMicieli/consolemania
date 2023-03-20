@@ -21,8 +21,37 @@
 
 package it.consolemania.catalog.games;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public enum Mode {
-    SINGLE_PLAYER,
-    TWO_PLAYERS,
-    MULTIPLAYER,
+    SINGLE_PLAYER("SINGLE_PLAYER"),
+    TWO_PLAYERS("TWO_PLAYERS"),
+    MULTIPLAYER("MULTIPLAYER");
+
+    private final String value;
+
+    Mode(String value) {
+        this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static Mode fromValue(String value) {
+        for (Mode mode : Mode.values()) {
+            if (mode.value.equals(value)) {
+                return mode;
+            }
+        }
+        throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
 }

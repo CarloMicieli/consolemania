@@ -21,18 +21,47 @@
 
 package it.consolemania.catalog.games;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public enum Rating {
-    CERO_C_AGES_15_PLUS,
-    ESRB_ADULTS_ONLY,
-    ESRB_EARLY_CHILDHOOD,
-    ESRB_EVERYONE,
-    ESRB_EVERYONE_10_PLUS,
-    ESRB_KIDS_TO_ADULTS,
-    ESRB_MATURE,
-    ESRB_RATING_PENDING,
-    ESRB_TEEN,
-    HSRS_17_PLUS,
-    HSRS_ADULT,
-    HSRS_PARENTAL_GUIDANCE,
-    OTHER_NOT_RATED,
+    CERO_C_AGES_15_PLUS("CERO_C_AGES_15_PLUS"),
+    ESRB_ADULTS_ONLY("ESRB_ADULTS_ONLY"),
+    ESRB_EARLY_CHILDHOOD("ESRB_EARLY_CHILDHOOD"),
+    ESRB_EVERYONE("ESRB_EVERYONE"),
+    ESRB_EVERYONE_10_PLUS("ESRB_EVERYONE_10_PLUS"),
+    ESRB_KIDS_TO_ADULTS("ESRB_KIDS_TO_ADULTS"),
+    ESRB_MATURE("ESRB_MATURE"),
+    ESRB_RATING_PENDING("ESRB_RATING_PENDING"),
+    ESRB_TEEN("ESRB_TEEN"),
+    HSRS_17_PLUS("HSRS_17_PLUS"),
+    HSRS_ADULT("HSRS_ADULT"),
+    HSRS_PARENTAL_GUIDANCE("HSRS_PARENTAL_GUIDANCE"),
+    OTHER_NOT_RATED("OTHER_NOT_RATED");
+
+    private final String value;
+
+    Rating(String value) {
+        this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static Rating fromValue(String value) {
+        for (Rating rating : Rating.values()) {
+            if (rating.value.equals(value)) {
+                return rating;
+            }
+        }
+        throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
 }

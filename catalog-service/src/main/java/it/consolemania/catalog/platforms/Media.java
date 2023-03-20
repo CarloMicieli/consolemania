@@ -21,8 +21,40 @@
 
 package it.consolemania.catalog.platforms;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public enum Media {
-    CD_ROM,
-    HU_CARD,
-    ROM_CARTRIDGE
+    CD_ROM("CD_ROM"),
+    GAME_CUBE_GAME_DISC("GAME_CUBE_GAME_DISC"),
+    GD_ROM("GD_ROM"),
+    HU_CARD("HU_CARD"),
+    MINI_CD("MINI_CD"),
+    ROM_CARTRIDGE("ROM_CARTRIDGE");
+
+    private final String value;
+
+    Media(String value) {
+        this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static Media fromValue(String value) {
+        for (Media media : Media.values()) {
+            if (media.value.equals(value)) {
+                return media;
+            }
+        }
+        throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
 }
