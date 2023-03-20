@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   edge_service:
-    image: ghcr.io/carlomicieli/edge-service:latest
+    image: ghcr.io/carlomicieli/consolemania-edge:latest
     ports:
       - 8000:8000
     environment:
@@ -20,7 +20,7 @@ services:
       - backend
 
   catalog_service:
-    image: ghcr.io/carlomicieli/catalog-service:latest
+    image: ghcr.io/carlomicieli/consolemania-catalog:latest
     depends_on:
       catalog_db:
         condition: service_healthy

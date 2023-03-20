@@ -90,6 +90,6 @@ tasks.named("check") {
 
 tasks.named<BootBuildImage>("bootBuildImage") {
     builder.set("paketobuildpacks/builder:tiny")
-    imageName.set("ghcr.io/carlomicieli/catalog-service:${project.version}")
-    tags.set(listOf("ghcr.io/carlomicieli/catalog-service:latest"))
+    imageName.set("ghcr.io/carlomicieli/consolemania-catalog:${project.version}")
+    tags.set(listOf("ghcr.io/carlomicieli/consolemania-catalog:latest"))
 }

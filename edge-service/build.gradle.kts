@@ -34,6 +34,6 @@ tasks.getByName<BootRun>("bootRun") {
 
 tasks.named<BootBuildImage>("bootBuildImage") {
     builder.set("paketobuildpacks/builder:tiny")
-    imageName.set("ghcr.io/carlomicieli/edge-service:${project.version}")
-    tags.set(listOf("ghcr.io/carlomicieli/edge-service:latest"))
+    imageName.set("ghcr.io/carlomicieli/consolemania-edge:${project.version}")
+    tags.set(listOf("ghcr.io/carlomicieli/consolemania-edge:latest"))
 }
