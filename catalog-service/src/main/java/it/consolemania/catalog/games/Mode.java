@@ -23,5 +23,6 @@ package it.consolemania.catalog.games;
 
 public enum Mode {
     SINGLE_PLAYER,
+    TWO_PLAYERS,
     MULTIPLAYER,
 }

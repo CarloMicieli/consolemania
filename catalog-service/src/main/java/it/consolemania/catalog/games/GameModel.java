@@ -40,6 +40,8 @@ public final class GameModel extends RepresentationModel<GameModel> {
     private final String series;
     private final String developer;
     private final String publisher;
+    private final String plot;
+    private final Rating rating;
     private final Release release;
     private final Year year;
     private final ResourceMetadata metadata;
@@ -52,6 +54,8 @@ public final class GameModel extends RepresentationModel<GameModel> {
             String series,
             String developer,
             String publisher,
+            String plot,
+            Rating rating,
             Release release,
             Year year,
             Instant createdDate,
@@ -66,6 +70,8 @@ public final class GameModel extends RepresentationModel<GameModel> {
         this.series = series;
         this.developer = developer;
         this.publisher = publisher;
+        this.plot = plot;
+        this.rating = rating;
         this.release = release;
         this.year = year;
         this.metadata = new ResourceMetadata(createdDate, lastModifiedDate, version);
@@ -99,6 +105,14 @@ public final class GameModel extends RepresentationModel<GameModel> {
         return publisher;
     }
 
+    public String getPlot() {
+        return plot;
+    }
+
+    public Rating getRating() {
+        return rating;
+    }
+
     public Release getRelease() {
         return release;
     }
@@ -120,6 +134,8 @@ public final class GameModel extends RepresentationModel<GameModel> {
                 game.series(),
                 game.developer(),
                 game.publisher(),
+                game.plot(),
+                game.rating(),
                 game.release(),
                 Year.of(game.year()),
                 game.createdDate(),

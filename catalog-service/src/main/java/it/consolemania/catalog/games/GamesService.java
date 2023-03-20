@@ -89,6 +89,8 @@ public class GamesService {
                 game.series(),
                 game.developer(),
                 game.publisher(),
+                game.plot(),
+                game.rating(),
                 game.release(),
                 game.year().getValue(),
                 existingGame.map(Game::createdDate).orElse(null),

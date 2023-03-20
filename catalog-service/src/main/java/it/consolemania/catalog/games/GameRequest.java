@@ -37,6 +37,8 @@ public record GameRequest(
         @Size(max = 100) String series,
         @NotBlank @Size(max = 100) String developer,
         @NotBlank @Size(max = 100) String publisher,
+        @Size(max = 2500) String plot,
+        Rating rating,
         Release release,
         Year year)
         implements GameRequestBuilder.With {}

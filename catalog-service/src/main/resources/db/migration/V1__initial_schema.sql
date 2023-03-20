@@ -38,6 +38,8 @@ CREATE TABLE games
     series             varchar(250),
     developer          varchar(100),
     publisher          varchar(100),
+    plot               varchar(5000),
+    rating             varchar(100),
     release_eu         date,
     release_jp         date,
     release_na         date,

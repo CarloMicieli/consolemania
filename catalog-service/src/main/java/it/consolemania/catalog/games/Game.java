@@ -48,6 +48,8 @@ public record Game(
         String series,
         String developer,
         String publisher,
+        String plot,
+        Rating rating,
         @Embedded(onEmpty = USE_NULL) Release release,
         @NotNull Integer year,
         @CreatedDate Instant createdDate,
