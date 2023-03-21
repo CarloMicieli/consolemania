@@ -17,6 +17,8 @@ configurations {
     }
 }
 
+extra["otelVersion"] = "1.24.0"
+
 dependencies {
     implementation("com.jcabi:jcabi-urn:0.9")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
@@ -26,6 +28,8 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.flywaydb:flyway-core")
     runtimeOnly("org.postgresql:postgresql")
+    runtimeOnly("io.micrometer:micrometer-registry-prometheus")
+    runtimeOnly("io.opentelemetry.javaagent:opentelemetry-javaagent:${property("otelVersion")}")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
     testImplementation("org.mockito:mockito-inline")
 }

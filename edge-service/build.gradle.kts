@@ -13,11 +13,15 @@ configurations {
     }
 }
 
+extra["otelVersion"] = "1.24.0"
 extra["springCloudVersion"] = "2022.0.1"
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("org.springframework.cloud:spring-cloud-starter-gateway")
+    runtimeOnly("io.github.resilience4j:resilience4j-micrometer")
+    runtimeOnly("io.micrometer:micrometer-registry-prometheus")
+    runtimeOnly("io.opentelemetry.javaagent:opentelemetry-javaagent:${property("otelVersion")}")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.projectreactor:reactor-test")
 }

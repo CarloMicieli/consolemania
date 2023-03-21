@@ -29,6 +29,8 @@ logging:
     org.springframework.data: INFO
     org.springframework.jdbc.core: INFO
     it.consolemania.catalog: INFO
+  pattern:
+    level: "%5p [${spring.application.name},%X{trace_id},%X{span_id}]"
 
 management:
   server:
@@ -38,7 +40,10 @@ management:
     web:
       base-path: /
       exposure:
-        include: health
+        include: health, prometheus
   endpoint:
     health:
       enabled: true
+  metrics:
+    tags:
+      application: ${spring.application.name}

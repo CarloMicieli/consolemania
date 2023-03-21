@@ -22,6 +22,31 @@ server:
   shutdown: graceful
 
 logging:
+  group:
+    circuitbreaker: io.github.resilience4j, org.springframework.cloud.circuitbreaker
   level:
     org.springframework: INFO
     it.consolemania.edge: INFO
+  pattern:
+    level: "%5p [${spring.application.name},%X{trace_id},%X{span_id}]"
+
+management:
+  server:
+    port: 8001
+  endpoints:
+    web:
+      base-path: /
+      exposure:
+        include: gateway, health, prometheus
+  endpoint:
+    health:
+      show-details: always
+      show-components: always
+      probes:
+        enabled: true
+      group:
+        readiness:
+          include: readinessState,redis
+  metrics:
+    tags:
+      application: ${spring.application.name}

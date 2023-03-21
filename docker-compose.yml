@@ -3,16 +3,30 @@ version: "3.9"
 services:
   edge_service:
     image: ghcr.io/carlomicieli/consolemania-edge:latest
+    depends_on:
+      fluent-bit:
+        condition: service_started
+      tempo:
+        condition: service_started
     ports:
       - 8000:8000
     environment:
-      - JAVA_TOOL_OPTIONS=-Xss512k -Xmx256M -XX:ReservedCodeCacheSize=64M -XX:MaxMetaspaceSize=64M
+      - JAVA_TOOL_OPTIONS=-javaagent:/workspace/BOOT-INF/lib/opentelemetry-javaagent-1.24.0.jar
+      - OTEL_SERVICE_NAME=edge-service
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://tempo:4317
+      - OTEL_METRICS_EXPORTER=none
       - CATALOG_SERVICE_URL=http://catalog_service:9000
+      - BPL_JVM_THREAD_COUNT=50
+      - BPL_DEBUG_ENABLED=false
+    logging:
+      driver: fluentd
+      options:
+        fluentd-address: 127.0.0.1:24224
     deploy:
       resources:
         limits:
           cpus: '2'
-          memory: 1G
+          memory: 2G
         reservations:
           cpus: '0.50'
           memory: 512M
@@ -24,19 +38,33 @@ services:
     depends_on:
       catalog_db:
         condition: service_healthy
+      fluent-bit:
+        condition: service_started
+      tempo:
+        condition: service_started
     ports:
       - 9000:9000
       - 9001:9001
     environment:
-      - JAVA_TOOL_OPTIONS=-Xss512k -Xmx256M -XX:ReservedCodeCacheSize=64M -XX:MaxMetaspaceSize=64M
+      - JAVA_TOOL_OPTIONS=-javaagent:/workspace/BOOT-INF/lib/opentelemetry-javaagent-1.24.0.jar
       - DB_URL=jdbc:postgresql://catalog_db:5432/catalog
       - DB_USERNAME=postgres
       - DB_PASSWORD=mysecretpassword
+      - RUN_DB_MIGRATIONS=false
+      - BPL_JVM_THREAD_COUNT=50
+      - BPL_DEBUG_ENABLED=false
+      - OTEL_SERVICE_NAME=catalog-service
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://tempo:4317
+      - OTEL_METRICS_EXPORTER=none
+    logging:
+      driver: fluentd
+      options:
+        fluentd-address: 127.0.0.1:24224
     deploy:
       resources:
         limits:
           cpus: '2'
-          memory: 1G
+          memory: 2G
         reservations:
           cpus: '0.50'
           memory: 512M
@@ -86,6 +114,59 @@ services:
       - ./.docker/pgadmin/pgpass:/pgpass # passwords for the connections in this file
     networks:
       - backend
+
+  grafana:
+    image: grafana/grafana:9.1.2
+    container_name: grafana
+    depends_on:
+      - loki
+      - prometheus
+      - tempo
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=user
+      - GF_SECURITY_ADMIN_PASSWORD=password
+    volumes:
+      - ./.docker/grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
+      - ./.docker/grafana/dashboards:/etc/grafana/provisioning/dashboards
+      - ./.docker/grafana/grafana.ini:/etc/grafana/grafana.ini
+
+  loki:
+    image: grafana/loki:2.6.1
+    container_name: loki
+    depends_on:
+      - fluent-bit
+    ports:
+      - "3100:3100"
+
+  fluent-bit:
+    image: grafana/fluent-bit-plugin-loki:2.6.1-amd64
+    container_name: fluent-bit
+    ports:
+      - "24224:24224"
+    environment:
+      - LOKI_URL=http://loki:3100/loki/api/v1/push
+    volumes:
+      - ./.docker/fluent-bit/fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf
+
+  prometheus:
+    image: prom/prometheus:v2.38.0
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./.docker/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+
+  tempo:
+    image: grafana/tempo:1.5.0
+    container_name: tempo
+    command: -config.file /etc/tempo-config.yml
+    ports:
+      - "3110:3100"     # Tempo
+      - "4317:4317"     # OTel
+    volumes:
+      - ./.docker/tempo/tempo.yml:/etc/tempo-config.yml
 
 networks:
   backend:
