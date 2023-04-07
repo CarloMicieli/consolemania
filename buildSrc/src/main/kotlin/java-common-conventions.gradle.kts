@@ -82,8 +82,6 @@ dependencyManagement {
     }
 }
 
-extra["recordBuilderVersion"] = "35"
-
 dependencies {
     constraints {
         implementation("org.apache.logging.log4j:log4j-core") {
@@ -95,8 +93,6 @@ dependencies {
         }
     }
 
-    annotationProcessor("io.soabase.record-builder:record-builder-processor:${property("recordBuilderVersion")}")
-    compileOnly("io.soabase.record-builder:record-builder-core:${property("recordBuilderVersion")}")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 

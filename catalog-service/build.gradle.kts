@@ -17,10 +17,10 @@ configurations {
     }
 }
 
-extra["otelVersion"] = "1.24.0"
-
 dependencies {
-    implementation("com.jcabi:jcabi-urn:0.9")
+    annotationProcessor(libs.record.builder.processor)
+    compileOnly(libs.record.builder.core)
+    implementation(libs.urn)
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
     implementation("org.springframework.boot:spring-boot-starter-hateoas")
@@ -29,21 +29,13 @@ dependencies {
     implementation("org.flywaydb:flyway-core")
     runtimeOnly("org.postgresql:postgresql")
     runtimeOnly("io.micrometer:micrometer-registry-prometheus")
-    runtimeOnly("io.opentelemetry.javaagent:opentelemetry-javaagent:${property("otelVersion")}")
+    runtimeOnly(libs.opentelemetry.javaagent)
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
     testImplementation("org.mockito:mockito-inline")
 }
 
 tasks.getByName<BootRun>("bootRun") {
     mainClass.set("it.consolemania.catalog.CatalogServiceApplication")
-}
-
-extra["testcontainersVersion"] = "1.17.6"
-
-dependencyManagement {
-    imports {
-        mavenBom("org.testcontainers:testcontainers-bom:${property("testcontainersVersion")}")
-    }
 }
 
 @Suppress("UnstableApiUsage")
@@ -58,9 +50,9 @@ testing {
                 implementation(project())
                 implementation("org.springframework.boot:spring-boot-starter-test")
 
-                implementation("org.testcontainers:testcontainers")
-                implementation("org.testcontainers:junit-jupiter")
-                implementation("org.testcontainers:postgresql")
+                implementation(libs.testcontainers)
+                implementation(libs.testcontainers.junit.jupiter)
+                implementation(libs.testcontainers.postgresql)
                 implementation("io.rest-assured:rest-assured")
             }
 
