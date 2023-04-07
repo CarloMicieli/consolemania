@@ -24,10 +24,11 @@ package it.consolemania.catalog.games;
 import com.jcabi.urn.URN;
 import java.util.Optional;
 import java.util.UUID;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.repository.CrudRepository;
 
 public interface GamesRepository extends CrudRepository<Game, UUID> {
-    Iterable<Game> findAllByPlatformId(UUID platformId);
+    Iterable<Game> findAllByPlatformId(UUID platformId, PageRequest pageRequest);
 
     Optional<Game> findByGameUrn(URN gameURN);
 

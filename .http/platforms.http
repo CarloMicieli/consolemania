@@ -32,6 +32,11 @@ GET http://{{host}}:{{port}}/platforms
 
 ###
 
+# Get all platforms (with pagination)
+GET http://{{host}}:{{port}}/platforms?size=5
+
+###
+
 # Get a platform
 GET http://{{host}}:{{port}}/platforms/urn:platform:snk-neo-geo-aes
 
@@ -39,6 +44,11 @@ GET http://{{host}}:{{port}}/platforms/urn:platform:snk-neo-geo-aes
 
 # Get all games by platform
 GET http://{{host}}:{{port}}/platforms/urn:platform:snk-neo-geo-aes/games
+
+###
+
+# Get all games by platform (with pagination)
+GET http://{{host}}:{{port}}/platforms/urn:platform:snk-neo-geo-aes/games?page=0&size=10
 
 ###
 

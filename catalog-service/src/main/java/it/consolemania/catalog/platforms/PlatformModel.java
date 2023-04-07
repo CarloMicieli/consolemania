@@ -28,6 +28,7 @@ import it.consolemania.catalog.util.ResourceMetadata;
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.time.Year;
+import java.util.List;
 import java.util.Optional;
 import org.springframework.hateoas.IanaLinkRelations;
 import org.springframework.hateoas.RepresentationModel;
@@ -44,7 +45,7 @@ public final class PlatformModel extends RepresentationModel<PlatformModel> {
     private final boolean discontinued;
     private final BigDecimal introductoryPrice;
     private final Integer unitsSold;
-    private final Media media;
+    private final List<Media> media;
     private final TechnicalSpecifications technicalSpecifications;
     private final ResourceMetadata metadata;
 
@@ -59,7 +60,7 @@ public final class PlatformModel extends RepresentationModel<PlatformModel> {
             boolean discontinued,
             BigDecimal introductoryPrice,
             Integer unitsSold,
-            Media media,
+            List<Media> media,
             TechnicalSpecifications technicalSpecifications,
             Instant createdDate,
             Instant modifiedDate,
@@ -121,7 +122,7 @@ public final class PlatformModel extends RepresentationModel<PlatformModel> {
         return unitsSold;
     }
 
-    public Media getMedia() {
+    public List<Media> getMedia() {
         return media;
     }
 

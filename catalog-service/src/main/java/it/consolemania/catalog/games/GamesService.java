@@ -28,6 +28,7 @@ import it.consolemania.catalog.platforms.PlatformsRepository;
 import it.consolemania.catalog.util.UuidSource;
 import java.util.Optional;
 import java.util.UUID;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -98,8 +99,8 @@ public class GamesService {
                 existingGame.map(Game::version).orElse(null));
     }
 
-    public Iterable<Game> getGamesByPlatform(UUID platformId) {
-        return games.findAllByPlatformId(platformId);
+    public Iterable<Game> getGamesByPlatform(UUID platformId, PageRequest pageRequest) {
+        return games.findAllByPlatformId(platformId, pageRequest);
     }
 
     public Optional<Game> getGameByUrn(URN gameUrn) {

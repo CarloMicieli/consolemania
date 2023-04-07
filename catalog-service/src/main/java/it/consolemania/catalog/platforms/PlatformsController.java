@@ -30,16 +30,11 @@ import jakarta.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.hateoas.CollectionModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/platforms")
@@ -69,11 +64,16 @@ public class PlatformsController {
     }
 
     @GetMapping
-    ResponseEntity<List<PlatformModel>> getAllPlatforms() {
-        var platforms = StreamSupport.stream(platformsService.getAllPlatforms().spliterator(), false)
+    ResponseEntity<CollectionModel<PlatformModel>> getAllPlatforms(
+            @RequestParam(value = "page", defaultValue = "0", required = false) int page,
+            @RequestParam(value = "size", defaultValue = "25", required = false) int size) {
+        var pageRequest = PageRequest.of(page, size);
+        var platforms = StreamSupport.stream(
+                        platformsService.getAllPlatforms(pageRequest).spliterator(), false)
                 .map(PlatformModel::of)
                 .collect(Collectors.toList());
-        return ResponseEntity.ok(platforms);
+        var model = CollectionModel.of(platforms);
+        return ResponseEntity.ok(model);
     }
 
     @GetMapping("/{platformUrn}")
@@ -86,14 +86,19 @@ public class PlatformsController {
     }
 
     @GetMapping("/{platformUrn}/games")
-    ResponseEntity<List<GameModel>> getGamesByPlatformUrn(@PathVariable URN platformUrn) {
-        return platformsService
+    ResponseEntity<CollectionModel<GameModel>> getGamesByPlatformUrn(
+            @PathVariable URN platformUrn,
+            @RequestParam(value = "page", defaultValue = "0", required = false) int page,
+            @RequestParam(value = "size", defaultValue = "25", required = false) int size) {
+        var pageRequest = PageRequest.of(page, size);
+        var games = platformsService
                 .getPlatformByUrn(platformUrn)
-                .map(platform -> gamesService.getGamesByPlatform(platform.platformId()))
+                .map(platform -> gamesService.getGamesByPlatform(platform.platformId(), pageRequest))
                 .map(gamesIt -> StreamSupport.stream(gamesIt.spliterator(), false)
                         .map(GameModel::of)
                         .collect(Collectors.toList()))
-                .map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.ok(List.of()));
+                .orElseGet(List::of);
+        var model = CollectionModel.of(games);
+        return ResponseEntity.ok(model);
     }
 }

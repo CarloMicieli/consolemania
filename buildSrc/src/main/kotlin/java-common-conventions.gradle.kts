@@ -103,7 +103,7 @@ tasks {
         minHeapSize = "512m"
         maxHeapSize = "1G"
         failFast = false
-        ignoreFailures = true
+        ignoreFailures = false
 
         testLogging {
             showStandardStreams = false

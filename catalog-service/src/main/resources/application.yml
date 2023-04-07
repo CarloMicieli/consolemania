@@ -11,7 +11,7 @@ spring:
   lifecycle:
     timeout-per-shutdown-phase: 15s
   flyway:
-    enabled: ${RUN_DB_MIGRATIONS:true}
+    enabled: ${RUN_DB_MIGRATIONS:false}
 
 server:
   port: 9000

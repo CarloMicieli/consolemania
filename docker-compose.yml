@@ -131,6 +131,8 @@ services:
       - ./.docker/grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
       - ./.docker/grafana/dashboards:/etc/grafana/provisioning/dashboards
       - ./.docker/grafana/grafana.ini:/etc/grafana/grafana.ini
+    networks:
+      - backend
 
   loki:
     image: grafana/loki:2.6.1
@@ -139,6 +141,8 @@ services:
       - fluent-bit
     ports:
       - "3100:3100"
+    networks:
+      - backend
 
   fluent-bit:
     image: grafana/fluent-bit-plugin-loki:2.6.1-amd64
@@ -149,6 +153,8 @@ services:
       - LOKI_URL=http://loki:3100/loki/api/v1/push
     volumes:
       - ./.docker/fluent-bit/fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf
+    networks:
+      - backend
 
   prometheus:
     image: prom/prometheus:v2.38.0
@@ -157,6 +163,8 @@ services:
       - "9090:9090"
     volumes:
       - ./.docker/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      - backend
 
   tempo:
     image: grafana/tempo:1.5.0
@@ -167,6 +175,8 @@ services:
       - "4317:4317"     # OTel
     volumes:
       - ./.docker/tempo/tempo.yml:/etc/tempo-config.yml
+    networks:
+      - backend
 
 networks:
   backend:

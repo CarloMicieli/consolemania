@@ -1,26 +1,26 @@
 CREATE TABLE platforms
 (
-    platform_id        uuid PRIMARY KEY NOT NULL,
-    platform_urn       varchar(100)     NOT NULL,
-    name               varchar(100)     NOT NULL,
-    manufacturer       varchar(100)     NOT NULL,
-    generation         varchar(100)     NOT NULL,
-    type               varchar(100)     NOT NULL,
+    platform_id        uuid PRIMARY KEY    NOT NULL,
+    platform_urn       varchar(100)        NOT NULL,
+    name               varchar(100)        NOT NULL,
+    manufacturer       varchar(100)        NOT NULL,
+    generation         varchar(100)        NOT NULL,
+    type               varchar(100)        NOT NULL,
     release_eu         date,
     release_jp         date,
     release_na         date,
     discontinued_year  integer,
-    discontinued       varchar(100)     NOT NULL,
+    discontinued       varchar(100)        NOT NULL,
     introductory_price decimal,
     units_sold         decimal,
-    media              varchar(1000)    NOT NULL,
-    cpu                varchar(1000)    NOT NULL,
-    memory             varchar(1000)    NOT NULL,
-    display            varchar(1000)    NOT NULL,
-    sound              varchar(1000)    NOT NULL,
-    created_date       timestamp        NOT NULL,
-    last_modified_date timestamp        NOT NULL,
-    version            INT              NOT NULL
+    media              varchar(1000) ARRAY NOT NULL,
+    cpu                varchar(1000)       NOT NULL,
+    memory             varchar(1000)       NOT NULL,
+    display            varchar(1000)       NOT NULL,
+    sound              varchar(1000)       NOT NULL,
+    created_date       timestamp           NOT NULL,
+    last_modified_date timestamp           NOT NULL,
+    version            INT                 NOT NULL
 );
 
 CREATE UNIQUE INDEX "Idx_platforms_urn"

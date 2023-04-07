@@ -25,8 +25,10 @@ import com.jcabi.urn.URN;
 import java.util.Optional;
 import java.util.UUID;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
-public interface PlatformsRepository extends CrudRepository<Platform, UUID> {
+public interface PlatformsRepository
+        extends PagingAndSortingRepository<Platform, UUID>, CrudRepository<Platform, UUID> {
     Optional<Platform> findByName(String name);
 
     Optional<Platform> findByPlatformUrn(URN platformUrn);

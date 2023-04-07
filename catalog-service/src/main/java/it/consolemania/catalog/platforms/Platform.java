@@ -27,6 +27,7 @@ import com.jcabi.urn.URN;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.util.List;
 import java.util.UUID;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
@@ -49,7 +50,7 @@ public record Platform(
         boolean discontinued,
         BigDecimal introductoryPrice,
         Integer unitsSold,
-        Media media,
+        List<Media> media,
         @Embedded(onEmpty = USE_NULL) TechnicalSpecifications technicalSpecifications,
         @CreatedDate Instant createdDate,
         @LastModifiedDate Instant lastModifiedDate,

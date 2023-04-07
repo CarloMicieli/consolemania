@@ -25,6 +25,7 @@ import com.jcabi.urn.URN;
 import it.consolemania.catalog.util.UuidSource;
 import java.time.Year;
 import java.util.Optional;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -84,8 +85,8 @@ public class PlatformsService {
                 existingPlatform.map(Platform::version).orElse(null));
     }
 
-    public Iterable<Platform> getAllPlatforms() {
-        return platforms.findAll();
+    public Iterable<Platform> getAllPlatforms(PageRequest pageRequest) {
+        return platforms.findAll(pageRequest);
     }
 
     public Optional<Platform> getPlatformByUrn(URN platformUrn) {
