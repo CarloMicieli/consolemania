@@ -126,7 +126,7 @@ spotless {
 
         targetExclude("build/generated/aot*/**")
 
-        palantirJavaFormat("2.9.0")
+        palantirJavaFormat("2.38.0")
 
         formatAnnotations()  // fixes formatting of type annotations
 
