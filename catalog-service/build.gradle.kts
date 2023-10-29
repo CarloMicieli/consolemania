@@ -31,7 +31,6 @@ dependencies {
     runtimeOnly("io.micrometer:micrometer-registry-prometheus")
     runtimeOnly(libs.opentelemetry.javaagent)
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
-    testImplementation("org.mockito:mockito-inline")
 }
 
 tasks.getByName<BootRun>("bootRun") {
